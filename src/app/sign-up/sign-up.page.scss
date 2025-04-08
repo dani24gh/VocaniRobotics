@@ -1,0 +1,25 @@
+// no toquen mis archvos losers
+button {
+    background-color: #add8e6; 
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    &:hover {
+      background-color: #9ccfe2; 
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      background-color: #87ceeb; 
+      transform: scale(0.98);
+    }
+  }
+  
