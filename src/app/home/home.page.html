@@ -13,39 +13,139 @@
     </ion-toolbar>
   </ion-header>
 
+
   <ul>
-    <li>Arduino Mega2560 R3</li>
-    <li>Módulo SiM- mod. SINB00L</li>
-    <li>Capacitores electrolíticos 100uF y 10 uF</li>
-    <li>Circuito integrado: Controladores de matriz MAX7219CNG</li>
-    <li>Circuito integrado: Puentes H L2930</li>
-    <li>Circuito Integrado: Registro de desplazamiento de serial a paralelo SN74HCS95</li>
-    <li>Diodos rectificadores</li>
-    <li>Displays cuádruples</li>
-    <li>ESP32</li>
-    <li>Galga Extensiométrica</li>
-    <li>Hélices plásticas flexibles para servomotores</li>
-    <li>Led's (varios colores)</li>
-    <li>Matriz de led Sx3/modulo MAX7219</li>
-    <li>Módulo adaptador/fuente de voltaje para protoboard</li>
-    <li>Módulo controlador para servos PCA9685</li>
-    <li>Módulo Lector RFID RG522 con tarjeta</li>
-    <li>Módulo relevador 1QC 3FF-S-2 SV (Arduino)</li>
-    <li>Módulo Sensor TCRTS000 TRACKER SENSOR Seguidor de línea infrarrojo</li>
-    <li>Módulo sensor de voz</li>
-    <li>Módulo ZS-042 Reloj en tiempo real</li>
-    <li>Módulo Shield 1293 Puente H Para Motores DC Servos Arduino</li>
-    <li>Protoshield Arduino Mega</li>
-    <li>Push button Switch pulsador de 2 pines normalmente abierto</li>
-    <li>Resistencias variadas</li>
-    <li>Sensor de color TCS230</li>
-    <li>Sensor de humedad capacitivo</li>
-    <li>Sensor de humedad y temperatura TH11</li>
-    <li>Sensores Flex 26k (Arduino)</li>
-    <li>Sensor Nivel de agua resistivo</li>
-    <li>Sensor PIR (HC.SR501)</li>
-    <li>Sensor Ultrasónico</li>
-    <li>Servo - Mod. TowerProMG995</li>
-    <li>Termistores</li>
+    <li>
+      Arduino Mega2560 R3
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityMega2560"></ion-input>
+    </li>
+    <li>
+      Módulo SiM- mod. SINB00L
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantitySimModule"></ion-input>
+    </li>
+    <li>
+      Capacitores electrolíticos 100uF y 10 uF
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityCapacitors"></ion-input>
+    </li>
+    <li>
+      Circuito integrado: Controladores de matriz MAX7219CNG
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityMAX7219"></ion-input>
+    </li>
+    <li>
+      Circuito integrado: Puentes H L2930
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityL2930"></ion-input>
+    </li>
+    <li>
+      Circuito Integrado: Registro de desplazamiento de serial a paralelo SN74HCS95
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantitySN74HCS95"></ion-input>
+    </li>
+    <li>
+      Diodos rectificadores
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityDiodes"></ion-input>
+    </li>
+    <li>
+      Displays cuádruples
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityDisplays"></ion-input>
+    </li>
+    <li>
+      ESP32
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityESP32"></ion-input>
+    </li>
+    <li>
+      Galga Extensiométrica
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityGalga"></ion-input>
+    </li>
+    <li>
+      Hélices plásticas flexibles para servomotores
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityHelices"></ion-input>
+    </li>
+    <li>
+      Led's (varios colores)
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityLEDs"></ion-input>
+    </li>
+    <li>
+      Matriz de led Sx3/modulo MAX7219
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityLedMatrix"></ion-input>
+    </li>
+    <li>
+      Módulo adaptador/fuente de voltaje para protoboard
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityAdapter"></ion-input>
+    </li>
+    <li>
+      Módulo controlador para servos PCA9685
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityPCA9685"></ion-input>
+    </li>
+    <li>
+      Módulo Lector RFID RG522 con tarjeta
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityRFID"></ion-input>
+    </li>
+    <li>
+      Módulo relevador 1QC 3FF-S-2 SV (Arduino)
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityRelay"></ion-input>
+    </li>
+    <li>
+      Módulo Sensor TCRTS000 TRACKER SENSOR Seguidor de línea infrarrojo
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantitySensorLine"></ion-input>
+    </li>
+    <li>
+      Módulo sensor de voz
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityVoiceSensor"></ion-input>
+    </li>
+    <li>
+      Módulo ZS-042 Reloj en tiempo real
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityRTC"></ion-input>
+    </li>
+    <li>
+      Módulo Shield 1293 Puente H Para Motores DC Servos Arduino
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityShield"></ion-input>
+    </li>
+    <li>
+      Protoshield Arduino Mega
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityProtoshield"></ion-input>
+    </li>
+    <li>
+      Push button Switch pulsador de 2 pines normalmente abierto
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityPushButton"></ion-input>
+    </li>
+    <li>
+      Resistencias variadas
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityResistances"></ion-input>
+    </li>
+    <li>
+      Sensor de color TCS230
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityColorSensor"></ion-input>
+    </li>
+    <li>
+      Sensor de humedad capacitivo
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityCapacitiveHumidity"></ion-input>
+    </li>
+    <li>
+      Sensor de humedad y temperatura TH11
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityTH11"></ion-input>
+    </li>
+    <li>
+      Sensores Flex 26k (Arduino)
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityFlexSensors"></ion-input>
+    </li>
+    <li>
+      Sensor Nivel de agua resistivo
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityWaterLevel"></ion-input>
+    </li>
+    <li>
+      Sensor PIR (HC.SR501)
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityPIR"></ion-input>
+    </li>
+    <li>
+      Sensor Ultrasónico
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityUltrasonic"></ion-input>
+    </li>
+    <li>
+      Servo - Mod. TowerProMG995
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityServo"></ion-input>
+    </li>
+    <li>
+      Termistores
+      <ion-input type="number" placeholder="Cantidad" [(ngModel)]="quantityThermistors"></ion-input>
+    </li>
   </ul>
 </ion-content>
