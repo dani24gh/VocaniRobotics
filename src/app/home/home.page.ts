@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';  // Importar FormsModule para usar
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  quantityMega2560: number = 0;
+  quantityMega2560: number = 10;
   quantitySimModule: number = 0;
   quantityCapacitors: number = 0;
   quantityMAX7219: number = 0;
