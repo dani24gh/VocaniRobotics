@@ -1,55 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form (ngSubmit)="onSignUp()" #registerForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" name="nombre" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Matrícula</ion-label>
+      <ion-input [(ngModel)]="matricula" name="matricula" type="number" required></ion-input>
+    </ion-item>
 
-  <ion-content>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-      <!-- Campo para el email -->
-      <div class="mb-6">  
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address {{this.email}}</label>
-        <input type="email" id="email" name="email" [(ngModel)]="email" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-          placeholder="john.doe@company.com" required #emailInput="ngModel" />
-        <div  style="color: red;">Please enter a valid email address.</div>
-      </div>
+    <ion-item>
+      <ion-label position="floating">Grupo</ion-label>
+      <ion-input [(ngModel)]="grupo" name="grupo" required></ion-input>
+    </ion-item>
 
-            <!-- Campo para el password -->
-            <div class="mb-6">
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-              <input type="password" id="password" name="password" [(ngModel)]="password" 
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-                placeholder="......" required #passwordInput="ngModel" />
-            </div>
+    <ion-item>
+      <ion-label position="floating">Grado</ion-label>
+      <ion-input [(ngModel)]="grado" name="grado" type="number" required></ion-input>
+    </ion-item>
 
-      <!-- Botón de login -->
-      <button type="submit"
-      class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-        [disabled]="loginForm.invalid">
-        Login
-      </button>
-    </form>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+    </ion-item>
 
-    <!-- Botón de Forgot Password -->
-    <form>
-      <button (click)="onReset()" class="forgot-password">
-        Forgot Password?
-      </button>
-    </form>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+    </ion-item>
 
-    <!-- Botón de Sign-up -->
-    <form>
-      <button (click)="onSignUp()" class="sign-up">
-        Go to sign-up
-      </button>
-    </form>
-  </ion-content>
+    <ion-button type="submit" expand="full" [disabled]="registerForm.invalid">Registrarse</ion-button>
+  </form>
 </ion-content>
