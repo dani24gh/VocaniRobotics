@@ -14,6 +14,7 @@
   </ion-header>
 
   <ul>
+    <!-- Existing items here -->
     <li>
       Arduino Mega2560 R3
       <ion-label>{{ quantityMega2560 }}</ion-label>
@@ -146,72 +147,271 @@
       Termistores
       <ion-label>{{ quantityThermistors }}</ion-label>
     </li>
-    <li>Teclado matricial de membrana</li>
-    <li>Transistor BC547</li>
-    <li>Transistor BC557</li>
-    <li>Transistores PN2222</li>
-    <li>Tarjeta extensora de puertos y motores goos</li>
-    <li>Servomotor ESOBA</li>
-    <li>Soil humidity sensor</li>
-    <li>Conectores</li>
-    <li>Rain sensor</li>
-    <li>Temperature sensor</li>
-    <li>Wafer Terminal block</li>
-    <li>Botón</li>
-    <li>Motorreductores</li>
-    <li>Control Paroto</li>
-    <li>Leds</li>
-    <li>Ruedas</li>
-    <li>Cautines c/base</li>
-    <li>Cutter Trupper</li>
-    <li>Desoldador de succión</li>
-    <li>Flexómetro Ultra</li>
-    <li>Kit desarmadores de precisión 27</li>
-    <li>Kit desarmadores Trupper</li>
-    <li>Kit limas joyero</li>
-    <li>Mini-martillo Pretul</li>
-    <li>Mini-Mototool (herramienta múltiple: Cortar, perforar, lijar, etc.)</li>
-    <li>Multímetro</li>
-    <li>Pie de rey (calibrador)</li>
-    <li>Pinzas de corte</li>
-    <li>Pinzas planas</li>
-    <li>Pistolas silicón</li>
-    <li>Segueta con sierra</li>
-    <li>Soportes escuadra de metal</li>
-    <li>Pelacables</li>
-    <li>Brocha p/pintura acrílica</li>
-    <li>Cables varios (trozos)</li>
-    <li>Cincho mini</li>
-    <li>Lentes de seguridad</li>
-    <li>Limpiador WD40 (Afloja-todo)</li>
-    <li>Papel lija para madera</li>
-    <li>Cincho chico</li>
-    <li>Cincho mediano</li>
-    <li>Pato de madera largos cortos</li>
-    <li>Cincho grande</li>
-    <li>Pegamento blanco Resistol 850</li>
-    <li>Cinta adhesiva Diurex</li>
-    <li>Pegamento Kola-Loka industrial</li>
-    <li>Cinta aislante (negro, azul, blanco)</li>
-    <li>Pegamento Pritt stick: adhesivo</li>
-    <li>Cinta canela</li>
-    <li>Pilas alcalinas AA</li>
-    <li>Cinta de doble cara</li>
-    <li>Pilas recargables 9V</li>
-    <li>Cinta masking tape</li>
-    <li>Pilas recargables AA</li>
-    <li>Cinta para ductos (gris)</li>
-    <li>Pintura acrílica</li>
-    <li>Colas de pato</li>
-    <li>Silicón en barras</li>
-    <li>Silicón frío</li>
-    <li>Ligas No. 10 (chica)</li>
-    <li>Tijeras</li>
-    <li>Ligas No. 18 (grande)</li>
-    <li>Varios</li>
-    <li>Láminas de Acrílico, MDF, Cascado de huevo para corte</li>
-    <li>Velcro en cuadros</li>
-    <li>Filamento para impresión 3D</li>
-
+    
+    <!-- New items -->
+    <li>
+      Teclado matricial de membrana
+      <ion-label>{{ quantityTecladoMatricial }}</ion-label>
+    </li>
+    <li>
+      Transistor BC547
+      <ion-label>{{ quantityTransistorBC547 }}</ion-label>
+    </li>
+    <li>
+      Transistor BC557
+      <ion-label>{{ quantityTransistorBC557 }}</ion-label>
+    </li>
+    <li>
+      Transistores PN2222
+      <ion-label>{{ quantityTransistorPN2222 }}</ion-label>
+    </li>
+    <li>
+      Tarjeta extensora de puertos y motores goos
+      <ion-label>{{ quantityTarjetaExtensora }}</ion-label>
+    </li>
+    <li>
+      Servomotor ESOBA
+      <ion-label>{{ quantityServomotorESOBA }}</ion-label>
+    </li>
+    <li>
+      Soil humidity sensor
+      <ion-label>{{ quantitySoilHumiditySensor }}</ion-label>
+    </li>
+    <li>
+      Conectores
+      <ion-label>{{ quantityConectores }}</ion-label>
+    </li>
+    <li>
+      Rain sensor
+      <ion-label>{{ quantityRainSensor }}</ion-label>
+    </li>
+    <li>
+      Temperature sensor
+      <ion-label>{{ quantityTemperatureSensor }}</ion-label>
+    </li>
+    <li>
+      Wafer Terminal block
+      <ion-label>{{ quantityWaferTerminalBlock }}</ion-label>
+    </li>
+    <li>
+      Botón
+      <ion-label>{{ quantityBoton }}</ion-label>
+    </li>
+    <li>
+      Motorreductores
+      <ion-label>{{ quantityMotorreductores }}</ion-label>
+    </li>
+    <li>
+      Control Paroto
+      <ion-label>{{ quantityControlParoto }}</ion-label>
+    </li>
+    <li>
+      Leds
+      <ion-label>{{ quantityLeds }}</ion-label>
+    </li>
+    <li>
+      Ruedas
+      <ion-label>{{ quantityRuedas }}</ion-label>
+    </li>
+    <li>
+      Cautines c/base
+      <ion-label>{{ quantityCautinesBase }}</ion-label>
+    </li>
+    <li>
+      Cutter Trupper
+      <ion-label>{{ quantityCutterTrupper }}</ion-label>
+    </li>
+    <li>
+      Desoldador de succión
+      <ion-label>{{ quantityDesoldadorSuccion }}</ion-label>
+    </li>
+    <li>
+      Flexómetro Ultra
+      <ion-label>{{ quantityFlexometroUltra }}</ion-label>
+    </li>
+    <li>
+      Kit desarmadores de precisión 27
+      <ion-label>{{ quantityKitDesarmadores27 }}</ion-label>
+    </li>
+    <li>
+      Kit desarmadores Trupper
+      <ion-label>{{ quantityKitDesarmadoresTrupper }}</ion-label>
+    </li>
+    <li>
+      Kit limas joyero
+      <ion-label>{{ quantityKitLimasJoyero }}</ion-label>
+    </li>
+    <li>
+      Mini-martillo Pretul
+      <ion-label>{{ quantityMiniMartilloPretul }}</ion-label>
+    </li>
+    <li>
+      Mini-Mototool (herramienta múltiple: Cortar, perforar, lijar, etc.)
+      <ion-label>{{ quantityMiniMototool }}</ion-label>
+    </li>
+    <li>
+      Multímetro
+      <ion-label>{{ quantityMultimetro }}</ion-label>
+    </li>
+    <li>
+      Pie de rey (calibrador)
+      <ion-label>{{ quantityPieRey }}</ion-label>
+    </li>
+    <li>
+      Pinzas de corte
+      <ion-label>{{ quantityPinzasCorte }}</ion-label>
+    </li>
+    <li>
+      Pinzas planas
+      <ion-label>{{ quantityPinzasPlanas }}</ion-label>
+    </li>
+    <li>
+      Pistolas silicón
+      <ion-label>{{ quantityPistolasSilicon }}</ion-label>
+    </li>
+    <li>
+      Segueta con sierra
+      <ion-label>{{ quantitySeguetaSierra }}</ion-label>
+    </li>
+    <li>
+      Soportes escuadra de metal
+      <ion-label>{{ quantitySoportesEscuadra }}</ion-label>
+    </li>
+    <li>
+      Pelacables
+      <ion-label>{{ quantityPelacables }}</ion-label>
+    </li>
+    <li>
+      Brocha p/pintura acrílica
+      <ion-label>{{ quantityBrochaPintura }}</ion-label>
+    </li>
+    <li>
+      Cables varios (trozos)
+      <ion-label>{{ quantityCablesVarios }}</ion-label>
+    </li>
+    <li>
+      Cincho mini
+      <ion-label>{{ quantityCinchoMini }}</ion-label>
+    </li>
+    <li>
+      Lentes de seguridad
+      <ion-label>{{ quantityLentesSeguridad }}</ion-label>
+    </li>
+    <li>
+      Limpiador WD40 (Afloja-todo)
+      <ion-label>{{ quantityLimpiadorWD40 }}</ion-label>
+    </li>
+    <li>
+      Papel lija para madera
+      <ion-label>{{ quantityPapelLijaMadera }}</ion-label>
+    </li>
+    <li>
+      Cincho chico
+      <ion-label>{{ quantityCinchoChico }}</ion-label>
+    </li>
+    <li>
+      Cincho mediano
+      <ion-label>{{ quantityCinchoMediano }}</ion-label>
+    </li>
+    <li>
+      Pato de madera largos cortos
+      <ion-label>{{ quantityPatoMadera }}</ion-label>
+    </li>
+    <li>
+      Cincho grande
+      <ion-label>{{ quantityCinchoGrande }}</ion-label>
+    </li>
+    <li>
+      Pegamento blanco Resistol 850
+      <ion-label>{{ quantityPegamentoBlanco }}</ion-label>
+    </li>
+    <li>
+      Cinta adhesiva Diurex
+      <ion-label>{{ quantityCintaAdhesivaDiurex }}</ion-label>
+    </li>
+    <li>
+      Pegamento Kola-Loka industrial
+      <ion-label>{{ quantityPegamentoKolaLoka }}</ion-label>
+    </li>
+    <li>
+      Cinta aislante (negro, azul, blanco)
+      <ion-label>{{ quantityCintaAislante }}</ion-label>
+    </li>
+    <li>
+      Pegamento Pritt stick: adhesivo
+      <ion-label>{{ quantityPegamentoPrittStick }}</ion-label>
+    </li>
+    <li>
+      Cinta canela
+      <ion-label>{{ quantityCintaCanela }}</ion-label>
+    </li>
+    <li>
+      Pilas alcalinas AA
+      <ion-label>{{ quantityPilasAlcalinasAA }}</ion-label>
+    </li>
+    <li>
+      Cinta de doble cara
+      <ion-label>{{ quantityCintaDobleCara }}</ion-label>
+    </li>
+    <li>
+      Pilas recargables 9V
+      <ion-label>{{ quantityPilasRecargables9V }}</ion-label>
+    </li>
+    <li>
+      Cinta masking tape
+      <ion-label>{{ quantityCintaMaskingTape }}</ion-label>
+    </li>
+    <li>
+      Pilas recargables AA
+      <ion-label>{{ quantityPilasRecargablesAA }}</ion-label>
+    </li>
+    <li>
+      Cinta para ductos (gris)
+      <ion-label>{{ quantityCintaParaDuctos }}</ion-label>
+    </li>
+    <li>
+      Pintura acrílica
+      <ion-label>{{ quantityPinturaAcrilica }}</ion-label>
+    </li>
+    <li>
+      Colas de pato
+      <ion-label>{{ quantityColasDePato }}</ion-label>
+    </li>
+    <li>
+      Silicón en barras
+      <ion-label>{{ quantitySiliconBarras }}</ion-label>
+    </li>
+    <li>
+      Silicón frío
+      <ion-label>{{ quantitySiliconFrio }}</ion-label>
+    </li>
+    <li>
+      Ligas No. 10 (chica)
+      <ion-label>{{ quantityLigas10Chica }}</ion-label>
+    </li>
+    <li>
+      Tijeras
+      <ion-label>{{ quantityTijeras }}</ion-label>
+    </li>
+    <li>
+      Ligas No. 18 (grande)
+      <ion-label>{{ quantityLigas18Grande }}</ion-label>
+    </li>
+    <li>
+      Varios
+      <ion-label>{{ quantityVarios }}</ion-label>
+    </li>
+    <li>
+      Láminas de Acrílico, MDF, Cascado de huevo para corte
+      <ion-label>{{ quantityLaminasAcrylico }}</ion-label>
+    </li>
+    <li>
+      Velcro en cuadros
+      <ion-label>{{ quantityVelcroCuadros }}</ion-label>
+    </li>
+    <li>
+      Filamento para impresión 3D
+      <ion-label>{{ quantityFilamento3D }}</ion-label>
+    </li>
   </ul>
 </ion-content>
