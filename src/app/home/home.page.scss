@@ -25,3 +25,56 @@
 #container a {
   text-decoration: none;
 }
+
+:root {
+  --gradient-start: #ff69b4; 
+  --gradient-end: #6a5acd;  
+}
+
+ion-content {
+  background: linear-gradient(to bottom right, #fdfbfb, #ebedee);
+  --background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 20px;
+  list-style: none;
+  width: 600px;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease;
+  gap: 12px; /* Espacio entre el círculo y el texto */
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+ion-label {
+  background: linear-gradient(230deg, #f0ff17, #ea31e1, #7535e2, #25a2db);
+  border-radius: 50%;
+  padding: 10px 14px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  min-width: 35px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 209, 102, 0.6);
+}
