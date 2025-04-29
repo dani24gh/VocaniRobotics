@@ -15,51 +15,48 @@ import { AuthService } from '../auth.service';
 })
 export class SignUpPage implements OnInit {
 
-  
-  ngOnInit() {
-  }
-  
   email: string = '';
   password: string = '';
-  
-  constructor(private authService: AuthService, private alertController:AlertController, private router: Router) { }
+  name: string = '';
+  matricula: string = '';
+  gradoGrupo: string = '';
 
-  // Función que se ejecuta al hacer submit del formulario
-async onSubmit() {
-  console.log("ok1")
+  constructor(
+    private authService: AuthService,
+    private alertController: AlertController,
+    private router: Router
+  ) {}
 
-  try {
-    console.log("ok")
-    console.log(this.email)
-    await this.authService.register(this.email, this.password);
-    const alert = await this.alertController.create({
-      header: 'Success',
-      message: 'You have registered successfully!',
-      buttons: ['OK']
-    });
-    await alert.present();
-    this.router.navigate(['/login']);
-  } catch (error) {
-    const alert = await this.alertController.create({
-      header: 'Error',
-      message: 'An error ocurred while trying to register.',
-      buttons: ['OK']
-    });
-    await alert.present();
+  ngOnInit() {}
+
+  async onSubmit() {
+    try {
+      console.log('Datos del formulario:');
+      console.log('Nombre:', this.name);
+      console.log('Matrícula:', this.matricula);
+      console.log('Grado y Grupo:', this.gradoGrupo);
+      console.log('Email:', this.email);
+
+      const response = await this.authService.register(this.email, this.password);
+
+      const alert = await this.alertController.create({
+        header: 'Success',
+        message: 'You have registered successfully!',
+        buttons: ['OK']
+      });
+      await alert.present();
+      this.router.navigate(['/login']);
+    } catch (error: any) {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'An error occurred: ' + error.message,
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
   }
-}
 
-  // Función para validar el formato del correo
-  validateEmail(email: string): boolean {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(email);
-  }
-
-  // Función para navegación
   onSignUp() {
     this.router.navigateByUrl("login");
   }
-
 }
-
-

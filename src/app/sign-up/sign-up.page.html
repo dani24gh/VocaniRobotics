@@ -11,36 +11,50 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-      <!-- Campo para el email -->
-      <div class="mb-6">  
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address {{this.email}}</label>
-        <input type="email" id="email" name="email" [(ngModel)]="email" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-          placeholder="john.doe@company.com" required #emailInput="ngModel" />
-        <div  style="color: red;">Please enter a valid email address.</div>
-      </div>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="p-4">
+    
+    <!-- Nombre -->
+    <div class="mb-4">
+      <label for="name">Nombre completo</label>
+      <input type="text" id="name" name="name" [(ngModel)]="name" required
+        class="block w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
 
-            <!-- Campo para el password -->
-            <div class="mb-6">
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-              <input type="password" id="password" name="password" [(ngModel)]="password" 
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-                placeholder="......" required #passwordInput="ngModel" />
-            </div>
-      
-            <!-- Botón de login -->
-            <button type="submit" class="create-account-btn" [disabled]="registerForm.invalid">
-              Crear Cuenta
-            </button>
-          </form>
+    <!-- Matrícula -->
+    <div class="mb-4">
+      <label for="matricula">Matrícula</label>
+      <input type="text" id="matricula" name="matricula" [(ngModel)]="matricula" required
+        class="block w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
 
-            <button (click)="onSignUp()" class="go-to-login-btn">
-              Go to Login
-            </button>
-      
-      
-      
-  </ion-content>
+    <!-- Grado y Grupo -->
+    <div class="mb-4">
+      <label for="gradoGrupo">Grado y Grupo</label>
+      <input type="text" id="gradoGrupo" name="gradoGrupo" [(ngModel)]="gradoGrupo" required
+        class="block w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+
+    <!-- Email -->
+    <div class="mb-4">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required
+        class="block w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+
+    <!-- Password -->
+    <div class="mb-6">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required
+        class="block w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="create-account-btn" [disabled]="registerForm.invalid">
+      Crear Cuenta
+    </button>
+  </form>
+
+  <button (click)="onSignUp()" class="go-to-login-btn">
+    Go to Login
+  </button>
 </ion-content>

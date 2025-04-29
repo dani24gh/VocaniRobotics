@@ -1,30 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail } from '@angular/fire/auth';
-import { Firestore, doc, setDoc } from '@angular/fire/firestore';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signOut,
+  sendPasswordResetEmail
+} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: Auth, private firestore: Firestore) {}
+  constructor(private auth: Auth) {}
 
-  // Registro de usuario y guardado de perfil en Firestore
-  async register(email: string, password: string, nombre: string, matricula: number, grupo: string, grado: number) {
+  // Registro con verificación de correo
+  async register(email: string, password: string) {
     const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
-    const uid = userCredential.user.uid;
-    await this.saveUserProfile(uid, nombre, matricula, grupo, grado);
+    await sendEmailVerification(userCredential.user);
     return userCredential;
-  }
-
-  // Guardar datos adicionales del usuario en Firestore
-  async saveUserProfile(uid: string, nombre: string, matricula: number, grupo: string, grado: number) {
-    const userRef = doc(this.firestore, `users/${uid}`);
-    return await setDoc(userRef, {
-      nombre,
-      matricula,
-      grupo,
-      grado
-    });
   }
 
   // Inicio de sesión

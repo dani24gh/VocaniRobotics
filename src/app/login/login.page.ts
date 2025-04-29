@@ -1,60 +1,62 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.page.html',
-  styleUrls: ['./sign-up.page.scss'],
-  standalone: true
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+  standalone: true,
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonItem, IonLabel]
 })
-export class SignUpPage {
-  nombre = '';
-  matricula: number | null = null;
-  grupo = '';
-  grado: number | null = null;
-  email = '';
-  password = '';
+export class LoginPage implements OnInit {
+  email: string = '';
+  password: string = '';
+  constructor(private alertController: AlertController, private router: Router, private authService: AuthService) { }
 
-  constructor(
-    private authService: AuthService,
-    private firestore: Firestore,
-    private router: Router,
-    private alertController: AlertController
-  ) {}
+  ngOnInit() {}
 
-  async onSignUp() {
+
+  async onSubmit() {
     try {
-      // 1. Crear usuario en Firebase Auth
-      await this.authService.register(this.email, this.password);
-
-      // 2. Guardar datos adicionales en Firestore
-      const usuariosRef = collection(this.firestore, 'usuarios');
-      await addDoc(usuariosRef, {
-        nombre: this.nombre,
-        matricula: this.matricula,
-        grupo: this.grupo,
-        grado: this.grado,
-        email: this.email
-      });
-
+      const response = await this.authService.login(this.email, this.password);
+      await this.authService.login(this.email, this.password);
       const alert = await this.alertController.create({
-        header: 'Registro exitoso',
-        message: 'Tu cuenta ha sido creada correctamente',
+        header: 'Login Success',
+        message: 'You have logged in successfully!',
         buttons: ['OK']
       });
       await alert.present();
-
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']); 
     } catch (error) {
       const alert = await this.alertController.create({
         header: 'Error',
-        message: 'Ocurrió un error al registrarse: ' + error,
+        message: 'Invalid credentials. Please try again.',
         buttons: ['OK']
       });
       await alert.present();
     }
+  }
+
+
+
+
+  // Función para validar el formato del correo
+  validateEmail(email: string): boolean {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+  }
+
+  // Función para navegación
+  onSignUp() {
+    this.router.navigateByUrl("sign-up");
+  }
+
+  onReset() {
+    this.router.navigateByUrl("password");
   }
 }
