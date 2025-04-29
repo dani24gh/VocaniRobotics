@@ -1,15 +1,24 @@
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';  // Asegúrate de importar IonicModule
-import { FormsModule } from '@angular/forms';  // Importar FormsModule para usar ngModel
+import { IonicModule } from '@ionic/angular';  
+import { FormsModule } from '@angular/forms';  
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  standalone: true,  // Definir que el componente es standalone
-  imports: [IonicModule, FormsModule],  // Importamos IonicModule y FormsModule
+  standalone: true, 
+  imports: [IonicModule, FormsModule],  
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
+
+
 export class HomePage {
+
+  constructor(private authService: AuthService, private router:Router){}
+
   quantityMega2560: number = 10;
   quantitySimModule: number = 0;
   quantityCapacitors: number = 0;
@@ -109,5 +118,11 @@ export class HomePage {
   quantityLaminasAcrylico = 0;
   quantityVelcroCuadros = 0;
   quantityFilamento3D = 0;
+
+  logout() {
+    this.authService.logout(); 
+    this.router.navigate(['/login']);
+    console.log('Sesión cerrada desde AuthService');
+  }
 
 }
