@@ -1,13 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>inicio</ion-title>
+    <ion-title>Vocani Robotics</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
+
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
+      <ion-title size="large">Vocani Robotics</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="flex flex-col items-center justify-center min-h-screen space-y-6">
+    <!-- Botón de Iniciar Sesión -->
+    <button class="relative inline-flex items-center justify-center p-1 overflow-hidden text-lg font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 w-68 h-16">
+      <span class="relative px-10 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+        Iniciar Sesión
+      </span>
+    </button>
+  
+    <!-- Botón de Crear Cuenta -->
+    <button class="relative inline-flex items-center justify-center p-1 overflow-hidden text-lg font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 w-68 h-16">
+      <span class="relative px-10 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent" (click)="onSignUp()">
+        Crear Cuenta
+      </span>
+    </button>
+  </div>
+  
+  
+
 </ion-content>
