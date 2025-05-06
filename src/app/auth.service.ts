@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail } from '@angular/fire/auth';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signOut,
+  sendPasswordResetEmail
+} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +14,11 @@ import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signO
 export class AuthService {
   constructor(private auth: Auth) {}
 
-  // Registro de usuario
+  // Registro con verificación de correo
   async register(email: string, password: string) {
-    return await createUserWithEmailAndPassword(this.auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+    await sendEmailVerification(userCredential.user);
+    return userCredential;
   }
 
   // Inicio de sesión
