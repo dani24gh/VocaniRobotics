@@ -12,21 +12,22 @@
     </ion-toolbar>
   </ion-header>
 
-<!-- Botón de login -->
-<ion-button expand="block" color="primary" class="blue-button" [disabled]="loginForm?.invalid" (click)="onLogin()">
-  ⭘ Iniciar Sesión
-</ion-button>
-
-<!-- Botón de sign-up 
-<ion-button expand="block" color="tertiary" class="pink-button" (click)="onSignUp()">
-  ⭘ Crear Cuenta
-</ion-button>
--->
-
-<button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-  <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent"(click)="onSignUp()">
-    ⭘ Crear Cuenta
-  </span>
-  </button>
+  <div class="flex flex-col items-center justify-center min-h-screen space-y-6">
+    <!-- Botón de Iniciar Sesión -->
+    <button class="relative inline-flex items-center justify-center p-1 overflow-hidden text-lg font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 w-68 h-16">
+      <span class="relative px-10 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+        Iniciar Sesión
+      </span>
+    </button>
+  
+    <!-- Botón de Crear Cuenta -->
+    <button class="relative inline-flex items-center justify-center p-1 overflow-hidden text-lg font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 w-68 h-16">
+      <span class="relative px-10 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent" (click)="onSignUp()">
+        Crear Cuenta
+      </span>
+    </button>
+  </div>
+  
+  
 
 </ion-content>
