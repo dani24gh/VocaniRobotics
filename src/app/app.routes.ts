@@ -21,9 +21,19 @@ export const routes: Routes = [
   {
     path: 'password',
     loadComponent: () => import('./password/password.page').then( m => m.PasswordPage)
-  },  {
+  },
+  {
     path: 'inicio',
     loadComponent: () => import('./inicio/inicio.page').then( m => m.InicioPage)
+  },
+  
+  {
+    path: 'item-detail',
+    loadComponent: () => import('./item-detail/item-detail.page').then( m => m.ItemDetailPage)
+  },
+  {
+    path: 'rental-form',
+    loadComponent: () => import('./rental-form/rental-form.page').then( m => m.RentalFormPage)
   },
 
 ];

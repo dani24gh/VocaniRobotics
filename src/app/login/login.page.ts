@@ -58,6 +58,5 @@ export class LoginPage implements OnInit {
 
   onReset() {
     this.router.navigateByUrl("password");
-  }
+  }
 }
-
