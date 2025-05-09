@@ -11,49 +11,52 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-
+  <!-- Contenedor centrado -->
+  <div class="flex flex-col items-center justify-center min-h-screen px-4">
+    
     <!-- Imagen del Logo -->
-    <img src="assets/LogoUsuario.png" alt="Logo Vocani Robotics" class="w-85 h-85 mt-[-60px]" />
+    <div class="flex justify-center">
+      <img src="assets/LogoUsuario.png" alt="Logo Vocani Robotics" class="w-40 h-40 mb-4" />
+    </div>
 
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-      <!-- Campo para el email -->
-      <div class="mb-6">  
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address {{this.email}}</label>
-        <input type="email" id="email" name="email" [(ngModel)]="email" 
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-          placeholder="john.doe@company.com" required #emailInput="ngModel" />
-        <div  style="color: red;">Please enter a valid email address.</div>
+    <!-- Formulario -->
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="w-full max-w-md space-y-4">
+
+      <!-- Email -->
+      <div>
+        
+        <input type="email" id="email" name="email" [(ngModel)]="email"
+          class="block w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Email: " required #emailInput="ngModel" />
+        <div style="color: red;">Ingresa un email valido.</div>
       </div>
 
-            <!-- Campo para el password -->
-            <div class="mb-6">
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-              <input type="password" id="password" name="password" [(ngModel)]="password" 
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-                placeholder="......" required #passwordInput="ngModel" />
-            </div>
+      <!-- Password -->
+      <div>
+        <input type="password" id="password" name="password" [(ngModel)]="password"
+          class="block w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Contraseña: " required #passwordInput="ngModel" />
+      </div>
 
       <!-- Botón de login -->
-      <button type="submit"
-      class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-        [disabled]="loginForm.invalid">
-        Login
-      </button>
-    </form>
+    <div class="flex justify-center">
+  <button type="submit"
+    class="text-white bg-gradient-to-r from-fuchsia-500 to-yellow-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 shadow-lg font-medium rounded text-sm px-5 py-2.5 text-center"
+    [disabled]="loginForm.invalid">
+    Iniciar sesión
+  </button>
+</div>
+</form>
 
-    <!-- Botón de Forgot Password -->
-    <form>
-      <button (click)="onReset()" class="forgot-password">
-        Forgot Password?
-      </button>
-    </form>
 
-    <!-- Botón de Sign-up -->
-    <form>
-      <button (click)="onSignUp()" class="sign-up">
-        Go to sign-up
+    <!-- Botones secundarios -->
+     <div class="flex justify-center">
+    <button (click)="onSignUp()" class="text-blue-600 underline text-sm">
+      Ir al sign-up
+    </button>
+      <button (click)="onReset()" class="text-blue-600 underline text-sm">
+        ¿Olvidaste tu contraseña?
       </button>
-    </form>
-  </ion-content>
+    </div>
+  </div>
 </ion-content>
