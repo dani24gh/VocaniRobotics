@@ -35,9 +35,9 @@ export class InicioPage implements OnInit {
   }
 
   onLogin(): void {
-    if (this.loginForm.valid) {
+   // if (this.loginForm.valid) {
       this.router.navigate(['/login']);
-    }
+    
   }
 
   onSignUp(): void {
