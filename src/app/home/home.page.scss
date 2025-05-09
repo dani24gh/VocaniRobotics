@@ -1,80 +1,52 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-:root {
-  --gradient-start: #ff69b4; 
-  --gradient-end: #6a5acd;  
-}
-
 ion-content {
-  background: linear-gradient(to bottom right, #fdfbfb, #ebedee);
-  --background: transparent;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  --background: #f5f5f5;
+  padding: 0;
+  background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+}
+
+.list-container {
+  width: 100%;
   padding: 20px;
-  min-height: 100vh;
   box-sizing: border-box;
 }
 
-ul {
-  padding: 20px;
-  list-style: none;
-  width: 600px;
-}
-
-li {
-  background: rgba(255, 255, 255, 0.2);
+ion-item {
   border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --padding-start: 12px;
+}
+
+ion-label h2 {
+  margin: 0;
+  font-weight: 600;
   color: #333;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.2s ease;
-  gap: 12px; /* Espacio entre el círculo y el texto */
 }
 
-li:hover {
-  transform: scale(1.02);
-}
-
-ion-label {
-  background: linear-gradient(230deg, #f0ff17, #ea31e1, #7535e2, #25a2db);
-  border-radius: 50%;
-  padding: 10px 14px;
-  color: white;
-  font-weight: bold;
+ion-label p {
+  margin: 2px 0 0;
+  color: #666;
   font-size: 0.9rem;
-  min-width: 35px;
-  text-align: center;
-  box-shadow: 0 0 8px rgba(255, 209, 102, 0.6);
 }
+
+.circle {
+  background: radial-gradient(circle, #ffe600, #f093fb, #6a5acd);
+  border-radius: 50%;
+  overflow: hidden;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 213, 0, 0.6);
+}
+
+.circle-content {
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+}
+
