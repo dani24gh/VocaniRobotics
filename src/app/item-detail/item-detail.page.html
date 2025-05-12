@@ -13,7 +13,19 @@
     <ion-card-content>
       <p><strong>Descripción:</strong> {{ item.description }}</p>
       <p><strong>Cantidad disponible:</strong> {{ item.quantity }}</p>
+      <ion-item>
+        <ion-label position="stacked">Cantidad a solicitar</ion-label>
+        <ion-input 
+          type="number" 
+          [(ngModel)]="requestedQuantity" 
+          [max]="item.quantity" 
+          [min]="1" 
+          placeholder="Ingresa la cantidad"
+          required
+          (ionInput)="validateQuantity($event)">
+        </ion-input>
+      </ion-item>
     </ion-card-content>
-    <ion-button expand="block" (click)="goToForm()">Solicitar</ion-button>
+    <ion-button expand="block" (click)="goToHome()" [disabled]="!isValidQuantity()">Solicitar</ion-button>
   </ion-card>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -11,20 +11,20 @@ import { RentalService } from '../rental.service'; // Asegúrate de que la ruta 
   selector: 'app-rental-form',
   imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule], 
   templateUrl: './rental-form.page.html',
+  styleUrls: ['./rental-form.page.scss'],
 })
-export class RentalFormPage {
+export class RentalFormPage implements OnInit {
   rentalForm: FormGroup;
   selectedMaterial: any = null;
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
+  requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
 
   constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
       name: ['', Validators.required],
-      matricula: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],  // Validación solo números
-      material: ['', Validators.required],
-      quantity: ['', [Validators.required, Validators.min(1)]],
+      matricula: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Solo números
       rentalDate: ['', Validators.required],
       responsiblePerson: ['', Validators.required],
       returnDate: ['', Validators.required],
@@ -53,6 +53,12 @@ export class RentalFormPage {
     } else {
       console.log('No hay un email almacenado en sessionStorage.');
     }
+
+    // Recupera los materiales solicitados desde sessionStorage
+    const data = sessionStorage.getItem('rentalFormItems');
+    if (data) {
+      this.requestedItems = JSON.parse(data);
+    }
   }
 
   selectMaterial(item: any) {
@@ -65,15 +71,35 @@ export class RentalFormPage {
   onSubmit() {
     if (this.rentalForm.valid) {
       const formData = this.rentalForm.value;
-      // Guarda los datos del formulario en Firestore
+      formData.requestedItems = this.requestedItems; // Agrega los materiales solicitados al formulario
+
+      console.log('Formulario enviado:', formData);
+
+      // Guarda los datos en Firestore
       this.rentalService.addRentalForm(formData)
         .then(() => {
-          console.log('Formulario guardado exitosamente');
+          console.log('Formulario guardado exitosamente en Firestore.');
+
+          // Actualiza las cantidades disponibles de los materiales
+          this.requestedItems.forEach(item => {
+            this.rentalService.updateMaterialQuantity(item.name, item.quantity)
+              .then(() => {
+                console.log(`Cantidad actualizada para el material: ${item.name}`);
+              })
+              .catch(error => {
+                console.error(`Error al actualizar la cantidad para el material ${item.name}:`, error);
+              });
+          });
+
+          // Resetea el formulario después de enviarlo
           this.rentalForm.reset();
+          this.requestedItems = [];
         })
         .catch(error => {
           console.error('Error al guardar en Firestore:', error);
         });
+    } else {
+      console.error('El formulario no es válido.');
     }
   }
 }
