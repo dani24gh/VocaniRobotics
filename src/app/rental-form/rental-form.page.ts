@@ -18,6 +18,9 @@ export class RentalFormPage {
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
 
+  responsiblePersons: string[] = ['Alma Reynoso Álvarez', 'Felipe de Jesús Rocha Rodríguez', 'Paola Lisset Santollo Vargas'];
+
+
   constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  

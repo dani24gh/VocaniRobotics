@@ -39,10 +39,14 @@
       <ion-input type="date" formControlName="rentalDate"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Persona responsable (Tutor)</ion-label>
-      <ion-input type="text" formControlName="responsiblePerson"></ion-input>
-    </ion-item>
+   <ion-item>
+  <ion-label>Persona Responsable</ion-label>
+  <ion-select formControlName="responsiblePerson" placeholder="Selecciona una persona">
+    <ion-select-option *ngFor="let person of responsiblePersons" [value]="person">
+      {{ person }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
 
     <ion-item>
       <ion-label position="stacked">Fecha término</ion-label>

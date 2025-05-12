@@ -10,6 +10,20 @@ ion-content {
   box-sizing: border-box;
 }
 
+.search-container {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--ion-background-color);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--ion-border-color);
+}
+
+.scrollable-content {
+  overflow-y: auto;
+  height: calc(100% - 56px); /* Ajusta el tamaño para que no se superponga con la barra de búsqueda */
+}
+
 ion-item {
   border-radius: 12px;
   margin-bottom: 12px;
