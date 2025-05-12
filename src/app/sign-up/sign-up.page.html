@@ -1,10 +1,3 @@
-
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Sign-up</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -12,53 +5,63 @@
     </ion-toolbar>
   </ion-header>
 
-  <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="p-4">
-    
-    <!-- Imagen del Logo -->
-    <img src="assets/LogoUsuario.png" alt="Logo Vocani Robotics" class="w-85 h-85 mt-[-60px]" />
+  <div class="flex flex-col items-center justify-center min-h-screen px-4">
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="w-full max-w-md space-y-4">
+      
+      <!-- Imagen del Logo -->
+      <div class="flex justify-center">
+        <img src="assets/LogoUsuario.png" alt="Logo Vocani Robotics" class="w-40 h-40 mb-4" />
+      </div>
 
-    <!-- Nombre -->
-    <div class="mb-4">
-      <label for="name">Nombre completo</label>
-      <input type="text" id="name" name="name" [(ngModel)]="name" required
-        class="block w-full border border-gray-300 rounded px-3 py-2" />
+      <!-- Nombre -->
+      <div>
+        <label for="name">Nombre completo</label>
+        <input type="text" id="name" name="name" [(ngModel)]="name" required
+          class="block w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+
+      <!-- Matrícula -->
+      <div>
+        <label for="matricula">Matrícula</label>
+        <input type="text" id="matricula" name="matricula" [(ngModel)]="matricula" required
+          class="block w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+
+      <!-- Grado y Grupo -->
+      <div>
+        <label for="gradoGrupo">Grado y Grupo</label>
+        <input type="text" id="gradoGrupo" name="gradoGrupo" [(ngModel)]="gradoGrupo" required
+          class="block w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" required
+          class="block w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required
+          class="block w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+
+      <!-- Submit -->
+      <div class="flex justify-center">
+        <button type="submit" class="create-account-btn" [disabled]="registerForm.invalid">
+          Crear Cuenta
+        </button>
+      </div>
+    </form>
+
+    <!-- Go to Login Button , cambiar a que se vaya al home-->
+    <div class="mt-4">
+      <button (click)="onSignUp()" class="go-to-login-btn">
+        Ir a inicio
+      </button>
     </div>
-
-    <!-- Matrícula -->
-    <div class="mb-4">
-      <label for="matricula">Matrícula</label>
-      <input type="text" id="matricula" name="matricula" [(ngModel)]="matricula" required
-        class="block w-full border border-gray-300 rounded px-3 py-2" />
-    </div>
-
-    <!-- Grado y Grupo -->
-    <div class="mb-4">
-      <label for="gradoGrupo">Grado y Grupo</label>
-      <input type="text" id="gradoGrupo" name="gradoGrupo" [(ngModel)]="gradoGrupo" required
-        class="block w-full border border-gray-300 rounded px-3 py-2" />
-    </div>
-
-    <!-- Email -->
-    <div class="mb-4">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" [(ngModel)]="email" required
-        class="block w-full border border-gray-300 rounded px-3 py-2" />
-    </div>
-
-    <!-- Password -->
-    <div class="mb-6">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required
-        class="block w-full border border-gray-300 rounded px-3 py-2" />
-    </div>
-
-    <!-- Submit -->
-    <button type="submit" class="create-account-btn" [disabled]="registerForm.invalid">
-      Crear Cuenta
-    </button>
-  </form>
-
-  <button (click)="onSignUp()" class="go-to-login-btn">
-    Go to Login
-  </button>
+  </div>
 </ion-content>
+
