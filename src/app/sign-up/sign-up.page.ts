@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +21,8 @@ export class SignUpPage implements OnInit {
   name: string = '';
   matricula: string = '';
   gradoGrupo: string = '';
+  rol: string = 'alumno'; 
+
 
   constructor(
     private authService: AuthService,
@@ -37,8 +40,17 @@ export class SignUpPage implements OnInit {
       console.log('Grado y Grupo:', this.gradoGrupo);
       console.log('Email:', this.email);
 
-      const response = await this.authService.register(this.email, this.password);
-
+      const userCredential = await this.authService.register(this.email, this.password);
+      const uid = userCredential.user.uid;
+  
+      // Guardar datos adicionales en Firestore
+      await this.authService.saveUserData(uid, {
+        name: this.name,
+        matricula: this.matricula,
+        gradoGrupo: this.gradoGrupo,
+        email: this.email
+      });
+  
       const alert = await this.alertController.create({
         header: 'Success',
         message: 'You have registered successfully!',
@@ -55,6 +67,7 @@ export class SignUpPage implements OnInit {
       await alert.present();
     }
   }
+  
 
   onSignUp() {
     this.router.navigateByUrl("login");

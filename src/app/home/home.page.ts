@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   items = [
-    { name: 'Arduino Mega2560 R3', quantity: 3, description: 'Microcontrolador potente para proyectos complejos.', image: 'assets/mega2560.jpg' },
+    { name: 'Arduino Mega2560 R3', quantity: 3, description: 'Microcontrolador potente para proyectos complejos.', image: 'assets/arduino.jpeg' },
     { name: 'Módulo SiM- mod. SINB00L', quantity: 5, description: 'Permite comunicación GSM/GPRS.', image: 'assets/sim-module.jpg' },
     { name: 'Capacitores electrolíticos 100uF y 10 uF', quantity: 10, description: 'Capacitores para uso general.', image: 'assets/capacitors.jpg' },
     { name: 'Circuito integrado: Controladores de matriz MAX7219CNG', quantity: 8, description: 'Controlador para matrices de LEDs.', image: 'assets/max7219.jpg' },
@@ -115,8 +115,25 @@ export class HomePage {
     { name: 'Velcro en cuadros', quantity: 30, description: 'Velcro para sujeción.', image: 'assets/velcro.jpg' },
     { name: 'Filamento para impresión 3D', quantity: 3, description: 'Filamento para impresora 3D.', image: 'assets/3d-filament.jpg' }
   ];
+  filteredItems = [...this.items]; // Inicialmente, mostrar todos los elementos
 
-  constructor(private authService: AuthService, private router: Router) {}
+
+  constructor(private authService: AuthService, private router: Router, ) {console.log('Items iniciales:', this.items); // Depuración
+  }
+  
+
+  filterItems(event: any) {
+    const searchTerm = event.target.value ? event.target.value.toLowerCase() : '';
+    console.log('Término de búsqueda:', searchTerm); // Depuración
+    if (searchTerm && searchTerm.trim() !== '') {
+      this.filteredItems = this.items.filter(item =>
+        item.name.toLowerCase().includes(searchTerm)
+      );
+    } else {
+      this.filteredItems = [...this.items]; // Restaurar la lista completa si no hay término de búsqueda
+    }
+  }
+
 
   goToDetail(item: any) {
     history.pushState(null, '', '/item-detail');
