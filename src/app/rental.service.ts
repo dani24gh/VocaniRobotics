@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, CollectionReference, DocumentData } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, CollectionReference, DocumentData, doc, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,15 @@ export class RentalService {
     this.rentalCollection = collection(this.firestore, 'rentalForms');
   }
 
-  addRentalForm(data: any) {
-    return addDoc(this.rentalCollection, data);
+  addRentalForm(formData: any) {
+    const rentalsCollection = collection(this.firestore, 'rentals'); // Cambia 'rentals' por el nombre de tu colección
+    return addDoc(rentalsCollection, formData);
+  }
+
+  updateMaterialQuantity(materialName: string, quantityToSubtract: number) {
+    const materialRef = doc(this.firestore, `materials/${materialName}`); // Cambia 'materials' por el nombre de tu colección
+    return updateDoc(materialRef, {
+      quantity: (prevQuantity: number) => prevQuantity - quantityToSubtract,
+    });
   }
 }

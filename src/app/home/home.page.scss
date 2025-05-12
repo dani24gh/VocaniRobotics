@@ -64,3 +64,23 @@ ion-label p {
   font-size: 1.2rem;
 }
 
+.split-screen {
+  display: flex; 
+  flex-direction: row; 
+  height: 100%; 
+}
+
+.left-pane, .right-pane {
+  flex: 1; 
+  padding: 16px;
+  overflow-y: auto; 
+}
+
+.left-pane {
+  background-color: #f9f9f9; 
+}
+
+.right-pane {
+  background-color: #eaeaea; 
+}
+
