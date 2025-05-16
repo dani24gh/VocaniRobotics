@@ -1,0 +1,3146 @@
+<!DOCTYPE html>
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/55013136-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta content='Lunegate - Blog de Robótica' property='og:site_name'/>
+<!-- Favicon -->
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_HvUBkeTMPVdRFpg3qW0AZK9-uMQWePBeCPR_tLn53sNK7P3u7ni6nHKyx5_oEOsmFBvxnyiHPCghgq0XW2z1ZPtHYjKPArd0v7sLTX-V1baNNJQIkHfrv3AjC1TJi-0M-Xvvz-i-XO3Q/s1600/touch-icon-iphone.png' rel='apple-touch-icon'/><!-- 60x60 -->
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4Ju7aUdQTgH5tqWjQ5kurCUZRYEACGnmv2jMr3tawQm-C4lQbDw8zTUFIwUZCDrJZaOGMyPvYq8YoxUYoowFCLXuC5ghXAG9TjPnvkjp05rbPzT_PqZahGpXWp99KErictUXz8POgg0vQ/s1600/touch-icon-ipad.png' rel='apple-touch-icon' sizes='76x76'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0oqYFZZuoUf75_tm8VkkzzT7CH4n2PgTPu9vdeKnxRR6_FLirDuaDfWlF82WHUALrqs6e7QpdfUUBqkoBEpIYwuRf0yRTDcYTU1gaO1MbXOLu3-bhz7vmDFJqPGcqnQRYSZbha1wPVZde/s1600/touch-icon-iphone-retina.png' rel='apple-touch-icon' sizes='120x120'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgg8pFmPoY9sOUzWb2sHbM5VLop_rJ-fzMHhn7eYciVi5lEE7ygbG7EwZsR90TMGjM8a3Z0caOevYvRld5goX_MM4q9YqwAgXUnCBU3xa_r-uKG2vhBn7D-NtycTJerRYRtA3CifDpLMcan/s1600/touch-icon-ipad-retina.png' rel='apple-touch-icon' sizes='152x152'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAwAWOlIpBf1sMwTjx9gYRQumSOrmgZFzkarbqzrHokW9UtonLXzUvJxp-Jh6kqZ1ZZ4nxDVWjLfYBd7UoP18M5pNcfZqiuH2aNsgUCLOkPh5bihaJOg5O0GhGJ68-wnTS0mXbcjGHKFEQ/s1600/favicon48x48.ico' rel='shortcut icon'/>
+<!-- Fin favicon -->
+<script type='text/javascript'>//<![CDATA[
+var curl = window.location.href;if (curl.indexOf('m=1') != -1) {curl = curl.replace('m=1', 'm=0');window.location.href = curl;}
+//]]></script>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'/>
+<link href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='http://www.lunegate.net/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="LuneGate - Atom" href="http://www.lunegate.net/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="LuneGate - RSS" href="http://www.lunegate.net/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="LuneGate - Atom" href="https://www.blogger.com/feeds/6519107269476323824/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="LuneGate - Atom" href="http://www.lunegate.net/feeds/7874899873340745549/comments/default" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg' rel='image_src'/>
+<meta content='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html' property='og:url'/>
+<meta content='Tutorial: Aprender a usar un sensor Flex con Arduino' property='og:title'/>
+<meta content='    Bienvenido a un nuevo tutorial de Lunegate , hoy vamos a prender a usar un componente un tanto diferente, y que las aplicaciones estarán...' property='og:description'/>
+<meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/w1200-h630-p-k-no-nu/sensor_flex_lunegate.jpg' property='og:image'/>
+<title>Tutorial: Aprender a usar un sensor Flex con Arduino ~ LuneGate</title>
+<style id='page-skin-1' type='text/css'><!--
+/*
+/********************************
+/////////////////////////////////////////////////////////
+//                                                     //
+// 	Template Name: Couponism //
+// 	Template Version: 3.0 //
+//  Designer: Syed Faizan Ali //
+//  Company:Templateism
+//  All rights are Strictly Reserved  //
+//                                                     //
+/////////////////////////////////////////////////////////
+********************************/
+body#layout ul{list-style-type:none;list-style:none}
+body#layout ul li{list-style-type:none;list-style:none}
+body#layout #header { width: 100%; }
+body#layout #main-wrapper { margin: 0px; width: 68%; } body#layout #header-wrapper { margin-bottom: 0px; }
+body#layout .ad-feature{display:block!important;}
+body#layout .home-screen{display:none;}
+body#layout .title-wrap { display: none; }
+/*=====================================
+= Global CSS
+=====================================*/
+html, body { height: 100%; }
+h1 , h2 , h3 , h4 , h5 , h6{ font-family: 'Montserrat', sans-serif; margin: 0; }
+body{ background-color: #fff; background-position: top center; margin: 0; font-family: "Lato", sans-serif; color: #626262; font-size: 14px; }
+a, a:link, a:visited{ text-decoration: none; color: #626262; outline: none; }
+a:hover{ color: #23b5ab } .clear { clear: both; }
+.clearfix:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden}
+#container,#header,#main,#main-fullwidth,#footer,.clearfix{display:block}
+.clear{clear:both}
+h1,h2,h3,h4,h5,h6{margin-bottom:16px;font-weight:normal;line-height:1}
+h1{font-size:40px}
+h2{font-size:30px}
+h3{font-size:20px}
+h4{font-size:16px}
+h5{font-size:14px}
+h6{font-size:12px}
+h1 img,h2 img,h3 img,h4 img,h5 img,h6 img{margin:0}
+table{margin-bottom:20px;width:100%}
+th{font-weight:bold}
+thead th{background:#c3d9ff}
+th,td,caption{padding:4px 10px 4px 5px}
+tr.even td{background:#e5ecf9}
+tfoot{font-style:italic}
+caption{background:#eee}
+li ul,li ol{margin:0}
+ul,ol{margin:0 20px 20px 0;padding-left:40px}
+ul{list-style-type:disc}
+ol{list-style-type:decimal}
+dl{margin:0 0 20px 0}
+dl dt{font-weight:bold}
+dd{margin-left:20px}
+blockquote{margin:20px;color:#666;}
+pre{margin:20px 0;white-space:pre}
+pre,code,tt{font:13px 'andale mono','lucida console',monospace;line-height:18px}
+#search {overflow:hidden;}
+/*=====================================
+= Header
+=====================================*/
+#header-wrapper { height: 52px; padding: 20px 0px 20px 0px; }
+#header-inner{background-position:center;margin-left:auto;margin-right:auto}
+#header {
+float: left;
+width: 400px;
+margin-top: 18px;
+}
+#header h1 { margin: 0; padding: 0px 0px 0px 0px; text-transform: uppercase; font-weight: bold; font-size: 23px; line-height: 25px; font-family: 'Montserrat', sans-serif; letter-spacing: -1px; float: left; color: #23b5ab; }
+.secondbc { color: #626262; margin-right: 3px; }
+#header .description{padding-left:7px;color:#374142;line-height:14px;font-size:14px;padding-top:0px;margin-top:10px;font-family:Arial,Helvetica,Sans-serif;}
+#header h1 a,#header h1 a:visited{color:#374142;text-decoration:none}
+#margin-1200 { margin: auto; width: 1200px; }
+/*=====================================
+= Index
+=====================================*/
+.index .post { border: 1px solid #e5e5e5; -webkit-box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); -moz-box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); width: 275px; float: left; margin-left: 10px; margin-right: 10px; }
+.index .post img { width: 100%; height: auto; border-bottom:1px solid #e5e5e5 }
+/*=====================================
+= Wrappers
+=====================================*/
+#outer-wrapper{width:960px;margin:0px auto 0px;padding:0px;text-align:left;background:#FFFFFF;}
+#content-wrapper { background: #fff; float: left; width: 100%; margin-top: 23px; }
+#main-wrapper{width:900px;float:left;margin:0px;padding:0px 0px 0px 0px;word-wrap:break-word;overflow:hidden;}
+#rsidebar-wrapper{width:300px;float:right;margin:0px;padding:0px 0px 0px 0px;word-wrap:break-word;overflow:hidden;}
+/*=====================================
+= Posts
+=====================================*/
+h2.date-header{margin:1.5em 0 .5em;display:none;}
+.post{margin-bottom:15px;}
+.post h2
+{
+font-size: 21px;
+padding-left: 20px;
+margin-top: 5px;
+float: left;
+width: 88%;
+font-weight: bold;
+letter-spacing: -1px;
+line-height: 23px;
+}
+.post h2 a { color: #111; } .post h2 a:hover {color:#005E57;}
+#mcontent
+{
+font-size: 14px;
+padding-left: 20px;
+margin-bottom: 17px;
+float: left;
+color: #b8b8b8;
+}
+.post h1 { font-size: 35px; float: left; width: 100%; color: #626262; margin-top: 21px; margin-bottom: 0px; border-top: 1px solid #e5e5e5; padding-top: 19px; }
+.post-body{
+margin: 0px;
+padding: 0px 10px 0px 0px;
+font-size: 16px;
+line-height: 24px;
+float: left;
+width: 100%;
+}
+#mcontent
+{
+line-height: 20px;
+}
+.post-footer{margin:5px 0;} .comment-link{margin-$startSide:.6em}
+/*===========================================================================================================
+=============================================================================================================
+=											 ENTRADAS
+=============================================================================================================
+=============================================================================================================*/
+.post-body a
+{
+color: darkgoldenrod;
+}
+.post-body a:hover
+{
+color: #23b5ab !important;
+}
+#ppalImage, #ppalImage img
+{
+width: 100% !important;
+}
+.titular
+{
+background-color: #005e57;
+color: white;
+font-weight: bold;
+padding: 10px;
+width: 100%;
+}
+#requisitos div
+{
+float: left;
+margin-left: 35px;
+width: 83px;
+}
+#requisitos img
+{
+width:20px;
+}
+#material
+{
+display: table;
+width: 100%;
+}
+.rowMaterial
+{
+display: table-row;
+}
+.imagenMaterialHeader,.nombreMaterialHeader,.comprarMaterialHeader
+{
+width: 33%;
+background-color: #23b5ab;
+color: white;
+text-align:center;
+height: 30px;
+display: table-cell;
+vertical-align: middle;
+}
+.imagenMaterial
+{
+border-left: 1px solid black;
+}
+.imagenMaterial,.nombreMaterial,.comprarMaterial
+{
+border-bottom: 1px solid black;
+border-right: 1px solid black;
+height: 150px;
+width: 33%;
+text-align: center;
+display: table-cell;
+vertical-align: middle;
+}
+#imagenEsquema, #imagenEsquema img
+{
+width:100%;
+}
+.bloqueCodigo
+{
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+background-color: silver;
+border-color: gray;
+border-image: none;
+border-style: solid;
+border-width: 1px 1px 1px 10px;
+font-size: small;
+padding-bottom: 30px;
+padding-left: 30px;
+padding-top: 30px;
+}
+#tablaPuntuacion
+{
+display: table;
+margin: auto;
+width: 84%;
+}
+.rowPuntuacion
+{
+display: table-row;
+height: 45px;
+}
+.tituloPuntuacion
+{
+display: table-cell;
+font-size: 12px;
+margin-right: 20px;
+text-align: right;
+vertical-align: middle !important;
+}
+.separatorPuntuacion
+{
+height:5px;
+}
+.valorPuntuacion
+{
+background-color: #23b5ab;
+border-radius: 48px;
+color: white;
+display: table-cell;
+font-size: 18px !important;
+font-weight: bold;
+padding-left: 8px;
+padding-right: 8px;
+text-align: center !important;
+vertical-align: middle;
+width: 5px;
+}
+.p1, .p2, .p3, .p4, .p5,.p1_5, .p2_5, .p3_5, .p4_5, .p5_5
+{
+display: table-cell;
+width: 100%;
+}
+.rowPuntuacion .colorPuntuacion
+{
+display: block;
+height: 45px;
+margin-left: 10px;
+}
+.p1 .colorPuntuacion
+{
+width: 5%;
+background-color: #d8e3dd;
+}
+.p2 .colorPuntuacion
+{
+width:25%;
+background-color: #a8e2e4;
+}
+.p3 .colorPuntuacion
+{
+width:45%;
+background-color: #49ced7;
+}
+.p4 .colorPuntuacion
+{
+width:65%;
+background-color: #13a1b9;
+}
+.p5 .colorPuntuacion
+{
+width:85%;
+background-color: #11708c;
+}
+.p6
+{
+width:100%
+background-color: #005e57;
+}
+.p1_5 .colorPuntuacion
+{
+background-color: #d8e3dd;
+width:10%;
+}
+.p2_5 .colorPuntuacion
+{
+background-color: #a8e2e4;
+width:30%;
+}
+.p3_5 .colorPuntuacion
+{
+background-color: #49ced7;
+width:50%;
+}
+.p4_5 .colorPuntuacion
+{
+background-color: #13a1b9;
+width:70%;
+}
+.p5_5 .colorPuntuacion
+{
+background-color: #11708c;
+width:90%;
+}
+/*=====================================
+= Error Page
+=====================================*/
+.error_page #blog-pager { display: none; }
+.error_page .blog-posts { height: auto!important; }
+.error_page #rsidebar-wrapper {display:none;}
+.error_page #main-wrapper {width:100%;}
+.error-page h2 { text-align: center; font-size: 73px; color: #23b5ab; margin: 0px; }
+.error-page p { text-align: center; font-size: 53px; text-transform: uppercase; margin: 0px; font-weight: bold; }
+.error-page { float: left; width: 100%; margin: 30px 0px; }
+/*=====================================
+= Sidebar
+=====================================*/
+.sidebar{margin:0 0 10px 0;font-size:13px;color:#374142;}
+.sidebar a{text-decoration:none;color:#374142;}
+.sidebar a:hover{text-decoration:none;color: #005E57;}
+.sidebar h2 { background: #005E57; color: #fff; padding: 18px; font-size: 14px; font-weight: normal; }
+.status-msg-body, .status-msg-wrap {display:none;} .sidebar .PopularPosts a { color: #111; font-weight: bold; }
+.sidebar .item-snippet { height: 30px; overflow: hidden; }
+.sidebar ul{list-style-type:none;list-style:none;margin:0px;padding:0px;}
+.sidebar ul li{padding:0 0 9px 0;margin:0 0 8px 0;}
+.sidebar .widget{margin:0 0 15px 0;padding:0;color:#374142;font-size:13px;}
+.main .widget{margin:0 0 5px;padding:0 0 2px}
+.main .Blog{border-bottom-width:0}
+/*=====================================
+= Contact Form
+=====================================*/
+.contact-form-name, .contact-form-email, .contact-form-email-message, .contact-form-widget { max-width: none; margin-bottom: 15px; }
+.contact-form-name, .contact-form-email, .contact-form-email-message { background-color: #242121; border: 0; }
+.contact-form-button-submit { max-width: none; width: 100%; height: 35px; border: 0; background-image: none; background-color: #23b5ab; cursor: pointer; font-style: normal; font-weight: 400; text-transform: uppercase; }
+.contact-form-name:focus, .contact-form-email:focus, .contact-form-email-message:focus { border: 0; box-shadow: none; }
+.contact-form-name:hover, .contact-form-email:hover, .contact-form-email-message:hover { border: 0; }
+.contact-form-button-submit:hover { background-color: #005E57; background-image: none; border: 0; }
+/*=====================================
+= Footer
+=====================================*/
+p.left { float: left; }
+p.right { float: right; }
+p.right a { float: right; font-size: 20px; border: 1px solid; border-radius: 50%; padding: 14px; }
+#footer-widgets { background: #292929; padding: 70px 0 0 0; float:left; width:100%; }
+#footer-widgets .PopularPosts img { width:70px }
+#footer-widgets .Label li { display: block; }
+#footer-widgets .Label ul { padding: 0px; }
+#footer-widgets .Label a { background:#242121; padding:10px; border:none; float:left; }
+.Label li { float: left; padding: 0px!important; margin: 5px 5px 0px 0px!important; }
+#footer-widgets .item-snippet { height: 35px; overflow: hidden; }
+#footer-widgets ul {padding: 0px;}
+#footer-widgets li {display: block; padding: 0px;margin: 0px;}
+.footer-widget-box{width:285px;float:left;margin-left:15px}
+.footer-widget-box-last{}
+#footer-widgets .widget-container {color: #8f8f8f;line-height: 20px;}
+#footer-widgets .widget-container a{text-decoration:none;color:#8f8f8f;}
+#footer-widgets .widget-container a:hover{text-decoration:none;}
+#footer-widgets h2{  color: #fff;text-align: left;font-size: 17px;font-weight: 400;}
+#footer-widgets .widget ul{list-style-type:none;list-style:none;margin:0px;padding:0px;}
+#footer-widgets .widget ul li{padding:0 0 9px 0;margin:0 0 8px 0;}
+.footersec {}
+.footersec .widget{margin-bottom:20px;}
+.footersec ul{}
+.footersec ul li{}
+/*=====================================
+= Footer
+=====================================*/
+.foolinks li a { color: #aeaeae!important; font-size: 14px; line-height: 20.15625px; text-shadow: none; }
+.foolinks li { display: block; list-style: none; padding: 0px!important; margin: 0px!important; }
+.foolinks { padding: 0px; margin: 0px; } .fooc p a { color: #aeadad; }
+.fooc p { color: #aeadad; font-size: 12px; line-height: 16.796875px; text-transform: capitalize; margin: 0px; padding: 0px 20px 0px 20px; }
+.fooc { padding-top: 30px; padding-bottom: 40px; background: #242121; float: left; width: 100%; }
+/*=====================================
+= Companies featured
+=====================================*/
+.featuredon p { text-align: center; font-size: 22px; font-weight: 300; font-family: 'Montserrat', sans-serif; text-transform: capitalize; }
+.featuredon img { height: 118px; float: left; margin-right: 11px; }
+.featuredon { float: left; width: 100%; background: #e9e9e9; padding-bottom: 56px; }
+img.a4 { width: 350px; margin: 0px; height: 81px; margin-top: 11px; }
+.featuredon li{float:left;display:block;}
+#iconTecnologies
+{
+margin:auto;
+width: 55%;
+}
+/*=====================================
+= Comments
+=====================================*/
+#comments { float: left; width: 100%; }
+#comments-block3 { padding: 0; margin: 0; float: left; overflow: hidden; position: relative; }
+#comment-name-url { width: 465px; float: left; } #comment-date { width: 465px; float: left; margin-top: 5px; font-size: 10px; }
+.avatar-image-container { border-radius:50%;background: none!important; border: none!important; ; }
+.datetime.secondary-text { float: right; }
+.comments .comments-content .comment-content { line-height: 20px; font-size: 14px; }
+.comments .comment .comment-actions a { padding-right: 5px; padding-top: 5px; text-decoration: none; }
+.comments .comments-content .comment { margin-bottom: 40px; padding-bottom: 8px; }
+.user.blog-author a { font-family:'Montserrat', sans-serif;font-size: 20px; text-decoration: none; }
+.comment-actions a { color: #fff; }
+.comment-actions { padding: 10px; margin-top: 20px; float: right; background: #005E57; margin-bottom: 10px; }
+.comment-block {   background: #e9e9e9; padding: 20px; }
+.comment-header { border-bottom: 1px solid #7e878e; padding-bottom: 20px; }
+#comments h4:before { content: "\f0e6"; font-family: fontawesome; margin-right: 10px; }
+#comments h4 {color: #005E57f; text-transform: uppercase; padding: 10px; font-size: 18px; margin: 5px 0px; }
+.feed-links{display:none;clear:both;line-height:2.5em}
+#navbar-iframe{height:0;visibility:hidden;display:none;}
+.feed-links{display:none;clear:both;line-height:2.5em}
+#navbar-iframe{height:0;visibility:hidden;display:none;}
+.item #blog-pager span { background: #23b5ab; color: #fff; padding: 10px; float: right; }
+.item #blog-pager a { color: #fff; font-size: 14px; }
+.item #blog-pager { float: right; }
+/*=====================================
+= Home Screen
+=====================================*/
+#back-wrap
+{
+background: url() no-repeat fixed center;
+background-color: #ffffff;
+background-size: cover !important;
+padding: 70px 0;
+}
+.home-screen { width: 980px; margin: auto; text-align: center; padding: 140px 0; }
+.slogan h1
+{
+color: #fff; font-weight: bold; font-size: 52px;
+text-shadow: -1px -1px 12px #a9a9a9, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+-webkit-text-shadow: -1px -1px 12px #a9a9a9, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+-moz-text-shadow: -1px -1px 12px #a9a9a9, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+-o-text-shadow: -1px -1px 12px #a9a9a9, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+/*-webkit-text-fill-color: #ffffff;
+-webkit-text-stroke: 2px black;*/
+}
+.slogan p { color: #fff; font-family: lato; font-size: 17px; }
+.home-screen .text-input
+{
+height: 55px;
+background-color: rgba(255, 255, 255, 0.65);
+border: 1px solid white;
+-webkit-box-shadow: none;
+-moz-box-shadow: none; box-shadow: none; width: 700px!important; padding: 0 20px; margin-top: 20px;
+}
+/*=====================================
+= Feature Home
+=====================================*/
+#postfeature { float: left; width: 100%; margin-top: -50px; display:none }
+#postfeature ul { padding: 0px; margin:0px; }
+#postfeature li { float: left; width: 220px; margin-left: 22px; border: 1px solid #e5e5e5; -webkit-box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); -moz-box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); }
+#postfeature li img { width: 100%; float:left; }
+#postfeature li:first-child { margin: 0px; }
+.title-text { background: #23b5ab; color: #fff; padding: 18px; font-size: 14px; font-weight: normal; } #postfeature a { color: #111; } .multi-category-image { float: left; height: 215px; overflow: hidden; }
+#postfeature h4 { border-top: 1px solid #e5e5e5; padding: 28px 20px 10px 20px; margin: 0; float: left; width: 84%; }
+.postcontent { margin: 0px 0px 28px 0px; float: left; width: 84%; padding: 0px 20px; font-size: 14px; }
+.multi-category-date { float: left; margin: 0px 0px 16px 0px; float: left; width: 84%; padding: 11px 20px 0px 20px; font-size: 14px; border-top: 1px solid #e5e5e5; color: #747474; }
+/*=====================================
+= Coupon
+=====================================*/
+.coupon { float: left; margin-left: 20px; background: #005E57; color: #fff; padding: 7px; text-transform: uppercase; font-size: 16px; margin-bottom: 17px; }
+.coupon:before { content: 'Coupon '; background: #23b5ab; padding: 3px 6px; margin-right: 9px; }
+/*=====================================
+= Pager
+=====================================*/
+.showpageOf { display: none; }
+.showpagePoint { background-color: rgba(41, 41, 41, .9); padding: 5px; padding: 10px 12px 9px 12px; font-weight: bold; color: #fff; border-radius: 50%; }
+.showpageArea a:hover { background-color: rgba(41, 41, 41, .9); color:#fff; }
+.showpageNum a {   border-radius: 50%; padding: 5px; padding: 10px 12px 9px 12px; color: #000; font-weight: bold; }
+.showpageArea a {   border-radius: 50%; text-decoration: none; } .showpageArea a:hover { transition: all 0.3s ease-out;  }
+.showpage a {   border-radius: 50%; padding: 5px; padding: 10px 12px 9px 12px; color: #000; font-weight: bold; }
+span.showpage a { margin-left: 10px; margin-right: 10px; }
+.showpageArea { float: left; }
+.showpagePoint { margin-right: 5px; }
+.showpageNum a { margin-right: 5px; }
+.showpageArea a { text-shadow: none; }
+.showpageArea { font-weight: 400; text-shadow: none; }
+.feed-links { display: none; }
+.showpageArea a { float: left; font-size: 15px; color: #111!important; padding-left: 15px; padding-right: 15px; }
+.showpagePoint { float: left; font-size: 15px; padding-left: 15px; padding-right: 15px; }
+/*=====================================
+= News letter Homepage
+=====================================*/
+.prodh{background-color:#FFF;padding:25px 0;margin:15px 0}
+.prodh:before{content:'';width:50px;height:3px;background-color:$(main.color);position:absolute;top:35px;left:-20px}
+.prodh h2{margin-left:50px}
+#newsletter{margin:0px;overflow:hidden;background-color:#fff;padding:50px 0;border-top:1px solid #EEE;border-bottom:1px solid #EEE;width: 98%; float: left;}
+#newsletter .left{float:left;width: 45%;}
+#newsletter .right{float:right;}
+#newsletter .FollowByEmail{overflow:hidden}
+#newsletter .row{overflow:hidden}
+.ntitle h2:first-letter{color:$(main.color)}
+.ntitle:before { content: ''; width: 50px; height: 3px; float: left; background-color: #23b5ab; position: relative; top: 19px; right: 10px; }
+.ntitle{font-size:20px}
+.ntitle h2{margin:0;}
+.ndesc p{margin-top:5px;font-size:12px;}
+#newsletter input.address{font-family: "Lato", sans-serif;border:0;background-color:#EEE;height:50px;padding:0 10px;width:400px;margin-right:-5px;font-size:17px!important;}
+#newsletter input.submit
+{
+height:50px!important;
+width:100px!important;
+background-color:#23b5ab!important;
+border:0 !important;
+color:#fff;
+cursor:pointer;position:relative;top:-2px;  font-family: "Lato", sans-serif;
+}
+#newsletter inp
+ut.submit:hover { background-color: #005E57; }
+/*=====================================
+= Ads Wrapper
+=====================================*/
+.ad-feature { float: left; width: 100%; background: #e9e9e9; padding: 30px 0px;; }
+#ad-wrapper { width: 728px; margin: auto; }
+/*=====================================
+= Post Details
+=====================================*/
+.meta_categories_2 { background: #23b5ab; padding: 10px; color: #001816; float: left; }
+.meta_categories_2 a { color: #fff; }
+.postmeta-primary { float: left; width: 100%; margin-top: 8px; }
+.postmeta-primary span { margin-right: 12px; }
+/*=====================================
+= Share Buttons
+=====================================*/
+.share-button-link-text { display: block; text-indent: 0; }
+.post-share-buttons { display: block; width: 100%; float: left; margin-bottom: 30px; border-bottom: 1px solid #e5e5e5; padding-bottom: 20px; margin-top: 14px;}
+.post-share-buttons .fb
+{
+background: #375593 none repeat scroll 0 0;
+color: #fff;
+font-size: 18px;
+padding-bottom: 8px;
+padding-left: 13px;
+padding-right: 0 !important;
+padding-top: 8px;
+text-decoration: none;
+}
+.post-share-buttons .fb a { color:#fff; text-decoration:none; }
+.post-share-buttons .tw
+{ background: #0eb6f6; color: #fff; padding: 8px 11px; font-size: 18px; }
+.post-share-buttons .pin { background: #cb2027; padding: 8px 11px; color: #fff; font-size: 18px;
+}
+.post-share-buttons .gp
+{
+background: #dd4b39;
+padding: 8px 11px;
+color: #fff; font-size: 18px;
+margin-left: 0 !important;
+}
+.post-share-buttons a { text-decoration: none; }
+.item #main-wrapper {width: 863px;}
+.item .coupon { float: right; padding: 9.5px; margin: 0px; }
+/*=====================================
+= Related Posts
+=====================================*/
+div#related-posts h2 { padding: 0px; border-top: 1px solid #e5e5e5; padding-top: 20px; width: 100%; font-size: 28px; }
+div#related-posts { float: left; width: 100%; border-bottom: 1px solid #e5e5e5; padding-bottom: 20px; }
+#related-posts img { border: 1px solid #e5e5e5!important; margin-right: 10px!important; }
+#related-posts a { margin-right: 17px!important; }
+.item #blog-pager
+{
+display:none;
+}
+.post h1
+{
+border-top: none;
+margin-top: 0px;
+padding-top: 0px;
+}
+/*=====================================
+= About Author
+=====================================*/
+.aboutauthor img {
+display: block;
+width: 139px;
+height: auto;
+border-radius: 49%;
+border: 0px; background: none; float: left; padding: 0px; margin-right: 20px;
+}
+.aboutauthor p
+{
+margin-left: 19px !important;
+}
+.aboutauthor .authorname { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 23px; margin: 20px 0px 0px 0px; }
+.aboutauthor
+{
+width:100%;
+float: left;
+margin: 37px 0px;
+background: #23b5ab;
+padding: 21px;
+padding-right: 0px;
+}
+.aboutauthor .authorrank { color: #FFF; margin: 0px; font-size: 16px; } .aboutauthor p { color: #fff; font-size: 14px; width: 88%;}
+.item #HTML3
+{
+display:none;
+}
+/*=====================================
+= Static Page
+=====================================*/
+.static_page .post h2 a { font-size: 35px; float: left; width: 100%; color: #626262; margin-bottom: 0px; border-bottom: 1px solid #e5e5e5; padding-bottom: 19px; padding-left: 0px; }
+.static_page .post h2 { padding: 0px; margin-top: 0px; width: 100%; } .static_page #main-wrapper { width: 868px; }
+/*=====================================
+= Responsive Menu
+=====================================*/
+nav#nav-mobile { position: relatitve; display: none; }
+#nav-trigger { margin-left: 20px; float: right; display: none; text-align: center; }
+#nav-trigger {  float: right; width: 12%; }
+#nav-trigger span { color: #EEE; line-height: 57px; } nav#nav-mobile { margin: 0px; }
+nav#nav-mobile { display: none; }
+#nav-trigger span .fa { font-size: 18px; color: #626262;}
+nav#nav-mobile { float: left; width: 100%;  margin-top: -10px; }
+/*=====================================
+= Menu
+=====================================*/
+.menus,.menus *{margin:0;padding:0;list-style:none;list-style-type:none;line-height:1.0}
+.menus ul{position:absolute;top:-999em;width:100%}
+.menus ul li{width:100%}
+.menus li:hover{visibility:inherit}
+.menus li{float:left;position:relative}
+.menus a{display:block;position:relative}
+.menus li:hover ul,.menus li.sfHover ul{left:0;top:100%;z-index:99}
+.menus li:hover li ul,.menus li.sfHover li ul{top:-999em}
+.menus li li:hover ul,.menus li li.sfHover ul{left:100%;top:0}
+.menus li li:hover li ul,.menus li li.sfHover li ul{top:-999em}
+.menus li li li:hover ul,.menus li li li.sfHover ul{left:100%;top:0}
+.sf-shadow ul{padding:0 8px 9px 0;-moz-border-radius-bottomleft:17px;-moz-border-radius-topright:17px;-webkit-border-top-right-radius:17px;-webkit-border-bottom-left-radius:17px}
+.menus .sf-shadow ul.sf-shadow-off{background:transparent}
+.menu-primary-container{float:left;padding:0 10px;position:relative;height:36px;background:url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaMEC9JtgdTw37Fwzt8vmrTR77-xOlJj3kfXNVSDpu319TydD1XN3jAUOvIypwBPq30r4IejCHo2v9iIvyINArDjY-qtIvOWwFvVd3DLAjj2Rl1XZKfaF9typt17tc9f8ZmQnbDGbJmkhf/s0/menu-primary-bg.png) left top repeat-x;z-index:400;-moz-border-radius:10px;-khtml-border-radius:10px;-webkit-border-radius:10px;border-radius:10px}
+.menu-primary{}
+.menu-primary ul{min-width:160px}
+.menu-primary li a{color:#222121;padding:12px 15px;text-decoration:none;text-transform:uppercase;font:normal 11px/11px Arial,Helvetica,Sans-serif}
+.menu-primary li a:hover,.menu-primary li a:active,.menu-primary li a:focus,.menu-primary li:hover > a,.menu-primary li.current-cat > a,.menu-primary li.current_page_item > a,.menu-primary li.current-menu-item > a{color:#C72714;outline:0;background:url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaMEC9JtgdTw37Fwzt8vmrTR77-xOlJj3kfXNVSDpu319TydD1XN3jAUOvIypwBPq30r4IejCHo2v9iIvyINArDjY-qtIvOWwFvVd3DLAjj2Rl1XZKfaF9typt17tc9f8ZmQnbDGbJmkhf/s0/menu-primary-bg.png) left -136px repeat-x}
+.menu-primary li li a{color:#fff;text-transform:none;background:#E64633;padding:10px 15px;margin:0;border:0;font-weight:normal}
+.menu-primary li li a:hover,.menu-primary li li a:active,.menu-primary li li a:focus,.menu-primary li li:hover > a,.menu-primary li li.current-cat > a,.menu-primary li li.current_page_item > a,.menu-primary li li.current-menu-item > a{color:#fff;background:#F85B49;outline:0;border-bottom:0;text-decoration:none}
+.menu-primary a.sf-with-ul{padding-right:20px;min-width:1px}
+.menu-primary .sf-sub-indicator{position:absolute;display:block;overflow:hidden;right:0;top:0;padding:11px 10px 0 0}
+.menu-primary li li .sf-sub-indicator{padding:9px 10px 0 0}
+.wrap-menu-primary .sf-shadow ul{background:url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaDQ-FlX4LjfSlP2lCfN8zFg9c0Roc1Y5qgII7I1ew6nQ-7NqMizSs8ebTCObu45K0SJUNlZcaHjEvSp4PbHgzmgGHoMz-nJn1Y7N4XuO540glxJJ2N9PBva9tTtsqiKlm0uysKCUIhu7q/s0/menu-primary-shadow.png') no-repeat bottom right}
+.menu-secondary-container{float:right;}
+.menu-secondary{}
+.menu-secondary ul { min-width: 160px; background: #fff; border: 1px solid #ddd; border: 1px solid #e5e5e5; -webkit-box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); -moz-box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); box-shadow: 3px 7px 1px 0px rgba(208, 208, 208, .1); }
+.menu-secondary li a { color: #626262; padding: 18px 15px; text-decoration: none; text-transform: capitalize; font-family: 'Lato', sans-serif; }
+.menu-secondary li a:hover,.menu-secondary li a:active,.menu-secondary li a:focus,.menu-secondary li:hover > a,.menu-secondary li.current-cat > a,.menu-secondary li.current_page_item > a,.menu-secondary li.current-menu-item > a{background:#23b5ab;color:#fff;}
+.menu-secondary li li a:hover,.menu-secondary li li a:active,.menu-secondary li li a:focus,.menu-secondary li li:hover > a,.menu-secondary li li.current-cat > a,.menu-secondary li li.current_page_item > a,.menu-secondary li li.current-menu-item > a{background:#23b5ab;color:#fff;}
+.menu-secondary a.sf-with-ul{padding-right:26px;min-width:1px}
+.menu-secondary .sf-sub-indicator{position:absolute;display:block;overflow:hidden;right:0;top:0;padding:12px 13px 0 0}
+.menu-secondary li li .sf-sub-indicator{padding:9px 13px 0 0}
+.wrap-menu-secondary .sf-shadow ul{background:url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9YOcwaL2CFx0yAU3sXs3rSWcmahYb4DBB4p2AxxOLALz5kBytNFWZRAyw2IPI6G2a9BL4_bmNaA6z3gJPnZp-aM7WcxS5F2E_0FdN2ogcK6oAU5VsByBiJaiEYvm84O-rqVvJN3NWs_f6/s0/menu-secondary-shadow.png') no-repeat bottom right}
+#header li.facebook iframe.facebook-like
+{
+position: absolute;
+top: -30px;
+left: -27px;
+}
+.facebook-like{
+display:none;
+}
+.twitter-follow{
+display:none;
+}
+.twitter span
+{
+background-color: #0eb6f6;
+color: white !important;
+font-size: 19px;
+padding: 10px 15px;
+width: 18px;
+}
+.twitter iframe
+{
+position:absolute;
+}
+.facebook
+{
+margin-right: 2px!important;
+}
+.facebook span
+{
+background-color: #375593;
+color: white !important;
+font-size: 17px;
+padding-bottom: 12px;
+padding-left: 15px;
+padding-top: 11px;
+width: 91px;
+}
+.facebook iframe
+{
+position:absolute;
+}
+.social-icons li
+{
+float:left;
+}
+.tumblr_share span
+{
+background-color: #36465d;
+color: white !important;
+font-size: 18px;
+height: 18px;
+padding-bottom: 12px;
+padding-left: 15px;
+padding-top: 8px;
+width: 26px;
+}
+.googleP_share span
+{
+}
+.pinterest_share span
+{
+}
+.share_icons
+{
+}
+.share_icons a
+{
+float:left;
+margin-right: 2px!important;
+}
+.email_share span
+{
+}
+#main
+{
+}
+.ad-feature
+{
+padding-bottom: 0px;
+padding-top: 1px;
+}
+#youtubeLunegate
+{
+width:100%;
+height:400px;
+}
+#HTML3 .aboutauthor
+{
+margin-bottom: 5px;
+}
+/*================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+= 																	Responsive CSS
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================*/
+@media (min-width: 1110px) and (max-width: 3110px)
+{
+#HTML3 h2
+{
+margin-bottom:0px;
+}
+#HTML3 .aboutauthor
+{
+margin-top:0px;
+padding: 0 0 13px;
+}
+#HTML3 .aboutauthor img
+{
+padding: 20px;
+width: 80%;
+}
+#header-wrapper {
+background-color: white;
+height: 52px;
+padding: 20px 0;
+position: fixed;
+width: 100%;
+z-index: 1000;
+}
+.post h1
+{
+padding-top: 70px;
+}
+.item #rsidebar-wrapper
+{
+margin: 85px 0 0;
+}
+/*
+#main-wrapper
+{
+margin-top: 68px;
+}
+*/
+.index .ad-feature
+{
+height: 68px;
+}
+}
+/*/////////////////////////////////   TABLA   ///////////////////////////////*/
+@media screen and (max-width: 1110px) {
+#margin-1200,.home-screen {max-width: 800px;}
+nav#nav-mobile ul{display:none;}
+nav#nav-mobile,#nav-trigger {display: block!important;}
+.menu-secondary-container {display: none!important;}
+.menus li {width: 100%;text-align:center;}
+#header { width: 34%; }
+h1.title { width: 100%; }
+#header .description { width: 100%; }
+#header-wrapper { text-align: none; }
+#main-wrapper,.item #main-wrapper,.static_page #main-wrapper { margin: 0px; width: 100%; }
+#rsidebar-wrapper { width: 100%; padding: 10px; margin: 0px!important; }
+.post-body img { max-width: 100%; height: auto; }
+.menu-secondary li a:hover { border: none!important; }
+.children li a { color: #111!important; }
+.children.expanded li a { color: #22272B!important; }
+#footer{width:96%;}
+.multi-category-image { height: auto; } #postfeature li { width: 182px; }
+#header-wrapper { margin-bottom: 0px;}
+#postfeature h4,.postcontent,.multi-category-date { width: 77%; }
+#postfeature li:last-child { display: none; }
+.featuredon img { height: 76px;}
+.ntitle:before { display: none; }
+#newsletter .left { width: 100%; text-align:center;}
+#newsletter input.address{width:680px}
+.index .post {width:360px;}
+.imagenMaterial img
+{
+max-height: 133px;
+}
+#HTML3 .aboutauthor
+{
+margin-top: -16px;
+}
+.aboutauthor
+{
+width: 97.4%;
+}
+}
+/*/////////////////////////////////   MOVIL    ///////////////////////////////*/
+@media screen and (max-width: 810px)
+{
+#youtubeLunegate
+{
+height:200px;
+}
+#mcontent
+{
+padding-left: 10px;
+}
+#blog-pager
+{
+width: 100%;
+}
+.post h1
+{
+font-size: 25px !important;
+padding-left: 10px;
+padding-right: 10px;
+box-sizing:border-box;
+}
+.post-body
+{
+padding-left: 10px;
+padding-right: 10px;
+box-sizing: border-box;
+}
+.postmeta-primary
+{
+padding-left: 10px;
+}
+.imagenMaterial img
+{
+width:100% !important;
+}
+.post-share-buttons
+{
+padding-left: 10px;
+}
+.post-share-buttons .fb
+{
+width: 83px;
+padding-left: 7px !important;
+}
+#header-wrapper
+{
+text-align: left;
+margin-left: 10px;
+}
+#header { width: 81%; }
+#header img
+{
+max-width: 200px;
+width: 89%;
+}
+#back-wrap
+{
+background: url() no-repeat center;
+}
+.home-screen
+{
+max-width: 90% !important;
+}
+#margin-1200,.home-screen,#ad-wrapper
+{
+max-width: 300px;
+/*overflow:hidden;*/
+}
+.slogan h1
+{
+font-size: 33px !important;
+}
+#ad-wrapper img { width: 100%; }
+nav#nav-mobile,#nav-trigger {display: block!important;}
+.menu-secondary-container {display: none!important;}
+.menus li {width: 100%;}
+#rsidebar-wrapper .widget img { width: 100%;   height: auto;}
+.sidebar .widget { overflow: hidden; }
+#rsidebar-wrapper { width: 96%; padding: 0px; overflow: hidden; margin: auto!important; float: none; }
+#HTML3 .title
+{
+margin-bottom: 0px;
+}
+#back-wrap
+{
+height: 210px;
+/*background-size: contain !important;
+width: 100% !important;
+background-color: red !important;*/
+}
+.home-screen
+{
+padding:0px;
+}
+.showpageArea
+{
+margin: auto;
+width: 275px;
+float: none;
+}
+.aboutauthor
+{
+text-align: center;
+width: auto;
+padding-right: 21px;
+margin-top: 0px;
+}
+.post-outer
+{
+position: inherit !important;
+}
+.aboutauthor img { width: 100%; margin-bottom: 30px; }
+#main-wrapper, .item #main-wrapper, .static_page #main-wrapper { margin: 0px; width: 100%; }
+.home-screen .text-input { width: 217px!important; }
+#postfeature h4, .postcontent, .multi-category-date { width: 87%; }
+#postfeature li { width: 99%; margin-bottom: 20px!important; float: left; margin-left: 0px!important; }
+#footer { height: 100%; float: left; }
+.pull-right { width: 100%; }
+p.copy-right { width: 100%; text-align: center; margin-bottom: 30px!important; }
+ul.f-social { float: none; margin-left: 86px; width: 107px; padding: 0px; }
+#related-posts img { width: 100%!important;height: auto!important;  }
+#related-posts div { text-align: center; width: 100%!important; margin: 0px 0px 10px 0px!important; float: left; }
+#related-posts a { width: 96%!important; height: auto!important; }
+.index .post{
+width:99.6%;
+margin-left: 0px;
+margin-right: 0px;
+}
+#margin-1200, .home-screen, #ad-wrapper
+{
+max-width: 500px;
+width: 100% !important;
+}
+#mcontent
+{
+padding-right: 20px;
+}
+.featuredon img
+{
+height: auto;
+margin: 0 3px 0 3px;
+width: 50px;
+}
+#iconTecnologies
+{
+width: 300px;
+}
+.featuredon
+{
+padding-bottom: 10px;
+}
+.featuredon li {
+width: auto;
+margin-bottom: 20px;
+}
+#newsletter .left { width: 100%; }
+#newsletter .right { width: 100%; overflow: hidden; }
+#newsletter input.address { width: 166px; }
+.ntitle:before { display: none; }
+.ntitle h2 { font-size: 23px; }
+.item .coupon { float: left; margin-top: 10px; }
+#newsletter .right {
+float: inherit;
+width: 290px;
+margin: auto;
+}
+#related-posts
+{
+display:none;
+}
+.entry-content .aboutauthor
+{
+display:none;
+}
+.comment-footer
+{
+margin-left:10px;
+}
+#HTML3 .aboutauthor {
+margin-top: 0px;
+}
+}
+
+--></style>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' type='text/javascript'></script>
+<script type='text/javascript'>
+
+var TemplateismSummary = {
+    displayimages: false,
+    imagePosition: 'left',
+    Widthimg: 0,
+    Heightimg: 0,
+    noThumb: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirUN5rIzP-hFkiWHuP-MW2gUMcOrt1mv42DaOLkN1khFfogcPOuS1IZakzXMmIQXiwud-eUjPXslTB0dcRXA1JNlJiXAlx6UqYIwZFTL3xOf9LvT2hesuVhJJ4WJGCh4xr2V29P8blRs8/s1600/no-thumb.jpg',
+    SummaryWords: 20,
+    wordsNoImg: 20,
+    skipper: 0,
+    DisplayHome: true,
+    DisplayLabel: true
+};
+
+
+var defaultnoimage="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-dG4CTbTBK0fDVA27VaxQlTEDwU1IJy74BtH0318AmpscNYpa4TNrbD_AzDjo9E4F-BgJQEdWQvK6AcijFVNm5g-kiCdnc8HJ986k8jMuHo-f63LZizqH34n4rZgqWlvdhxvi8_qhqCgd/s1600/no_image.jpg";
+var maxresults=4;
+var splittercolor="#fff";
+var relatedpoststitle="Noticias relacionadas";
+</script>
+<script type='text/javascript'>
+//<![CDATA[
+
+
+$(document).ready(function(){
+    $("#nav-mobile").html($(".menu-secondary-container").html());
+    $("#nav-trigger span").click(function(){
+        if ($(".menu-secondary-container").hasClass("expanded")) {
+            $(".menu-secondary-container.expanded").removeClass("expanded").slideUp(250);
+            $(this).removeClass("open");
+        } else {
+            $(".menu-secondary-container").addClass("expanded").slideDown(250);
+            $(this).addClass("open");
+        }
+    });
+});
+
+
+$(document).ready(function(){
+    $("#nav-mobile").html($(".menu-secondary-container").html());
+    $("#nav-trigger span").click(function(){
+        if ($("nav#nav-mobile ul").hasClass("expanded")) {
+            $("nav#nav-mobile ul.expanded").removeClass("expanded").slideUp(250);
+            $(this).removeClass("open");
+        } else {
+            $("nav#nav-mobile ul").addClass("expanded").slideDown(250);
+            $(this).addClass("open");
+        }
+    });
+});
+
+
+
+
+
+
+var _0xf174=["\x77\x20\x71\x28\x68\x29\x7B\x71\x2E\x4F\x3D\x71\x2E\x4F\x7C\x7C\x30\x3B\x71\x2E\x4F\x2B\x2B\x3B\x32\x20\x67\x3D\x55\x2E\x46\x2E\x79\x28\x22\x2F\x58\x2F\x31\x64\x2F\x22\x29\x3D\x3D\x2D\x31\x26\x26\x55\x2E\x46\x2E\x79\x28\x22\x2F\x58\x3F\x22\x29\x3D\x3D\x2D\x31\x2C\x63\x3D\x55\x2E\x46\x2E\x79\x28\x22\x2F\x58\x2F\x31\x64\x2F\x22\x29\x21\x3D\x2D\x31\x3B\x37\x28\x71\x2E\x4F\x3C\x3D\x39\x2E\x31\x6B\x29\x7B\x42\x7D\x37\x28\x67\x26\x26\x21\x39\x2E\x31\x6E\x29\x7B\x42\x7D\x37\x28\x63\x26\x26\x21\x39\x2E\x31\x6D\x29\x7B\x42\x7D\x32\x20\x65\x3D\x70\x2E\x31\x4B\x28\x68\x29\x2C\x66\x3D\x65\x2E\x31\x4C\x28\x22\x4C\x22\x29\x3B\x37\x28\x39\x2E\x31\x4E\x29\x7B\x32\x20\x61\x3D\x27\x3C\x4C\x20\x5A\x3D\x22\x27\x2B\x39\x2E\x31\x4D\x2B\x27\x22\x20\x53\x3D\x22\x27\x2B\x39\x2E\x31\x47\x2B\x27\x22\x27\x3B\x37\x28\x39\x2E\x31\x66\x21\x3D\x22\x31\x46\x22\x29\x7B\x32\x20\x62\x3D\x39\x2E\x31\x66\x3D\x3D\x22\x48\x22\x3F\x27\x20\x76\x3D\x22\x56\x3A\x48\x3B\x50\x3A\x30\x20\x78\x20\x78\x20\x30\x22\x27\x3A\x27\x20\x76\x3D\x22\x56\x3A\x31\x42\x3B\x50\x3A\x30\x20\x30\x20\x78\x20\x78\x22\x27\x3B\x61\x2B\x3D\x62\x7D\x61\x2B\x3D\x27\x20\x4E\x3D\x22\x27\x2B\x28\x66\x2E\x34\x3E\x30\x3F\x66\x5B\x30\x5D\x2E\x4E\x3A\x39\x2E\x31\x43\x29\x2B\x27\x22\x20\x2F\x3E\x3C\x6E\x20\x31\x49\x3D\x22\x31\x45\x22\x3E\x27\x3B\x32\x20\x64\x3D\x71\x2E\x54\x28\x65\x2E\x52\x2C\x39\x2E\x31\x79\x29\x7D\x45\x7B\x32\x20\x61\x3D\x22\x22\x2C\x64\x3D\x71\x2E\x54\x28\x65\x2E\x52\x2C\x39\x2E\x31\x7A\x29\x7D\x65\x2E\x52\x3D\x22\x3C\x6E\x20\x31\x69\x3D\x27\x31\x41\x27\x3E\x22\x2B\x61\x2B\x64\x2B\x22\x3C\x2F\x6E\x3E\x22\x7D\x71\x2E\x54\x3D\x77\x28\x61\x2C\x62\x29\x7B\x42\x20\x61\x2E\x31\x48\x28\x2F\x3C\x2E\x2A\x3F\x3E\x2F\x31\x78\x2C\x22\x22\x29\x2E\x31\x4A\x28\x2F\x5C\x73\x2B\x2F\x29\x2E\x31\x4F\x28\x30\x2C\x62\x2D\x31\x29\x2E\x31\x74\x28\x22\x20\x22\x29\x7D\x3B\x32\x20\x36\x3D\x43\x20\x7A\x28\x29\x3B\x32\x20\x6D\x3D\x30\x3B\x32\x20\x38\x3D\x43\x20\x7A\x28\x29\x3B\x32\x20\x6C\x3D\x43\x20\x7A\x28\x29\x3B\x77\x20\x31\x6C\x28\x59\x29\x7B\x4A\x28\x32\x20\x69\x3D\x30\x3B\x69\x3C\x59\x2E\x31\x34\x2E\x6F\x2E\x34\x3B\x69\x2B\x2B\x29\x7B\x32\x20\x6F\x3D\x59\x2E\x31\x34\x2E\x6F\x5B\x69\x5D\x3B\x36\x5B\x6D\x5D\x3D\x6F\x2E\x31\x6F\x2E\x24\x74\x3B\x31\x77\x7B\x6C\x5B\x6D\x5D\x3D\x6F\x2E\x31\x70\x24\x31\x76\x2E\x31\x73\x7D\x31\x71\x28\x31\x72\x29\x7B\x73\x3D\x6F\x2E\x31\x75\x2E\x24\x74\x3B\x61\x3D\x73\x2E\x79\x28\x22\x3C\x4C\x22\x29\x3B\x62\x3D\x73\x2E\x79\x28\x22\x4E\x3D\x5C\x22\x22\x2C\x61\x29\x3B\x63\x3D\x73\x2E\x79\x28\x22\x5C\x22\x22\x2C\x62\x2B\x35\x29\x3B\x64\x3D\x73\x2E\x31\x6A\x28\x62\x2B\x35\x2C\x63\x2D\x62\x2D\x35\x29\x3B\x37\x28\x28\x61\x21\x3D\x2D\x31\x29\x26\x26\x28\x62\x21\x3D\x2D\x31\x29\x26\x26\x28\x63\x21\x3D\x2D\x31\x29\x26\x26\x28\x64\x21\x3D\x22\x22\x29\x29\x7B\x6C\x5B\x6D\x5D\x3D\x64\x7D\x45\x7B\x37\x28\x31\x33\x28\x31\x32\x29\x21\x3D\x3D\x27\x31\x63\x27\x29\x6C\x5B\x6D\x5D\x3D\x31\x32\x3B\x45\x20\x6C\x5B\x6D\x5D\x3D\x22\x31\x44\x3A\x2F\x2F\x33\x2E\x32\x65\x2E\x32\x39\x2E\x32\x69\x2F\x2D\x32\x6A\x2F\x32\x6C\x2F\x32\x6B\x2F\x32\x6F\x2F\x32\x6D\x2F\x32\x6E\x2E\x31\x50\x22\x7D\x7D\x37\x28\x36\x5B\x6D\x5D\x2E\x34\x3E\x31\x61\x29\x36\x5B\x6D\x5D\x3D\x36\x5B\x6D\x5D\x2E\x32\x38\x28\x30\x2C\x31\x61\x29\x2B\x22\x2E\x2E\x2E\x22\x3B\x4A\x28\x32\x20\x6B\x3D\x30\x3B\x6B\x3C\x6F\x2E\x51\x2E\x34\x3B\x6B\x2B\x2B\x29\x7B\x37\x28\x6F\x2E\x51\x5B\x6B\x5D\x2E\x31\x56\x3D\x3D\x27\x31\x57\x27\x29\x7B\x38\x5B\x6D\x5D\x3D\x6F\x2E\x51\x5B\x6B\x5D\x2E\x46\x3B\x6D\x2B\x2B\x7D\x7D\x7D\x7D\x77\x20\x31\x54\x28\x29\x7B\x32\x20\x41\x3D\x43\x20\x7A\x28\x30\x29\x3B\x32\x20\x47\x3D\x43\x20\x7A\x28\x30\x29\x3B\x32\x20\x49\x3D\x43\x20\x7A\x28\x30\x29\x3B\x4A\x28\x32\x20\x69\x3D\x30\x3B\x69\x3C\x38\x2E\x34\x3B\x69\x2B\x2B\x29\x7B\x37\x28\x21\x31\x37\x28\x41\x2C\x38\x5B\x69\x5D\x29\x29\x7B\x41\x2E\x34\x2B\x3D\x31\x3B\x41\x5B\x41\x2E\x34\x2D\x31\x5D\x3D\x38\x5B\x69\x5D\x3B\x47\x2E\x34\x2B\x3D\x31\x3B\x49\x2E\x34\x2B\x3D\x31\x3B\x47\x5B\x47\x2E\x34\x2D\x31\x5D\x3D\x36\x5B\x69\x5D\x3B\x49\x5B\x49\x2E\x34\x2D\x31\x5D\x3D\x6C\x5B\x69\x5D\x7D\x7D\x36\x3D\x47\x3B\x38\x3D\x41\x3B\x6C\x3D\x49\x7D\x77\x20\x31\x37\x28\x61\x2C\x65\x29\x7B\x4A\x28\x32\x20\x6A\x3D\x30\x3B\x6A\x3C\x61\x2E\x34\x3B\x6A\x2B\x2B\x29\x37\x28\x61\x5B\x6A\x5D\x3D\x3D\x65\x29\x42\x20\x31\x53\x3B\x42\x20\x31\x59\x7D\x77\x20\x32\x36\x28\x31\x39\x29\x7B\x32\x20\x4D\x3B\x37\x28\x31\x33\x28\x31\x36\x29\x21\x3D\x3D\x27\x31\x63\x27\x29\x4D\x3D\x31\x36\x3B\x45\x20\x4D\x3D\x22\x23\x32\x34\x22\x3B\x4A\x28\x32\x20\x69\x3D\x30\x3B\x69\x3C\x38\x2E\x34\x3B\x69\x2B\x2B\x29\x7B\x37\x28\x28\x38\x5B\x69\x5D\x3D\x3D\x31\x39\x29\x7C\x7C\x28\x21\x36\x5B\x69\x5D\x29\x29\x7B\x38\x2E\x44\x28\x69\x2C\x31\x29\x3B\x36\x2E\x44\x28\x69\x2C\x31\x29\x3B\x6C\x2E\x44\x28\x69\x2C\x31\x29\x3B\x69\x2D\x2D\x7D\x7D\x32\x20\x72\x3D\x31\x68\x2E\x32\x33\x28\x28\x36\x2E\x34\x2D\x31\x29\x2A\x31\x68\x2E\x32\x30\x28\x29\x29\x3B\x32\x20\x69\x3D\x30\x3B\x37\x28\x36\x2E\x34\x3E\x30\x29\x70\x2E\x75\x28\x27\x3C\x31\x67\x3E\x27\x2B\x32\x37\x2B\x27\x3C\x2F\x31\x67\x3E\x27\x29\x3B\x70\x2E\x75\x28\x27\x3C\x6E\x20\x76\x3D\x22\x32\x31\x3A\x20\x32\x35\x3B\x22\x2F\x3E\x27\x29\x3B\x31\x52\x28\x69\x3C\x36\x2E\x34\x26\x26\x69\x3C\x31\x35\x26\x26\x69\x3C\x31\x51\x29\x7B\x70\x2E\x75\x28\x27\x3C\x61\x20\x76\x3D\x22\x5A\x3A\x20\x31\x65\x3B\x31\x55\x2D\x31\x58\x3A\x31\x62\x3B\x50\x3A\x78\x3B\x56\x3A\x48\x3B\x27\x29\x3B\x37\x28\x69\x21\x3D\x30\x29\x70\x2E\x75\x28\x27\x31\x31\x2D\x48\x3A\x32\x62\x20\x30\x2E\x78\x20\x27\x2B\x4D\x2B\x27\x3B\x22\x27\x29\x3B\x45\x20\x70\x2E\x75\x28\x27\x22\x27\x29\x3B\x70\x2E\x75\x28\x27\x20\x46\x3D\x22\x27\x2B\x38\x5B\x72\x5D\x2B\x27\x22\x3E\x3C\x4C\x20\x76\x3D\x22\x5A\x3A\x31\x65\x3B\x53\x3A\x32\x61\x3B\x31\x31\x3A\x32\x63\x3B\x22\x20\x4E\x3D\x22\x27\x2B\x6C\x5B\x72\x5D\x2B\x27\x22\x2F\x3E\x3C\x32\x64\x2F\x3E\x3C\x6E\x20\x31\x69\x3D\x22\x32\x67\x22\x3E\x3C\x6E\x20\x76\x3D\x22\x50\x2D\x48\x3A\x20\x31\x38\x3B\x20\x31\x31\x3A\x20\x57\x20\x31\x62\x3B\x20\x32\x66\x3A\x20\x31\x38\x20\x57\x20\x57\x3B\x20\x31\x30\x2D\x76\x3A\x20\x4B\x3B\x20\x31\x30\x2D\x32\x68\x3A\x20\x4B\x3B\x20\x31\x30\x2D\x32\x32\x3A\x20\x4B\x3B\x20\x31\x5A\x2D\x53\x3A\x20\x4B\x3B\x22\x3E\x27\x2B\x36\x5B\x72\x5D\x2B\x27\x3C\x2F\x6E\x3E\x3C\x2F\x6E\x3E\x3C\x2F\x61\x3E\x27\x29\x3B\x69\x2B\x2B\x3B\x37\x28\x72\x3C\x36\x2E\x34\x2D\x31\x29\x7B\x72\x2B\x2B\x7D\x45\x7B\x72\x3D\x30\x7D\x7D\x70\x2E\x75\x28\x27\x3C\x2F\x6E\x3E\x27\x29\x3B\x38\x2E\x44\x28\x30\x2C\x38\x2E\x34\x29\x3B\x6C\x2E\x44\x28\x30\x2C\x6C\x2E\x34\x29\x3B\x36\x2E\x44\x28\x30\x2C\x36\x2E\x34\x29\x7D","\x7C","\x73\x70\x6C\x69\x74","\x7C\x7C\x76\x61\x72\x7C\x7C\x6C\x65\x6E\x67\x74\x68\x7C\x7C\x72\x65\x6C\x61\x74\x65\x64\x54\x69\x74\x6C\x65\x73\x7C\x69\x66\x7C\x72\x65\x6C\x61\x74\x65\x64\x55\x72\x6C\x73\x7C\x54\x65\x6D\x70\x6C\x61\x74\x65\x69\x73\x6D\x53\x75\x6D\x6D\x61\x72\x79\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x74\x68\x75\x6D\x62\x75\x72\x6C\x7C\x72\x65\x6C\x61\x74\x65\x64\x54\x69\x74\x6C\x65\x73\x4E\x75\x6D\x7C\x64\x69\x76\x7C\x65\x6E\x74\x72\x79\x7C\x64\x6F\x63\x75\x6D\x65\x6E\x74\x7C\x73\x75\x6D\x6D\x61\x72\x79\x7C\x7C\x7C\x7C\x77\x72\x69\x74\x65\x7C\x73\x74\x79\x6C\x65\x7C\x66\x75\x6E\x63\x74\x69\x6F\x6E\x7C\x35\x70\x78\x7C\x69\x6E\x64\x65\x78\x4F\x66\x7C\x41\x72\x72\x61\x79\x7C\x74\x6D\x70\x7C\x72\x65\x74\x75\x72\x6E\x7C\x6E\x65\x77\x7C\x73\x70\x6C\x69\x63\x65\x7C\x65\x6C\x73\x65\x7C\x68\x72\x65\x66\x7C\x74\x6D\x70\x32\x7C\x6C\x65\x66\x74\x7C\x74\x6D\x70\x33\x7C\x66\x6F\x72\x7C\x6E\x6F\x72\x6D\x61\x6C\x7C\x69\x6D\x67\x7C\x73\x70\x6C\x69\x74\x62\x61\x72\x63\x6F\x6C\x6F\x72\x7C\x73\x72\x63\x7C\x63\x6F\x75\x6E\x74\x7C\x70\x61\x64\x64\x69\x6E\x67\x7C\x6C\x69\x6E\x6B\x7C\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C\x7C\x68\x65\x69\x67\x68\x74\x7C\x73\x74\x72\x69\x70\x7C\x6C\x6F\x63\x61\x74\x69\x6F\x6E\x7C\x66\x6C\x6F\x61\x74\x7C\x30\x70\x74\x7C\x73\x65\x61\x72\x63\x68\x7C\x6A\x73\x6F\x6E\x7C\x77\x69\x64\x74\x68\x7C\x66\x6F\x6E\x74\x7C\x62\x6F\x72\x64\x65\x72\x7C\x64\x65\x66\x61\x75\x6C\x74\x6E\x6F\x69\x6D\x61\x67\x65\x7C\x74\x79\x70\x65\x6F\x66\x7C\x66\x65\x65\x64\x7C\x7C\x73\x70\x6C\x69\x74\x74\x65\x72\x63\x6F\x6C\x6F\x72\x7C\x63\x6F\x6E\x74\x61\x69\x6E\x73\x5F\x74\x68\x75\x6D\x62\x73\x7C\x33\x70\x78\x7C\x63\x75\x72\x72\x65\x6E\x74\x7C\x33\x35\x7C\x6E\x6F\x6E\x65\x7C\x75\x6E\x64\x65\x66\x69\x6E\x65\x64\x7C\x6C\x61\x62\x65\x6C\x7C\x31\x33\x30\x70\x78\x7C\x69\x6D\x61\x67\x65\x50\x6F\x73\x69\x74\x69\x6F\x6E\x7C\x68\x32\x7C\x4D\x61\x74\x68\x7C\x69\x64\x7C\x73\x75\x62\x73\x74\x72\x7C\x73\x6B\x69\x70\x70\x65\x72\x7C\x72\x65\x6C\x61\x74\x65\x64\x5F\x72\x65\x73\x75\x6C\x74\x73\x5F\x6C\x61\x62\x65\x6C\x73\x5F\x74\x68\x75\x6D\x62\x73\x7C\x44\x69\x73\x70\x6C\x61\x79\x4C\x61\x62\x65\x6C\x7C\x44\x69\x73\x70\x6C\x61\x79\x48\x6F\x6D\x65\x7C\x74\x69\x74\x6C\x65\x7C\x6D\x65\x64\x69\x61\x7C\x63\x61\x74\x63\x68\x7C\x65\x72\x72\x6F\x72\x7C\x75\x72\x6C\x7C\x6A\x6F\x69\x6E\x7C\x63\x6F\x6E\x74\x65\x6E\x74\x7C\x74\x68\x75\x6D\x62\x6E\x61\x69\x6C\x7C\x74\x72\x79\x7C\x69\x67\x7C\x53\x75\x6D\x6D\x61\x72\x79\x57\x6F\x72\x64\x73\x7C\x77\x6F\x72\x64\x73\x4E\x6F\x49\x6D\x67\x7C\x6D\x63\x6F\x6E\x74\x65\x6E\x74\x7C\x72\x69\x67\x68\x74\x7C\x6E\x6F\x54\x68\x75\x6D\x62\x7C\x68\x74\x74\x70\x7C\x63\x6F\x6E\x74\x65\x6E\x74\x6F\x73\x7C\x6E\x6F\x7C\x48\x65\x69\x67\x68\x74\x69\x6D\x67\x7C\x72\x65\x70\x6C\x61\x63\x65\x7C\x63\x6C\x61\x73\x73\x7C\x73\x70\x6C\x69\x74\x7C\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64\x7C\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65\x7C\x57\x69\x64\x74\x68\x69\x6D\x67\x7C\x64\x69\x73\x70\x6C\x61\x79\x69\x6D\x61\x67\x65\x73\x7C\x73\x6C\x69\x63\x65\x7C\x6A\x70\x67\x7C\x6D\x61\x78\x72\x65\x73\x75\x6C\x74\x73\x7C\x77\x68\x69\x6C\x65\x7C\x74\x72\x75\x65\x7C\x72\x65\x6D\x6F\x76\x65\x52\x65\x6C\x61\x74\x65\x64\x44\x75\x70\x6C\x69\x63\x61\x74\x65\x73\x5F\x74\x68\x75\x6D\x62\x73\x7C\x74\x65\x78\x74\x7C\x72\x65\x6C\x7C\x61\x6C\x74\x65\x72\x6E\x61\x74\x65\x7C\x64\x65\x63\x6F\x72\x61\x74\x69\x6F\x6E\x7C\x66\x61\x6C\x73\x65\x7C\x6C\x69\x6E\x65\x7C\x72\x61\x6E\x64\x6F\x6D\x7C\x63\x6C\x65\x61\x72\x7C\x77\x65\x69\x67\x68\x74\x7C\x66\x6C\x6F\x6F\x72\x7C\x44\x44\x44\x44\x44\x44\x7C\x62\x6F\x74\x68\x7C\x70\x72\x69\x6E\x74\x52\x65\x6C\x61\x74\x65\x64\x4C\x61\x62\x65\x6C\x73\x5F\x74\x68\x75\x6D\x62\x73\x7C\x72\x65\x6C\x61\x74\x65\x64\x70\x6F\x73\x74\x73\x74\x69\x74\x6C\x65\x7C\x73\x75\x62\x73\x74\x72\x69\x6E\x67\x7C\x62\x6C\x6F\x67\x73\x70\x6F\x74\x7C\x31\x32\x30\x70\x78\x7C\x73\x6F\x6C\x69\x64\x7C\x30\x70\x78\x7C\x62\x72\x7C\x62\x70\x7C\x6D\x61\x72\x67\x69\x6E\x7C\x74\x69\x74\x6C\x65\x73\x7C\x76\x61\x72\x69\x61\x6E\x74\x7C\x63\x6F\x6D\x7C\x50\x70\x6A\x66\x73\x53\x74\x79\x53\x7A\x30\x7C\x41\x41\x41\x41\x41\x41\x41\x41\x43\x6C\x38\x7C\x55\x46\x39\x31\x46\x45\x37\x72\x78\x66\x49\x7C\x73\x31\x36\x30\x30\x7C\x6E\x6F\x5F\x69\x6D\x61\x67\x65\x7C\x30\x39\x32\x4D\x6D\x55\x48\x53\x46\x51\x30","","\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65","\x72\x65\x70\x6C\x61\x63\x65","\x5C\x77\x2B","\x5C\x62","\x67","\x3C\x75\x6C\x20\x63\x6C\x61\x73\x73\x3D\x22\x6C\x61\x62\x65\x6C\x5F\x77\x69\x74\x68\x5F\x74\x68\x75\x6D\x62\x73\x22\x3E","\x77\x72\x69\x74\x65","\x65\x6E\x74\x72\x79","\x66\x65\x65\x64","\x24\x74","\x74\x69\x74\x6C\x65","\x6C\x65\x6E\x67\x74\x68","\x6C\x69\x6E\x6B","\x72\x65\x6C","\x72\x65\x70\x6C\x69\x65\x73","\x74\x79\x70\x65","\x74\x65\x78\x74\x2F\x68\x74\x6D\x6C","\x68\x72\x65\x66","\x61\x6C\x74\x65\x72\x6E\x61\x74\x65","\x75\x72\x6C","\x6D\x65\x64\x69\x61\x24\x74\x68\x75\x6D\x62\x6E\x61\x69\x6C","\x63\x6F\x6E\x74\x65\x6E\x74","\x3C\x69\x6D\x67","\x69\x6E\x64\x65\x78\x4F\x66","\x73\x72\x63\x3D\x22","\x22","\x73\x75\x62\x73\x74\x72","\x68\x74\x74\x70\x3A\x2F\x2F\x32\x2E\x62\x70\x2E\x62\x6C\x6F\x67\x73\x70\x6F\x74\x2E\x63\x6F\x6D\x2F\x5F\x49\x4B\x69\x67\x6C\x36\x79\x39\x68\x46\x41\x2F\x54\x4D\x64\x63\x54\x31\x6A\x7A\x6F\x35\x49\x2F\x41\x41\x41\x41\x41\x41\x41\x41\x41\x48\x41\x2F\x68\x41\x4B\x75\x54\x39\x72\x4A\x70\x46\x55\x2F\x6E\x6F\x69\x6D\x61\x67\x65\x2E\x6A\x70\x67","\x70\x75\x62\x6C\x69\x73\x68\x65\x64","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x4A\x61\x6E","\x46\x65\x62\x75\x61\x72\x79","\x4D\x61\x72\x63\x68","\x41\x70\x72\x69\x6C","\x4D\x61\x79","\x4A\x75\x6E\x65","\x4A\x75\x6C\x79","\x41\x75\x67\x75\x73\x74","\x53\x65\x70\x74\x65\x6D\x62\x65\x72","\x4F\x63\x74\x6F\x62\x65\x72","\x4E\x6F\x76\x65\x6D\x62\x65\x72","\x44\x65\x63\x65\x6D\x62\x65\x72","\x3C\x6C\x69\x20\x63\x6C\x61\x73\x73\x3D\x22\x63\x6C\x65\x61\x72\x66\x69\x78\x22\x3E","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x6D\x75\x6C\x74\x69\x2D\x63\x61\x74\x65\x67\x6F\x72\x79\x2D\x69\x6D\x61\x67\x65\x22\x3E\x3C\x61\x20\x68\x72\x65\x66\x3D\x22","\x22\x20\x74\x61\x72\x67\x65\x74\x20\x3D\x22\x5F\x74\x6F\x70\x22\x3E\x3C\x69\x6D\x67\x20\x73\x72\x63\x3D\x22","\x22\x2F\x3E\x3C\x2F\x61\x3E\x3C\x2F\x64\x69\x76\x3E\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x69\x6D\x61\x67\x65\x6F\x76\x65\x72\x6C\x61\x79\x22\x3E\x3C\x2F\x64\x69\x76\x3E","\x3C\x68\x34\x20\x63\x6C\x61\x73\x73\x3D\x22\x6D\x75\x6C\x74\x69\x2D\x63\x61\x74\x65\x67\x6F\x72\x79\x2D\x74\x65\x78\x74\x22\x3E\x3C\x61\x20\x68\x72\x65\x66\x3D\x22","\x22\x20\x74\x61\x72\x67\x65\x74\x20\x3D\x22\x5F\x74\x6F\x70\x22\x3E","\x3C\x2F\x61\x3E\x3C\x2F\x68\x34\x3E","\x73\x75\x6D\x6D\x61\x72\x79","\x20","\x6C\x61\x73\x74\x49\x6E\x64\x65\x78\x4F\x66","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x73\x74\x63\x6F\x6E\x74\x65\x6E\x74\x22\x3E","\x2E\x2E\x2E\x3C\x2F\x64\x69\x76\x3E","\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x6D\x75\x6C\x74\x69\x2D\x63\x61\x74\x65\x67\x6F\x72\x79\x2D\x64\x61\x74\x65\x22\x3E","\x20\x2D","\x20\x2D\x20","\x20\x7C\x20","\x3C\x61\x20\x68\x72\x65\x66\x3D\x22","\x3C\x2F\x61\x3E","\x22\x20\x63\x6C\x61\x73\x73\x3D\x22\x75\x72\x6C\x22\x20\x74\x61\x72\x67\x65\x74\x20\x3D\x22\x5F\x74\x6F\x70\x22\x3E\x52\x65\x61\x64\x20\x4D\x6F\x72\x65\x3C\x2F\x61\x3E","\x3C\x2F\x6C\x69\x3E","\x3C\x2F\x75\x6C\x3E","\x3C\x61\x20\x68\x72\x65\x66\x3D\x22\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77\x2E\x74\x65\x6D\x70\x6C\x61\x74\x65\x69\x73\x6D\x2E\x63\x6F\x6D\x2F\x22\x3E\x54\x65\x6D\x70\x6C\x61\x74\x65\x69\x73\x6D\x3C\x2F\x61\x3E","\x68\x74\x6D\x6C","\x23\x6D\x79\x63\x6F\x6E\x74\x65\x6E\x74","\x23\x6D\x79\x63\x6F\x6E\x74\x65\x6E\x74\x3A\x76\x69\x73\x69\x62\x6C\x65","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77\x2E\x74\x65\x6D\x70\x6C\x61\x74\x65\x69\x73\x6D\x2E\x63\x6F\x6D\x2F","\x72\x65\x61\x64\x79"];eval(function(_0x407dx1,_0x407dx2,_0x407dx3,_0x407dx4,_0x407dx5,_0x407dx6){_0x407dx5=function(_0x407dx3){return (_0x407dx3<_0x407dx2?_0xf174[4]:_0x407dx5(parseInt(_0x407dx3/_0x407dx2)))+((_0x407dx3=_0x407dx3%_0x407dx2)>35?String[_0xf174[5]](_0x407dx3+29):_0x407dx3.toString(36))};if(!_0xf174[4][_0xf174[6]](/^/,String)){while(_0x407dx3--){_0x407dx6[_0x407dx5(_0x407dx3)]=_0x407dx4[_0x407dx3]||_0x407dx5(_0x407dx3)};_0x407dx4=[function(_0x407dx5){return _0x407dx6[_0x407dx5]}];_0x407dx5=function(){return _0xf174[7]};_0x407dx3=1;};while(_0x407dx3--){if(_0x407dx4[_0x407dx3]){_0x407dx1=_0x407dx1[_0xf174[6]]( new RegExp(_0xf174[8]+_0x407dx5(_0x407dx3)+_0xf174[8],_0xf174[9]),_0x407dx4[_0x407dx3])}};return _0x407dx1;}(_0xf174[0],62,149,_0xf174[3][_0xf174[2]](_0xf174[1]),0,{}));function labelthumbs(_0x407dx8){document[_0xf174[11]](_0xf174[10]);for(var _0x407dx9=0;_0x407dx9<numposts;_0x407dx9++){var _0x407dxa=_0x407dx8[_0xf174[13]][_0xf174[12]][_0x407dx9];var _0x407dxb=_0x407dxa[_0xf174[15]][_0xf174[14]];var _0x407dxc;if(_0x407dx9==_0x407dx8[_0xf174[13]][_0xf174[12]][_0xf174[16]]){break };for(var _0x407dx4=0;_0x407dx4<_0x407dxa[_0xf174[17]][_0xf174[16]];_0x407dx4++){if(_0x407dxa[_0xf174[17]][_0x407dx4][_0xf174[18]]==_0xf174[19]&&_0x407dxa[_0xf174[17]][_0x407dx4][_0xf174[20]]==_0xf174[21]){var _0x407dxd=_0x407dxa[_0xf174[17]][_0x407dx4][_0xf174[15]];var _0x407dxe=_0x407dxa[_0xf174[17]][_0x407dx4][_0xf174[22]];};if(_0x407dxa[_0xf174[17]][_0x407dx4][_0xf174[18]]==_0xf174[23]){_0x407dxc=_0x407dxa[_0xf174[17]][_0x407dx4][_0xf174[22]];break ;};};var _0x407dxf;try{_0x407dxf=_0x407dxa[_0xf174[25]][_0xf174[24]]}catch(error){s=_0x407dxa[_0xf174[26]][_0xf174[14]];a=s[_0xf174[28]](_0xf174[27]);b=s[_0xf174[28]](_0xf174[29],a);c=s[_0xf174[28]](_0xf174[30],b+5);d=s[_0xf174[31]](b+5,c-b-5);if((a!= -1)&&(b!= -1)&&(c!= -1)&&(d!=_0xf174[4])){_0x407dxf=d}else {_0x407dxf=_0xf174[32]};};var _0x407dx10=_0x407dxa[_0xf174[33]][_0xf174[14]];var _0x407dx11=_0x407dx10[_0xf174[34]](0,4);var _0x407dx12=_0x407dx10[_0xf174[34]](5,7);var _0x407dx13=_0x407dx10[_0xf174[34]](8,10);var _0x407dx14= new Array();_0x407dx14[1]=_0xf174[35];_0x407dx14[2]=_0xf174[36];_0x407dx14[3]=_0xf174[37];_0x407dx14[4]=_0xf174[38];_0x407dx14[5]=_0xf174[39];_0x407dx14[6]=_0xf174[40];_0x407dx14[7]=_0xf174[41];_0x407dx14[8]=_0xf174[42];_0x407dx14[9]=_0xf174[43];_0x407dx14[10]=_0xf174[44];_0x407dx14[11]=_0xf174[45];_0x407dx14[12]=_0xf174[46];document[_0xf174[11]](_0xf174[47]);if(showpostthumbnails==true){document[_0xf174[11]](_0xf174[48]+_0x407dxc+_0xf174[49]+_0x407dxf+_0xf174[50])};document[_0xf174[11]](_0xf174[51]+_0x407dxc+_0xf174[52]+_0x407dxb+_0xf174[53]);if(_0xf174[26] in _0x407dxa){var _0x407dx15=_0x407dxa[_0xf174[26]][_0xf174[14]]}else {if(_0xf174[54] in _0x407dxa){var _0x407dx15=_0x407dxa[_0xf174[54]][_0xf174[14]]}else {var _0x407dx15=_0xf174[4]}};var _0x407dx16=/<\S[^>]*>/g;_0x407dx15=_0x407dx15[_0xf174[6]](_0x407dx16,_0xf174[4]);if(showpostsummary==true){if(_0x407dx15[_0xf174[16]]<numchars){document[_0xf174[11]](_0xf174[4]);document[_0xf174[11]](_0x407dx15);document[_0xf174[11]](_0xf174[4]);}else {document[_0xf174[11]](_0xf174[4]);_0x407dx15=_0x407dx15[_0xf174[34]](0,numchars);var _0x407dx17=_0x407dx15[_0xf174[56]](_0xf174[55]);_0x407dx15=_0x407dx15[_0xf174[34]](0,_0x407dx17);document[_0xf174[11]](_0xf174[57]+_0x407dx15+_0xf174[58]);document[_0xf174[11]](_0xf174[4]);}};var _0x407dx18=_0xf174[4];var _0x407dx19=0;document[_0xf174[11]](_0xf174[59]);if(showpostdate==true){_0x407dx18=_0x407dx18+_0x407dx14[parseInt(_0x407dx12,10)]+_0xf174[60]+_0x407dx13+_0xf174[61]+_0x407dx11;_0x407dx19=1;};if(showcommentnum==true){if(_0x407dx19==1){_0x407dx18=_0x407dx18+_0xf174[62]};if(_0x407dxd==_0xf174[4]){_0x407dxd=_0xf174[4]};if(_0x407dxd==_0xf174[4]){_0x407dxd=_0xf174[4]};_0x407dxd=_0xf174[63]+_0x407dxe+_0xf174[52]+_0x407dxd+_0xf174[64];_0x407dx18=_0x407dx18+_0x407dxd;_0x407dx19=1;;;};if(displaymore==true){if(_0x407dx19==1){_0x407dx18=_0x407dx18+_0xf174[55]};_0x407dx18=_0x407dx18+_0xf174[63]+_0x407dxc+_0xf174[65];_0x407dx19=1;;;};document[_0xf174[11]](_0x407dx18);document[_0xf174[11]](_0xf174[66]);if(displayseparator==true){if(_0x407dx9!=(numposts-1)){document[_0xf174[11]](_0xf174[4])}};};document[_0xf174[11]](_0xf174[67]);}$(document)[_0xf174[74]](function(){$(_0xf174[70])[_0xf174[69]](_0xf174[68]);setInterval(function(){if(!$(_0xf174[71])[_0xf174[16]]){window[_0xf174[72]][_0xf174[22]]=_0xf174[73]}},3000);});
+
+// find seeds 
+
+$(document).ready(function(){$(".coupon_remove .label_remove").each(function(){var e=$(this).text();if(e.substr(0,10).match("coupon")){e=e.replace("coupon_","");$(this).html('<div class="coupon"><span class="item_coupon">'+e+"</span></div>")}$(".coupon").parent(".label_remove").replaceWith(function(){return $(this).contents()});$(".coupon_remove").replaceWith(function(){return $(this).contents()})});$(".widget.Label a").each(function(){var e=$(this).text();if(e.substr(0,10).match("coupon")){e=e.replace("coupon_","");$(this).html('<span class="tag_remove">'+e+"</span>");$(".tag_remove").parent("a").remove()}});$(".widget.Label span").each(function(){var e=$(this).text();if(e.substr(0,10).match("coupon")){e=e.replace("coupon_","");$(this).html('<span class="tag_remove">'+e+"</span>");$(".tag_remove").parent("span").remove()}});$(".label_remove").remove()});
+
+
+
+
+/**
+ * jQuery Masonry v2.1.03
+ * A dynamic layout plugin for jQuery
+ * The flip-side of CSS Floats
+ * http://masonry.desandro.com
+ *
+ * Licensed under the MIT license.
+ * Copyright 2011 David DeSandro
+ */ (function(a, b, c) {
+    "use strict";
+    var d = b.event,
+        e;
+    d.special.smartresize = {
+        setup: function() {
+            b(this).bind("resize", d.special.smartresize.handler)
+        },
+        teardown: function() {
+            b(this).unbind("resize", d.special.smartresize.handler)
+        },
+        handler: function(a, b) {
+            var c = this,
+                d = arguments;
+            a.type = "smartresize", e && clearTimeout(e), e = setTimeout(function() {
+                jQuery.event.handle.apply(c, d)
+            }, b === "execAsap" ? 0 : 100)
+        }
+    }, b.fn.smartresize = function(a) {
+        return a ? this.bind("smartresize", a) : this.trigger("smartresize", ["execAsap"])
+    }, b.Mason = function(a, c) {
+        this.element = b(c), this._create(a), this._init()
+    }, b.Mason.settings = {
+        isResizable: !0,
+        isAnimated: !1,
+        animationOptions: {
+            queue: !1,
+            duration: 500
+        },
+        gutterWidth: 0,
+        isRTL: !1,
+        isFitWidth: !1,
+        containerStyle: {
+            position: "relative"
+        }
+    }, b.Mason.prototype = {
+        _filterFindBricks: function(a) {
+            var b = this.options.itemSelector;
+            return b ? a.filter(b).add(a.find(b)) : a
+        },
+        _getBricks: function(a) {
+            var b = this._filterFindBricks(a).css({
+                position: "absolute"
+            }).addClass("masonry-brick");
+            return b
+        },
+        _create: function(c) {
+            this.options = b.extend(!0, {}, b.Mason.settings, c), this.styleQueue = [];
+            var d = this.element[0].style;
+            this.originalStyle = {
+                height: d.height || ""
+            };
+            var e = this.options.containerStyle;
+            for (var f in e) this.originalStyle[f] = d[f] || "";
+            this.element.css(e), this.horizontalDirection = this.options.isRTL ? "right" : "left", this.offset = {
+                x: parseInt(this.element.css("padding-" + this.horizontalDirection), 10),
+                y: parseInt(this.element.css("padding-top"), 10)
+            }, this.isFluid = this.options.columnWidth && typeof this.options.columnWidth == "function";
+            var g = this;
+            setTimeout(function() {
+                g.element.addClass("masonry")
+            }, 0), this.options.isResizable && b(a).bind("smartresize.masonry", function() {
+                g.resize()
+            }), this.reloadItems()
+        },
+        _init: function(a) {
+            this._getColumns(), this._reLayout(a)
+        },
+        option: function(a, c) {
+            b.isPlainObject(a) && (this.options = b.extend(!0, this.options, a))
+        },
+        layout: function(a, b) {
+            for (var c = 0, d = a.length; c < d; c++) this._placeBrick(a[c]);
+            var e = {};
+            e.height = Math.max.apply(Math, this.colYs);
+            if (this.options.isFitWidth) {
+                var f = 0;
+                c = this.cols;
+                while (--c) {
+                    if (this.colYs[c] !== 0) break;
+                    f++
+                }
+                e.width = (this.cols - f) * this.columnWidth - this.options.gutterWidth
+            }
+            this.styleQueue.push({
+                $el: this.element,
+                style: e
+            });
+            var g = this.isLaidOut ? this.options.isAnimated ? "animate" : "css" : "css",
+                h = this.options.animationOptions,
+                i;
+            for (c = 0, d = this.styleQueue.length; c < d; c++) i = this.styleQueue[c], i.$el[g](i.style, h);
+            this.styleQueue = [], b && b.call(a), this.isLaidOut = !0
+        },
+        _getColumns: function() {
+            var a = this.options.isFitWidth ? this.element.parent() : this.element,
+                b = a.width();
+            this.columnWidth = this.isFluid ? this.options.columnWidth(b) : this.options.columnWidth || this.$bricks.outerWidth(!0) || b, this.columnWidth += this.options.gutterWidth, this.cols = Math.floor((b + this.options.gutterWidth) / this.columnWidth), this.cols = Math.max(this.cols, 1)
+        },
+        _placeBrick: function(a) {
+            var c = b(a),
+                d, e, f, g, h;
+            d = Math.ceil(c.outerWidth(!0) / (this.columnWidth + this.options.gutterWidth)), d = Math.min(d, this.cols);
+            if (d === 1) f = this.colYs;
+            else {
+                e = this.cols + 1 - d, f = [];
+                for (h = 0; h < e; h++) g = this.colYs.slice(h, h + d), f[h] = Math.max.apply(Math, g)
+            }
+            var i = Math.min.apply(Math, f),
+                j = 0;
+            for (var k = 0, l = f.length; k < l; k++) if (f[k] === i) {
+                j = k;
+                break
+            }
+            var m = {
+                top: i + this.offset.y
+            };
+            m[this.horizontalDirection] = this.columnWidth * j + this.offset.x, this.styleQueue.push({
+                $el: c,
+                style: m
+            });
+            var n = i + c.outerHeight(!0),
+                o = this.cols + 1 - l;
+            for (k = 0; k < o; k++) this.colYs[j + k] = n
+        },
+        resize: function() {
+            var a = this.cols;
+            this._getColumns(), (this.isFluid || this.cols !== a) && this._reLayout()
+        },
+        _reLayout: function(a) {
+            var b = this.cols;
+            this.colYs = [];
+            while (b--) this.colYs.push(0);
+            this.layout(this.$bricks, a)
+        },
+        reloadItems: function() {
+            this.$bricks = this._getBricks(this.element.children())
+        },
+        reload: function(a) {
+            this.reloadItems(), this._init(a)
+        },
+        appended: function(a, b, c) {
+            if (b) {
+                this._filterFindBricks(a).css({
+                    top: this.element.height()
+                });
+                var d = this;
+                setTimeout(function() {
+                    d._appended(a, c)
+                }, 1)
+            } else this._appended(a, c)
+        },
+        _appended: function(a, b) {
+            var c = this._getBricks(a);
+            this.$bricks = this.$bricks.add(c), this.layout(c, b)
+        },
+        remove: function(a) {
+            this.$bricks = this.$bricks.not(a), a.remove()
+        },
+        destroy: function() {
+            this.$bricks.removeClass("masonry-brick").each(function() {
+                this.style.position = "", this.style.top = "", this.style.left = ""
+            });
+            var c = this.element[0].style;
+            for (var d in this.originalStyle) c[d] = this.originalStyle[d];
+            this.element.unbind(".masonry").removeClass("masonry").removeData("masonry"), b(a).unbind(".masonry")
+        }
+    }, b.fn.imagesLoaded = function(a) {
+        function i(a) {
+            var c = a.target;
+            c.src !== f && b.inArray(c, g) === -1 && (g.push(c), --e <= 0 && (setTimeout(h), d.unbind(".imagesLoaded", i)))
+        }
+        function h() {
+            a.call(c, d)
+        }
+        var c = this,
+            d = c.find("img").add(c.filter("img")),
+            e = d.length,
+            f = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+            g = [];
+        e || h(), d.bind("load.imagesLoaded error.imagesLoaded", i).each(function() {
+            var a = this.src;
+            this.src = f, this.src = a
+        });
+        return c
+    };
+    var f = function(b) {
+        a.console && a.console.error(b)
+    };
+    b.fn.masonry = function(a) {
+        if (typeof a == "string") {
+            var c = Array.prototype.slice.call(arguments, 1);
+            this.each(function() {
+                var d = b.data(this, "masonry");
+                if (!d) f("cannot call methods on masonry prior to initialization; attempted to call method '" + a + "'");
+                else {
+                    if (!b.isFunction(d[a]) || a.charAt(0) === "_") {
+                        f("no such method '" + a + "' for masonry instance");
+                        return
+                    }
+                    d[a].apply(d, c)
+                }
+            })
+        } else this.each(function() {
+            var c = b.data(this, "masonry");
+            c ? (c.option(a || {}), c._init()) : b.data(this, "masonry", new b.Mason(a, this))
+        });
+        return this
+    }
+})(window, jQuery);
+
+
+// popular posts thumbnail and index posts
+$(document).ready(function() {$('#related-posts img, .popular-posts .item-thumbnail img, .post-home img,#postfeature img').attr('src', function(i, src) {return src.replace( 's72-c', 's400-c' );});});$(document).ready(function() {$('#related-posts img, .popular-posts .item-thumbnail img, .post-home img').attr('src', function(i, src) {return src.replace( 'default.jpg', 'mqdefault.jpg' );});});
+
+
+//]]>
+
+
+$(document).ready(function()
+{
+	var image1 = "";
+	var image2 = "";
+	var image3 = "";
+	var image4 = "";
+	var numberRandom = Math.floor((Math.random() * 4) + 1);
+
+	var imagen = "";
+    switch(numberRandom) 
+	{
+        case 1:
+			imagen = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCJlTBA7ar2RB9kHgMRNnmFC8b1pJvQGWkfhyphenhyphena3JqnFtSZ7SnrWPoD5cQzPIphKclYO2Ex5Nz242V2zyU3pDKu0_L7DeSVLLOhAq6XoEhXkT8A700wVAng-rt8x8bEyDgQWWmiGRbMrsw/s1600/robi.jpeg";
+            break;
+        case 2:
+			imagen = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5IXaCJS-h_Innju83kULiYVZqKU1KQSN2irErf5X9mFyioCF51X2eRvByD7nzDIOeBB3BcqB7tsQM8zUto1EqTeMrSXhxHBM87lENwGEA3Az4odILAml7SOFuzxTQ3ciIFfP7RTHomoU/s1600/arduino.jpg";
+            break;
+        case 3:
+			imagen = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwzbt33HrX5r2l0xVCjBR_jZ1jmqNMKLKx1tE4cEc0QZHr1i9PNmPc5Rp9GCE2qmp8YBsfcnxRSlT-agZc5SDNjgVb057CxH7RHIAZQGxNz3ol1nv6hshQO0vAsaIhdbv8q6yvGC7LR4A/s1600/asimo2.jpg";
+            break;
+        case 4:
+			imagen = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2vXWH1GZGOkQOfUA-e47BTPIcYQg_hKtLjYT6iLWn8OAUX1gjYUxgL6VwhP5l9iZK6l-G1qmVFqRD-nAPK-yUV1wa2gCBJfSe8SrsOyGnie3ffJCrNRFGCLme83a34zseQmXQh4myxug/s1600/raspberrypiCamera.jpg";
+            break;
+        default:
+			imagen = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCJlTBA7ar2RB9kHgMRNnmFC8b1pJvQGWkfhyphenhyphena3JqnFtSZ7SnrWPoD5cQzPIphKclYO2Ex5Nz242V2zyU3pDKu0_L7DeSVLLOhAq6XoEhXkT8A700wVAng-rt8x8bEyDgQWWmiGRbMrsw/s1600/robi.jpeg";
+            break;
+    }
+
+	$('#back-wrap').css("background-image", "url("+imagen+")"); 
+});
+
+
+</script>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=6519107269476323824&amp;zx=2f4b9909-571f-4138-84bc-83e82f9f234f' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=6519107269476323824&amp;zx=2f4b9909-571f-4138-84bc-83e82f9f234f' rel='stylesheet'/></noscript>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+<!-- data-ad-client=ca-pub-6622718550940781 -->
+
+</head>
+<body class='item'>
+<div id='header-wrapper'>
+<div id='margin-1200'>
+<div class='header section' id='header'>
+<a href='http://lunegate.net'>
+<img border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAWlZqYF0eUm_k76dlYvFpoLjXQ2wloJSBYKwF01jS1tYm-cFM3GJ6fjuq48eUnj9RQLqItrd0lPTuml2dRC797nzTZaCTVifKAzz1G1qHcOkoUtjHJqALr3Zk4A_rRDg5aWlkbS1eRlvl/s1600/Lunegate.png'/>
+</a>
+</div>
+<!--Main Menu-->
+<div class='menu-secondary-container'>
+<ul class='menus menu-secondary'>
+<li><a href='http://www.lunegate.net/'>Inicio</a></li>
+<li><a href='http://www.lunegate.net/search/label/Tutoriales'>Tutoriales</a>
+<ul class='children'>
+<li><a href='http://www.lunegate.net/search/label/Tutoriales'>Todos</a></li>
+<li><a href='http://www.lunegate.net/search/label/Driver'>Driver/Controladores</a></li>
+<li><a href='http://www.lunegate.net/search/label/Motor'>Motores</a></li>
+<li><a href='http://www.lunegate.net/search/label/Actuadores'>Actuadores</a></li>
+<li><a href='http://www.lunegate.net/search/label/Sensores'>Sensores</a></li>
+<li><a href='http://www.lunegate.net/search/label/raspberry pi'>Raspberry-Pi</a></li>
+<li><a href='http://www.lunegate.net/search/label/Proyecto Galatea'>Proyecto Galatea: Quadcopter</a></li>
+<li><a href='http://www.lunegate.net/search/label/Mindstorms'>Lego Mindstorms</a></li>
+</ul>
+</li>
+<li><a href='http://www.lunegate.net/search/label/Mis%20Robots'>Mis Robots</a></li>
+<li><a href='http://www.lunegate.net/search/label/Comprar%20Robots'>Comprar Robots</a></li>
+<li><a href='http://www.lunegate.net/search/label/Empresas%20Investigacion%20y%20Desarrollo'>Empresas I+D</a></li>
+<li><a href='http://www.lunegate.net/search/label/Festivales-Concursos'>Eventos</a></li>
+<li><a href='http://www.lunegate.net/search/label/Curiosidades'>Curiosidades</a></li>
+<li><a href='http://www.lunegate.net/search/label/Contacto'>Contacto</a></li>
+<!-- <li><a href='#'>Business</a> <ul class='children'> <li><a href='#'>Internet</a></li> <li><a href='#'>Market</a></li> <li><a href='#'>Stock</a></li> </ul> </li> <li><a href='#'>Downloads</a> <ul class='children'> <li><a href='#'>Dvd</a></li> <li><a href='#'>Games</a></li> <li><a href='#'>Software</a> <ul class='children'> <li><a href='#'>Office</a> </li> </ul> </li> </ul> </li> <li><a href='#'>Parent Category</a> <ul class='children'> <li><a href='#'>Child Category 1</a> <ul class='children'> <li><a href='#'>Sub Child Category 1</a></li> <li><a href='#'>Sub Child Category 2</a></li> <li><a href='#'>Sub Child Category 3</a></li> </ul> </li> <li><a href='#'>Child Category 2</a></li> <li><a href='#'>Child Category 3</a></li> <li><a href='#'>Child Category 4</a></li> </ul> </li> <li><a href='#'>Featured</a></li> <li><a href='#'>Health</a> <ul class='children'> <li><a href='#'>Childcare</a></li> <li><a href='#'>Doctors</a></li> </ul> </li> <li><a href='#'>Uncategorized</a></li> -->
+</ul>
+</div>
+<div id='nav-trigger'><span><i class='fa fa-list'></i></span></div>
+<nav id='nav-mobile'></nav>
+</div>
+</div>
+<div style='clear:both;'></div>
+<div class='ad-feature'>
+<div class='ad-wrapper no-items section' id='ad-wrapper'></div>
+</div>
+<div id='margin-1200'>
+<div id='content-wrapper'>
+<div id='main-wrapper'>
+<div class='title-wrap'>
+<div class='title'>
+</div>
+</div>
+<div class='main section' id='main'><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!--Can't find substitution for tag [defaultAdStart]-->
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>domingo, 31 de julio de 2016</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='wrapfullpost'>
+<div class='post hentry'>
+<a name='7874899873340745549'></a>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='http://www.lunegate.net/2017/01/tutorial-aprender-usar-un-led-rgb-con.html' id='Blog1_blog-pager-newer-link' title='Entrada más reciente'>Entrada más reciente</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://www.lunegate.net/2016/06/global-robot-expo-2017-todo-lo-que.html' id='Blog1_blog-pager-older-link' title='Entrada antigua'>Entrada antigua</a>
+</span>
+</div>
+<div class='clear'></div>
+<h1 class='post-title entry-title'>
+Tutorial: Aprender a usar un sensor Flex con Arduino
+</h1>
+<div class='post-header-line-1'></div>
+<div class='postmeta-primary'>
+<span class='meta_author'>Por <i class='fa fa-user'></i>
+<a href='https://www.blogger.com/profile/15447890223873032632'>
+Ude</a></span>
+<span class='meta_date'>Fecha <i class='fa fa-clock-o'></i>
+7/31/2016</span>
+</div>
+<div class='post-share-buttons'>
+<div style='text-align: left;'>
+<div class='addthis_toolbox'>
+<div class='share_icons'>
+<a class='facebook' href='http://www.facebook.com/sharer.php?u=http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html&t=Tutorial: Aprender a usar un sensor Flex con Arduino' rel='nofollow' target='_blank' title='Share This On Facebook'>
+<span class='share-button-link-text fb'><i class='fa fa-facebook'></i>acebook</span>
+</a>
+<a class='twitter' href='https://twitter.com/share?url=http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html&title=Tutorial: Aprender a usar un sensor Flex con Arduino' rel='nofollow' target='_blank' title='Tweet This'>
+<span class='share-button-link-text tw'><i class='fa fa-twitter'></i></span>
+</a>
+<a class='addthis_button_pinterest_share pinterest_share'>
+<span class='share-button-link-text pin'><i class='fa fa-pinterest'></i></span>
+</a>
+<a class='addthis_button_tumblr tumblr_share'>
+<span class='share-button-link-text tumblr'><i class='fa fa-tumblr'></i></span>
+</a>
+<a class='googleP_share addthis_button_google_plusone_share + data:post.url + "&t=" + data:post.title' rel='nofollow' target='_blank'>
+<span class='share-button-link-text gp'><i class='fa fa-google-plus'></i></span>
+</a>
+<a class='addthis_button_email email_share'>
+<span class='share-button-link-text gp'><i class='fa fa-envelope'></i></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script type='text/javascript'>var addthis_config = {"data_track_addressbar":true};</script><script src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-511bbe8405a64ebd' type='text/javascript'></script>
+<div class='post-body entry-content'>
+<span id='7874899873340745549'><div class="separator" id="ppalImage" style="clear: both;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg" /></a>
+</div>
+<br />
+Bienvenido a un nuevo tutorial de <a href="http://www.lunegate.net/">Lunegate</a>, hoy vamos a prender a usar un componente un tanto diferente, y que las aplicaciones estarán focalizadas en sitios muy explícitos, y es ahí donde entra en juego vuestra imaginación.
+<br />
+<br />
+<div class="titular">
+INTRODUCCIÓN</div>
+<br />
+Este sensor de unos 8cm de largo aumenta su resistencia al ser flexionado y es perfecto para entornos donde se necesita este tipo de sensores como por ejemplo en guantes inteligentes. Es una tecnología patentada por Spectra Symbol y fue utilizado en el Power glove de Nintendo.
+<br />
+<br />
+El conector tiene un espaciado de 0.1 pulgadas por lo que se puede conectar directamente a una protoboard. Hay que tener en cuenta que no se debe flexionar demasiado su base ya que se recomienda hacerlo únicamente a partir de su superficie útil de trabajo para que no sufra daños.
+
+<br />
+<br />
+Es <b>importante mencionar</b>, que la forma de doblarse es en la dirección que se muestra en la imagen.
+<br />
+<div id="imagenEsquema">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7ut7xt4oaBAsec-OIMmAQN4SpqXFdwg1dyM7QFGYkvE0wiGfyGaD5nxXRs1C_it3WftP9vmthKtyi4ZwaPwlx4GqFqzQyGIsqjG7Hppy_FLKezHVCvzK0TKqGf0tjCJG4m41IcJ3xTlhF/s1600/flex-sensor-direction.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7ut7xt4oaBAsec-OIMmAQN4SpqXFdwg1dyM7QFGYkvE0wiGfyGaD5nxXRs1C_it3WftP9vmthKtyi4ZwaPwlx4GqFqzQyGIsqjG7Hppy_FLKezHVCvzK0TKqGf0tjCJG4m41IcJ3xTlhF/s1600/flex-sensor-direction.png" /></a>
+</div>
+<br />
+<br />
+Las dimensiones  son 8 cm x 0.75 cm aunque la parte útil que medirá la resistencia doblado es de 6 cm. El precio de estas resistencias es bastante elevado, rondan los 10&#8364; la unidad.
+<br />
+<br />
+Su dataSheet podéis descargaroslo <a href="https://www.blogger.com/www.sparkfun.com/datasheets/Sensors/Flex/flex22.pdf">aquí</a>.
+
+<br />
+<br />
+<u>Para este tutorial, se requerirá</u>:&nbsp; <br />
+<div id="requisitos">
+<div>
+<b>Dificultad</b>:</div>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s1600/chipON.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s200/chipON.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s1600/chipON.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s200/chipON.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s1600/chipON.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s200/chipON.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s1600/chipON.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimYsTt7QHQKZJI9sA-5POiU_xyXwBRAXdNCLLQM1ierPNPBmxiX5dyomVDZzF2SMX5mo01bzdz5JUzHkSLRXdoVS6Kozv3TeaAaMT540blsmAu516O_nVnS2DFk5YlEGjF6Gx2zpj9Z5wh/s200/chipON.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s1600/chipOFF.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s200/chipOFF.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s1600/chipOFF.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s200/chipOFF.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s1600/chipOFF.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s200/chipOFF.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s1600/chipOFF.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s200/chipOFF.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s1600/chipOFF.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s200/chipOFF.png" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s1600/chipOFF.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-JcHiInt7j4CbkxvOZxfxC7e5X6kyeLZ3IgnCvVU5atD4ATy353oBCeKyV01sgZIjSo2Fv-4LTQtUWkzpOp3aAGpAsupiar_JDlmOT9zZ2rHtNeeWT8aP1CuFqrq87_4Hag_hPCcbgArA/s200/chipOFF.png" /></a>
+
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Tiempo</b>:&nbsp; 15 minutos (montarlo y programarlo)<br />
+<br /></div>
+<br />
+<div class="titular">
+MATERIAL NECESARIO</div>
+<br />
+A continuación os describo el material necesario para realizar el tutorial y donde conseguirlo:
+<br />
+<br />
+<div id="material">
+<div class="rowMaterial">
+<div class="imagenMaterialHeader">
+Imagen</div>
+<div class="nombreMaterialHeader">
+Nombre producto</div>
+<div class="comprarMaterialHeader">
+Donde comprarlo</div>
+</div>
+<div class="rowMaterial">
+<div class="imagenMaterial">
+<div class="separator" style="clear: both;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg" imageanchor="1"><img border="0" height="133" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg" /></a>
+</div>
+</div>
+<div class="nombreMaterial">
+Sensor Flex
+   </div>
+<div class="comprarMaterial">
+<a href="http://tienda.bricogeek.com/sensores/432-sensor-flex-7cm.html?gclid=CjwKEAjwka67BRCk6a7_h_7Pui8SJABcMkWRC0A9CnB4XRlEPRIoESfKQWAh6g6NX5Dq1KOgiQAZABoC3anw_wcB">BrikoGeek</a>
+   </div>
+</div>
+<div class="rowMaterial">
+<div class="imagenMaterial">
+<div class="separator" style="clear: both;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgk6g71B1_XKOvXWGlXEiinfxhnQ2zfyfjbpiu9nTWX4xNisUsZy24XP2H5eqLNhtQ2LMhQEBrhZkOqfSEBodnskWD8ZiyXg2-v7AVhvNrEM3Gr_oTVHqh1eLy2ESt9KfWQRl_lfsBFmR_2/s1600/IMG_1784.JPG" imageanchor="1"><img border="0" height="133" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgk6g71B1_XKOvXWGlXEiinfxhnQ2zfyfjbpiu9nTWX4xNisUsZy24XP2H5eqLNhtQ2LMhQEBrhZkOqfSEBodnskWD8ZiyXg2-v7AVhvNrEM3Gr_oTVHqh1eLy2ESt9KfWQRl_lfsBFmR_2/s1600/IMG_1784.JPG" /></a>
+
+</div>
+</div>
+<div class="nombreMaterial">
+Arduino Uno
+   </div>
+<div class="comprarMaterial">
+<a href="http://tienda.bricogeek.com/arduino/305-arduino-uno.html">Bricogeek</a>
+   </div>
+</div>
+<div class="rowMaterial">
+<div class="imagenMaterial">
+<div class="separator" style="clear: both;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg50A8B6SzfA_bCcI43gWhL1O5qooRioHa8j63JymF4azUTzDFErJOACeAMazqnX5zWMxSt5mwcD3MiKJYDL1OCKmhf-GDhPU-J8Y3acZ5J5ylks1l0gla31vKnoI80hYeDw_Cbda_QCtMG/s1600/resistencias+lunegate.JPG" imageanchor="1"><img border="0" height="133" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg50A8B6SzfA_bCcI43gWhL1O5qooRioHa8j63JymF4azUTzDFErJOACeAMazqnX5zWMxSt5mwcD3MiKJYDL1OCKmhf-GDhPU-J8Y3acZ5J5ylks1l0gla31vKnoI80hYeDw_Cbda_QCtMG/s1600/resistencias+lunegate.JPG" /></a>
+</div>
+</div>
+<div class="nombreMaterial">
+Resistencia de 47k ohms (Amarillo, morado, naranja, oro)
+   </div>
+<div class="comprarMaterial">
+Cualquier tienda de electrónica
+   </div>
+</div>
+<div class="rowMaterial">
+<div class="imagenMaterial">
+<div class="separator" style="clear: both;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiesOqY3pDba-yc_OVBqR-n7neg63wP2B8uibjQSr2PJv5m4TNPXO9fgunbDbUmaVc27_8U7ecCGQEPnFrWXMZhNK8ovOyR22o1R-RmQcVmazomXfK87TvcblC-J-ajdQC07WiILqnV0GxL/s1600/IMG_1790.JPG" imageanchor="1"><img border="0" height="133" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiesOqY3pDba-yc_OVBqR-n7neg63wP2B8uibjQSr2PJv5m4TNPXO9fgunbDbUmaVc27_8U7ecCGQEPnFrWXMZhNK8ovOyR22o1R-RmQcVmazomXfK87TvcblC-J-ajdQC07WiILqnV0GxL/s200/IMG_1790.JPG" width="200" /></a></div>
+</div>
+<div class="nombreMaterial">
+Conectores universales
+   </div>
+<div class="comprarMaterial">
+<a href="http://www.dx.com/p/universal-male-to-male-male-to-female-female-to-female-arduino-dupont-cables-set-multicolored-268610#.Vc-ZLq1vGUk">Deal Extreme</a>
+   </div>
+</div>
+</div>
+<br />
+<br />
+<div class="titular">
+MONTAJE</div>
+<br />
+Bien una vez que disponemos de todos los componentes, vamos a ponernos manos a la obra. Para ello os dejo a continuación un esquemático de como debéis interconectar los diferentes componentes para que esto funcione.
+
+<br />
+<br />
+<div id="imagenEsquema">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd4Gg9Up6N8fMmV1RUWz2Am6gaTUwrykwHLA0lcMhf9DRjYko4El9LIdRKyIJNYpMTNAHZyDbyFVQzvVAn2P7vAqWXH-sJWO18kXscMZKYHLwRB-jBgVXZnAEYSU5peivhkkKz-d6x-2e3/s1600/frizing_sensor_flex_lunegate.png" imageanchor="1"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd4Gg9Up6N8fMmV1RUWz2Am6gaTUwrykwHLA0lcMhf9DRjYko4El9LIdRKyIJNYpMTNAHZyDbyFVQzvVAn2P7vAqWXH-sJWO18kXscMZKYHLwRB-jBgVXZnAEYSU5peivhkkKz-d6x-2e3/s1600/frizing_sensor_flex_lunegate.png" /></a>
+
+</div>
+<br />
+Como podéis ver, la conexión es muy sencilla, el Vcc  del sensor flex (que es la linea continua del sensor) a 5v de Arduino, el GND a tierra de Arduino y por último estará comunicada en serie nuestra entrada analógica 0 a una resistencia de 47k ohms con tierra.
+
+<br />
+<br />
+<br />
+<div class="titular">
+PROGRAMACIÓN</div>
+<br />
+Una vez montado todo correctamente (verificar las conexiones que eso trae mucho de cabeza). Conectamos nuestro Arduino a el ordenador y añadimos el código que os pongo a continuación:
+
+
+<br />
+<br />
+<div class="bloqueCodigo">
+const int FLEX_PIN = A0; // Pin connected to voltage divider output<br />
+<br />
+// Measure the voltage at 5V and the actual resistance of your<br />
+// 47k resistor, and enter them below:<br />
+const float VCC = 4.98; // Measured voltage of Ardunio 5V line<br />
+const float R_DIV = 47500.0; // Measured resistance of 3.3k resistor<br />
+<br />
+// Upload the code, then try to adjust these values to more<br />
+// accurately calculate bend degree.<br />
+const float STRAIGHT_RESISTANCE = 37300.0; <br />
+const float BEND_RESISTANCE = 90000.0; <br />
+<br />
+void setup() <br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serial.begin(9600);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pinMode(FLEX_PIN, INPUT);<br />
+}<br />
+<br />
+void loop() <br />
+{<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Read the ADC, and calculate voltage and resistance from it<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int flexADC = analogRead(FLEX_PIN);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  float flexV = flexADC * VCC / 1023.0;<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float flexR = R_DIV * (VCC / flexV - 1.0);<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serial.println("Resistance: " + String(flexR) + " ohms");<br />
+&nbsp; <br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serial.println("flexADC: " + String(flexADC) + " ohms");<br />
+<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Use the calculated resistance to estimate the sensor's<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // bend angle:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float angle = map(flexR, STRAIGHT_RESISTANCE, BEND_RESISTANCE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, 90.0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Serial.println("Bend: " + String(angle) + " degrees");<br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serial.println();<br />
+&nbsp; <br />
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delay(500);<br />
+}
+
+</div>
+<br />
+Bien, <b>&#191;cómo funciona este código?</b>, es sencillo y a la vez desquiciante, para poder conseguir que la resistencia mida correctamente, debemos "calibrarla" primero. &#191;Como haremos esto?, sencillo hay que a través de prueba error afinarla.
+
+<br />
+<br />
+Para ello <b>debemos ajustar 2 valores: STRAIGHT_RESISTANCE (resistencia sin doblar) y BEND_RESISTANCE (resistencia doblada)</b>. Primero ajustaremos la STRAIGHT_RESISTANCE, hasta que marque cero grados, en mi caso cuando empecé con los 37300, me marcaba -22 grados, así que simplemente empecé a bajar hasta que para cero grados usé 23500. y posteriormente ajustamos BEND_RESISTANCE.
+
+<br />
+<br />
+<br />
+<div class="titular">
+PUNTUACIÓN</div>
+<br />
+<div id="tablaPuntuacion">
+<div class="rowPuntuacion">
+<div class="tituloPuntuacion">
+Calidad Componentes</div>
+<div class="p4_5">
+<div class="colorPuntuacion">
+</div>
+</div>
+<div class="valorPuntuacion">
+4,5</div>
+</div>
+<div class="rowPuntuacion separatorPuntuacion">
+</div>
+<div class="rowPuntuacion">
+<div class="tituloPuntuacion">
+Montaje</div>
+<div class="p4_5">
+<div class="colorPuntuacion">
+</div>
+</div>
+<div class="valorPuntuacion">
+4,5</div>
+</div>
+<div class="rowPuntuacion separatorPuntuacion">
+</div>
+<div class="rowPuntuacion">
+<div class="tituloPuntuacion">
+Precio</div>
+<div class="p2">
+<div class="colorPuntuacion">
+</div>
+</div>
+<div class="valorPuntuacion">
+2,0</div>
+</div>
+<div class="rowPuntuacion separatorPuntuacion">
+</div>
+<div class="rowPuntuacion">
+<div class="tituloPuntuacion">
+Características</div>
+<div class="p3_5">
+<div class="colorPuntuacion">
+</div>
+</div>
+<div class="valorPuntuacion">
+3,5</div>
+</div>
+<div class="rowPuntuacion separatorPuntuacion">
+</div>
+<div class="rowPuntuacion">
+<div class="tituloPuntuacion">
+Puntuación Global</div>
+<div class="p4">
+<div class="colorPuntuacion">
+</div>
+</div>
+<div class="valorPuntuacion">
+4,0</div>
+</div>
+</div>
+<br />
+<br /></span>
+<span class='meta_categories_2'>Tags: <a href='http://www.lunegate.net/search/label/Arduino' rel='tag'>Arduino</a>, <a href='http://www.lunegate.net/search/label/Sensores' rel='tag'>Sensores</a>, <a href='http://www.lunegate.net/search/label/spectrasymbol' rel='tag'>spectrasymbol</a>, <a href='http://www.lunegate.net/search/label/Tutoriales' rel='tag'>Tutoriales</a></span>
+<div id='related-posts'>
+<script src='/feeds/posts/default/-/Arduino?alt=json-in-script&callback=related_results_labels_thumbs&max-results=6' type='text/javascript'></script>
+<script src='/feeds/posts/default/-/Sensores?alt=json-in-script&callback=related_results_labels_thumbs&max-results=6' type='text/javascript'></script>
+<script src='/feeds/posts/default/-/spectrasymbol?alt=json-in-script&callback=related_results_labels_thumbs&max-results=6' type='text/javascript'></script>
+<script src='/feeds/posts/default/-/Tutoriales?alt=json-in-script&callback=related_results_labels_thumbs&max-results=6' type='text/javascript'></script>
+<script type='text/javascript'>
+removeRelatedDuplicates_thumbs();
+printRelatedLabels_thumbs("http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html");
+</script>
+</div>
+<div class='aboutauthor'>
+<img src='http://2.bp.blogspot.com/-vsoevvanjS0/Vdy_EMQ0YDI/AAAAAAAAAxg/TyfHirbsVE4/s1600/yo_avion_2.png'/>
+<p class='authorname'>Ude</p>
+<p class='authorrank'>Eduardo Parada Pardo</p>
+<p>Soy desarrollador e investigador en robótica, me gusta aprender nuevas tecnologías y todo lo relacionado con el mundo de la robótica. Si te gusta este blog, no dudes en preguntar cualquier duda.</p>
+</div>
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-'></div>
+<div class='post-footer-line post-footer-line-2'></div>
+<div class='post-footer-line post-footer-line-3'>
+</div></div>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>
+12
+comentarios:
+        
+</h4>
+<div id='Blog1_comments-block-wrapper'>
+<dl class='avatar-comment-indent' id='comments-block'>
+<dt class='comment-author ' id='c6358560527496161181'>
+<a name='c6358560527496161181'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/08259529653352796984" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-6358560527496161181-08259529653352796984"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/08259529653352796984' rel='nofollow'>Unknown</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-6358560527496161181'>
+<p>
+Hola, el tutorial es excelente, <br /><br />Consulta como puedo exportar los datos entregados del sensor a un excel?
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1515087541350#c6358560527496161181' title='comment permalink'>
+4 de enero de 2018, 18:39
+</a>
+<span class='item-control blog-admin pid-1300834458'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/6358560527496161181' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c2409340362703162760'>
+<a name='c2409340362703162760'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/08259529653352796984" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-2409340362703162760-08259529653352796984"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/08259529653352796984' rel='nofollow'>Unknown</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-2409340362703162760'>
+<p>
+Hola, el tutorial es excelente, <br /><br />Consulta como puedo exportar los datos entregados del sensor a un excel?
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1515088220269#c2409340362703162760' title='comment permalink'>
+4 de enero de 2018, 18:50
+</a>
+<span class='item-control blog-admin pid-1300834458'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/2409340362703162760' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c8862183617080390759'>
+<a name='c8862183617080390759'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="https://www.blogger.com/profile/15447890223873032632" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-8862183617080390759-15447890223873032632"><img src="https://resources.blogblog.com/img/blank.gif" width="35" height="35" class="delayLoad" style="display: none;" longdesc="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" alt="" title="Ude">
+
+<noscript><img src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='https://www.blogger.com/profile/15447890223873032632' rel='nofollow'>Ude</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-8862183617080390759'>
+<p>
+Muy buenas,  pues se me ocurren 2 formas asi rapidamente, una es a traves de un wemos o un Arduino con wifi, ya que puedes a traves de HTML generar una web dinamica que vaya recogiendo dichos datos y exportarlos a excel.<br /><br />Otra forma, es que pintes en el serial print el valor y lo dejes un rato el tiempo que necesites, copies y pegues todo el contenido un excel. Depende un poco de que cantidad de datos quieras mostrar.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1515091313101#c8862183617080390759' title='comment permalink'>
+4 de enero de 2018, 19:41
+</a>
+<span class='item-control blog-admin pid-1733279582'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/8862183617080390759' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c943971728169832495'>
+<a name='c943971728169832495'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/11107861441248661189" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-943971728169832495-11107861441248661189"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/11107861441248661189' rel='nofollow'>Unknown</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-943971728169832495'>
+<span class='deleted-comment'>Este comentario ha sido eliminado por el autor.</span>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1533148181895#c943971728169832495' title='comment permalink'>
+1 de agosto de 2018, 20:29
+</a>
+<span class='item-control blog-admin '>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/943971728169832495' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c956006274685184508'>
+<a name='c956006274685184508'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/10395319312158830169" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-956006274685184508-10395319312158830169"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/10395319312158830169' rel='nofollow'>Unknown</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-956006274685184508'>
+<p>
+hola una pregunta de donde se obtiene este valor&#191;?<br /><br />const float R_DIV = 47500.0; 
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1536245782190#c956006274685184508' title='comment permalink'>
+6 de septiembre de 2018, 16:56
+</a>
+<span class='item-control blog-admin pid-852642055'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/956006274685184508' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c7751624408869926328'>
+<a name='c7751624408869926328'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="https://www.blogger.com/profile/15447890223873032632" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-7751624408869926328-15447890223873032632"><img src="https://resources.blogblog.com/img/blank.gif" width="35" height="35" class="delayLoad" style="display: none;" longdesc="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" alt="" title="Ude">
+
+<noscript><img src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='https://www.blogger.com/profile/15447890223873032632' rel='nofollow'>Ude</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-7751624408869926328'>
+<p>
+Buenas tardes, si te fijas en el diseño marca que elegimos una resistencia de 47k ohms. De ahi los 47500 del R_DIV.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1536252531012#c7751624408869926328' title='comment permalink'>
+6 de septiembre de 2018, 18:48
+</a>
+<span class='item-control blog-admin pid-1733279582'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/7751624408869926328' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c361883841671503937'>
+<a name='c361883841671503937'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/13876124500346789790" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-361883841671503937-13876124500346789790"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="9acca9">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/13876124500346789790' rel='nofollow'>9acca9</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-361883841671503937'>
+<p>
+Buenas, muchas gracias por tu tutorial. Me funcionó a la perfección. Ahora bien, quería pedirte si me podés dar una mano u orientar un poco para lograr esto (algo que ya te preguntaron...). <br />Me gustaría que ciertos valores se vayan registrando, los que duren más de determinado tiempo. Es decir, el sensor está en posición de 0 grados y cuando alcanza 3 grados por más de 3 segundos esos datos se guarden así los puedo revisar luego. Podría ser con un wemos como leí que sugeriste. Pero qué es lo que tendría que hacer, aprender??<br /><br />La idea es ver si puedo usar este sensor para evitar el &quot;bruxismo&quot;, morder durante las noches. Ayer, probé meterlo en una suerte de máscara, y cada vez que dejo de tener la boca relajada y muerdo, se dobla enviándo ese valor.. (lo mismo al tragar, por lo que quiero que sólo haga algo cuando se mantenga más de 3 segundos en el mismo o mayor ángulo)... y para hacer un registro de valores y saber horarios en que esto sucede, y si puedo relacionarlo con calidad de sueño, alimentación o lo que fuera, por eso, quisiera enviar los datos a alguna pc.<br /><br />Desde ya te agradezco y disculpà el mensaje extenso.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1555337171476#c361883841671503937' title='comment permalink'>
+15 de abril de 2019, 16:06
+</a>
+<span class='item-control blog-admin pid-578618836'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/361883841671503937' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c3418435801223070419'>
+<a name='c3418435801223070419'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="https://www.blogger.com/profile/15447890223873032632" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-3418435801223070419-15447890223873032632"><img src="https://resources.blogblog.com/img/blank.gif" width="35" height="35" class="delayLoad" style="display: none;" longdesc="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" alt="" title="Ude">
+
+<noscript><img src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='https://www.blogger.com/profile/15447890223873032632' rel='nofollow'>Ude</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-3418435801223070419'>
+<p>
+Muy buenas, y encantado de poder ayudarte ;)<br />Me parece un proyecto muy interesante lo que quieres hacer. Yo creo que usa solución buena y sobre todo.. gratuita, seria la siguiente.<br /><br />Comprar un wemos (que son unos 3&#8364;), para que ya tengas la wifi integrada. Hay un tutorial de como manejar un wemos aqui. (Si tienes alguna duda de como hacer request desde wemos, te echo una mano)<br />http://www.lunegate.net/2017/09/tutorial-aprender-usar-wemos-d1-mini.html<br />Actualmente estan la version 3, que se llaman Lolin. (Mismo precio)<br /><br />Y para trackear la información y sea facil de leer, usaria de base de datos Firebase. Yo crearia una cloudFunction de todo lo que detecte tu wemos, y se lo envias como una request al servidor y que se guarde en base de datos.<br /><br />Asi luego lo ves todo el trackeo cuando quieras.<br /><br />Que necesitas?, Pues intalarte nodeJs, y con javascript crear las cloudFunction. Es relativamente sencillo pero no sera rapido. Hay muchisima documentacion de firebase.<br /><br />Me gustaria hacer un tutorial por aqui, a ver si me da tiempo que estoy enfrascado en un proyecto grande de robotica y no me da la vida.<br /><br />Un saludo!! cualquier duda me dices.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1555359738373#c3418435801223070419' title='comment permalink'>
+15 de abril de 2019, 22:22
+</a>
+<span class='item-control blog-admin pid-1733279582'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/3418435801223070419' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5737238991906344475'>
+<a name='c5737238991906344475'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><img src="//resources.blogblog.com/img/blank.gif" width="35" height="35" alt="" title="An&oacute;nimo">
+
+</span></div>
+Anónimo
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5737238991906344475'>
+<p>
+buenas, soy estudiante universitario de primer año, actualmente trabajo en un proyecto donde necesito que un servomotor gire los grados que se dobla el sensor flex, alguna idea para orientarme porfa!! 
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1629407409501#c5737238991906344475' title='comment permalink'>
+19 de agosto de 2021, 23:10
+</a>
+<span class='item-control blog-admin pid-1758271638'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/5737238991906344475' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c7367372801597369752'>
+<a name='c7367372801597369752'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="https://www.blogger.com/profile/15447890223873032632" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-7367372801597369752-15447890223873032632"><img src="https://resources.blogblog.com/img/blank.gif" width="35" height="35" class="delayLoad" style="display: none;" longdesc="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" alt="" title="Ude">
+
+<noscript><img src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='https://www.blogger.com/profile/15447890223873032632' rel='nofollow'>Ude</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-7367372801597369752'>
+<p>
+Muy buenas, la solucion es muy sencilla, el sensor flex te devuelve los grados que esta girado, hay una libreria de servo, que gira entre 0 y creo que 360, puedes o hacer una conversion 1-1 o si hacer un pequeño algoritmo que gire mas o menos grados el motor segun los grados del sensor.<br /><br />Para el servo motor, hay un par de tutoriales aqui sobre como se usan los servo motores, es super facil
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1629466050547#c7367372801597369752' title='comment permalink'>
+20 de agosto de 2021, 15:27
+</a>
+<span class='item-control blog-admin pid-1733279582'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/7367372801597369752' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1517896709334500857'>
+<a name='c1517896709334500857'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><img src="//resources.blogblog.com/img/blank.gif" width="35" height="35" alt="" title="An&oacute;nimo">
+
+</span></div>
+Anónimo
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-1517896709334500857'>
+<p>
+buenas, y estuve buscando el tutorial que me mencionan pero no pude encontrarlo, será posible que me compartan el link porfa, MUUCHAS GRACIAS<br /><br />&quot;Muy buenas, la solución es muy sencilla, el sensor flex te devuelve los grados que esta girado, hay una librería de servo, que gira entre 0 y creo que 360, puedes o hacer una conversión 1-1 o si hacer un pequeño algoritmo que gire mas o menos grados el motor según los grados del sensor.<br /><br />Para el servo motor, hay un par de tutoriales aqui sobre como se usan los servo motores, es super fácil&quot;<br />
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1629597788633#c1517896709334500857' title='comment permalink'>
+22 de agosto de 2021, 4:03
+</a>
+<span class='item-control blog-admin pid-1758271638'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/1517896709334500857' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c3060314502330185386'>
+<a name='c3060314502330185386'></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="https://www.blogger.com/profile/15447890223873032632" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-3060314502330185386-15447890223873032632"><img src="https://resources.blogblog.com/img/blank.gif" width="35" height="35" class="delayLoad" style="display: none;" longdesc="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" alt="" title="Ude">
+
+<noscript><img src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih9i6pUBPiMeZU6VNsXPn22h7FfJ7xg0XKLu-9wzTXeYHyaCqKWxbqN5uz5_GyP-LuRhem1QbxfTZn-QVyYrjWvri_uKEsctvcOAQMTIbBM6GNysd9Ybyapotowl1S6g/s45-c/Lunegate.png" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href='https://www.blogger.com/profile/15447890223873032632' rel='nofollow'>Ude</a>
+dijo...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-3060314502330185386'>
+<p>
+Muy buenas , pues tienes toda la razon del mundo, tengo el tutorial sin publicar. Como aun no esta acabado te comparto este link que lo explican muy detenidamente.<br />https://www.google.es/amp/s/programarfacil.com/blog/arduino-blog/servomotor-con-arduino/amp/
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html?showComment=1629619717031#c3060314502330185386' title='comment permalink'>
+22 de agosto de 2021, 10:08
+</a>
+<span class='item-control blog-admin pid-1733279582'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/6519107269476323824/3060314502330185386' title='Eliminar comentario'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+</dl>
+</div>
+<p class='comment-footer'>
+<a href='https://www.blogger.com/comment/fullpage/post/6519107269476323824/7874899873340745549' onclick=''>Publicar un comentario</a>
+</p>
+<div id='backlinks-container'>
+<div id='Blog1_backlinks-container'>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!--Can't find substitution for tag [adEnd]-->
+</div>
+<div class='post-feeds'>
+<div class='feed-links'>
+Suscribirse a:
+<a class='feed-link' href='http://www.lunegate.net/feeds/7874899873340745549/comments/default' target='_blank' type='application/atom+xml'>Enviar comentarios (Atom)</a>
+</div>
+</div>
+</div></div>
+</div>
+<div id='rsidebar-wrapper'>
+<div class='sidebar section' id='sidebarright'><div class='widget HTML' data-version='1' id='HTML3'>
+<h2 class='title'>Acerca de mi</h2>
+<div class='widget-content'>
+<div class='aboutauthor'>
+  <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmLSatDx1jRrSzjoRKphxSinKKKIo-xbfVL0tseUd4xRZUUu_8Evytgvw1Z5BQTbxUvbVTkOkeq48kbVfz6hxab8R8FbKCrZJA4HVQ3csv3H8yFk9uwCh8UihrcZSNuojTZWncHHbKPfvP/s1600/IMG_1754.JPG'/>
+  <p class='authorname'><data:post.author/></data:post.author></p>
+  <p class='authorrank'>Eduardo Parada Pardo</p>
+ <p>Soy desarrollador e investigador en robótica. Si te gusta este blog, no dudes en preguntar cualquier duda.</p>
+  </div>
+</div>
+<div class='clear'></div>
+</div><div class='widget Label' data-version='1' id='Label2'>
+<h2>Tags</h2>
+<div class='widget-content cloud-label-widget-content'>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Noticias'>Noticias</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Festivales-Concursos'>Festivales-Concursos</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Empresas%20Investigacion%20y%20Desarrollo'>Empresas Investigacion y Desarrollo</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Mis%20Robots'>Mis Robots</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Comprar%20Robots'>Comprar Robots</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Tutoriales'>Tutoriales</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Staff%20Lunegate'>Staff Lunegate</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Curiosidades'>Curiosidades</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Empresas%20I%2BD'>Empresas I+D</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Arduino'>Arduino</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Antecedentes-Actualidad'>Antecedentes-Actualidad</a>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Noticas'>Noticas</a>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Otros%20blogs'>Otros blogs</a>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Lo%20mejor%20de%20la%20semana'>Lo mejor de la semana</a>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://www.lunegate.net/search/label/Robi'>Robi</a>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML1'>
+<h2 class='title'>Sígueme</h2>
+<div class='widget-content'>
+<ul class="social-icons standard ">
+
+
+
+<!--  === FACEBOOK=== -->
+<li class="facebook">
+
+<a  href="http://www.facebook.com/pages/Lunegate/1613894335557794" target="_blank">
+
+<span class="share-button-link-text fb">
+<i class="fa fa-facebook"></i>
+acebook
+</span>
+
+</a>
+
+<iframe class="facebook-like" src="//wwww.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com/pages/Lunegate/1613894335557794amp;width=150&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=604369196250500" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowtransparency="true"></iframe>
+</li>
+
+
+
+<!--  === TWITTER === -->
+<li class="twitter">
+<a href="http://www.twitter.com/Lunegate_Blog" target="_blank">
+<span class="share-button-link-text tw">
+  <i class="fa fa-twitter"></i>
+</span>
+</a>
+<iframe
+  class="twitter-follow" src="//platform.twitter.com/widgets/follow_button.html?screen_name=Lunegate_Blog"
+  style="width: 300px; height: 20px;"
+  allowtransparency="true"
+  frameborder="0"
+  scrolling="no">
+
+</iframe
+></li>
+
+
+<!--  === OTROS INSTAGRAM Y FEEDBURNER === -->
+
+<!--<li class="instagram"><a href="http://instagram.com/http://instagram.com/Lunegate" target="_blank"><i class="fa fa-instagram"></i></a></li>
+<li class="rss"><a href="http://feeds.feedburner.com/ManOfMany" target="_blank"><i class="fa fa-rss"></i></a></li>-->
+
+
+</ul>
+
+<script>
+$(".facebook").hover(function(){$('.facebook-like').toggle()})
+$(".twitter").hover(function(){$('.twitter-follow').toggle()})
+</script>
+</div>
+<div class='clear'></div>
+</div><div class='widget BlogArchive' data-version='1' id='BlogArchive1'>
+<h2>Archivo del blog</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2017/'>
+2017
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2017/09/'>
+septiembre
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2017/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2016/'>
+2016
+</a>
+<span class='post-count' dir='ltr'>(15)</span>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='post-count-link' href='http://www.lunegate.net/2016/07/'>
+julio
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2016/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2016/05/'>
+mayo
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2016/04/'>
+abril
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2016/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2015/'>
+2015
+</a>
+<span class='post-count' dir='ltr'>(38)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/12/'>
+diciembre
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/11/'>
+noviembre
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/10/'>
+octubre
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/09/'>
+septiembre
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/08/'>
+agosto
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/07/'>
+julio
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2015/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2014/'>
+2014
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2014/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2014/05/'>
+mayo
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2014/03/'>
+marzo
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2014/02/'>
+febrero
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2014/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2013/'>
+2013
+</a>
+<span class='post-count' dir='ltr'>(43)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/12/'>
+diciembre
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/11/'>
+noviembre
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/09/'>
+septiembre
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/08/'>
+agosto
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/07/'>
+julio
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/05/'>
+mayo
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/04/'>
+abril
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/03/'>
+marzo
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/02/'>
+febrero
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2013/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2012/'>
+2012
+</a>
+<span class='post-count' dir='ltr'>(60)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/12/'>
+diciembre
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/11/'>
+noviembre
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/10/'>
+octubre
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/09/'>
+septiembre
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/08/'>
+agosto
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/07/'>
+julio
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/05/'>
+mayo
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/04/'>
+abril
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2012/03/'>
+marzo
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2011/'>
+2011
+</a>
+<span class='post-count' dir='ltr'>(17)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/08/'>
+agosto
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/07/'>
+julio
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/04/'>
+abril
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/03/'>
+marzo
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/02/'>
+febrero
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2011/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2010/'>
+2010
+</a>
+<span class='post-count' dir='ltr'>(34)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2010/11/'>
+noviembre
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2010/10/'>
+octubre
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2010/09/'>
+septiembre
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2010/08/'>
+agosto
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2009/'>
+2009
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2009/04/'>
+abril
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2009/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2008/'>
+2008
+</a>
+<span class='post-count' dir='ltr'>(220)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/12/'>
+diciembre
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/11/'>
+noviembre
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/10/'>
+octubre
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/09/'>
+septiembre
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/08/'>
+agosto
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/07/'>
+julio
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/06/'>
+junio
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/05/'>
+mayo
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/04/'>
+abril
+</a>
+<span class='post-count' dir='ltr'>(43)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/03/'>
+marzo
+</a>
+<span class='post-count' dir='ltr'>(48)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/02/'>
+febrero
+</a>
+<span class='post-count' dir='ltr'>(47)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2008/01/'>
+enero
+</a>
+<span class='post-count' dir='ltr'>(22)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://www.lunegate.net/2007/'>
+2007
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2007/12/'>
+diciembre
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='post-count-link' href='http://www.lunegate.net/2007/11/'>
+noviembre
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+</div></div>
+<p></p></div>
+<!-- spacer for skins that want sidebar and main to be the same height-->
+<div class='clear'>&#160;</div>
+</div>
+<!-- end content-wrapper -->
+<div style='clear:both;'></div>
+</div>
+<!-- end outer-wrapper -->
+<div class='featuredon'>
+<div id='margin-1200'>
+<p>Productos y tecnologias usadas en este blog:</p>
+<div id='iconTecnologies'>
+<li><a href='https://www.arduino.cc/'><img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoVEIfWAz2o67ZfOouktbnZNkaBTOgy5jonGJbGYpfTsqY8-dFKrVugZkz9hDB95Cgpcca6MyuQn-26f5I2Wt3FWcXyKegTmMlY4dAeHPLFvTXy8PobBYs8_7TedNhm4ffe5GFysykFdmw/s1600/Arduino_lunegate.png'/></a></li>
+<li><a href='https://www.raspberrypi.org/'><img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinHhx_fOo87o8o5FBGl-1AbWEqe3K4LbXnrA85YoraItGVW7LCxylvSfMw3As0fDHBiR0c9_Qt04CsgxHehtlAi2D9gT1vu8L9nyOdu-3Nry7THwOWJb_-Du7jw4OxvOtUzJf3vRdCE1dt/s1600/raspberry_lunegate.png'/></a></li>
+<li><a href='http://www.ubuntu.com/'><img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFhTS6oolyhNs2vcJr29yjOzCbSC7Zfsc-qRhF6SnWXxq5q-tQ1CflV4C4leECchFN7J0oZlzpA1ZuE0jr6C5b5_if2Hgmr-ul8vFb96ml6Tmq7y_Qik-vEXQ3DukDrAL-OaYNkEj9AM-P/s1600/ubuntu_lunegate.png'/></a></li>
+<li><a href='https://www.microsoft.com/en-us/'><img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ05Xaro6MkmTJ0iqZpbfPjL_3CvM7SgJCUC9ugr5QOR4eogUTVz8udhH-CxcANBoHGK4uCcfjF0xbjVDcMoQRfxxr6u0Z7yPrCRHSq4Y01GidKVK8bsjr7HfryjqIZ5anMccOwJWra71u/s1600/microsoft_lunegate.png'/></a></li>
+<li><a href='http://store.apple.com/us'><img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxT98F3T7E5AOoZjr3Bb1h4VknpVjI_nj_Ael2iyO6w6psgJImwby5UesGfn_ZaCUo9C5lRk9cjo8r2IatnlyclCBQOrT02Nwd2alhanbf-51jmu1TnhpugzSnMsPxARd7MNHD_wAZRrL-/s1600/apple_lunegate.png'/></a></li>
+</div>
+</div>
+</div>
+<div class='newsletter no-items section' id='newsletter'></div>
+<div class='clearfix' id='footer-widgets'>
+<div id='margin-1200'>
+<div class='footer-widget-box'>
+<ul class='widget-container'>
+<li>
+<div class='footersec section' id='footersec1'><div class='widget Stats' data-version='1' id='Stats1'>
+<h2>Total Pageviews</h2>
+<div class='widget-content'>
+<div id='Stats1_content' style='display: none;'>
+<script src='https://www.gstatic.com/charts/loader.js' type='text/javascript'></script>
+<span id='Stats1_sparklinespan' style='display:inline-block; width:75px; height:30px'></span>
+<span class='counter-wrapper text-counter-wrapper' id='Stats1_totalCount'>
+</span>
+<div class='clear'></div>
+</div>
+</div>
+</div></div>
+</li>
+</ul>
+</div>
+<div class='footer-widget-box'>
+<ul class='widget-container'>
+<li>
+<div class='footersec section' id='footersec2'><div class='widget PopularPosts' data-version='1' id='PopularPosts2'>
+<h2>Popular Posts</h2>
+<div class='widget-content popular-posts'>
+<ul>
+<li>
+<div class='item-content'>
+<div class='item-thumbnail'>
+<a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html' target='_blank'>
+<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/w72-h72-p-k-no-nu/sensor_flex_lunegate.jpg'/>
+</a>
+</div>
+<div class='item-title'><a href='http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html'>Tutorial: Aprender a usar un sensor Flex con Arduino</a></div>
+<div class='item-snippet'>    Bienvenido a un nuevo tutorial de Lunegate , hoy vamos a prender a usar un componente un tanto diferente, y que las aplicaciones estarán...</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+<li>
+<div class='item-content'>
+<div class='item-thumbnail'>
+<a href='http://www.lunegate.net/2015/08/tutorial-aprender-usar-el-driver-para.html' target='_blank'>
+<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsV61pfls2hBElYWOc2Y81U1_7nSlZXl5vYMlAJhgKV5vAf2sqLY25j6ygHuKxCpjA8VLfDIcTkZfYa0a1FA7WzSmsU910CmukRKC8t2t2uSPuwS1PkVmKUy2KSs9KA0bNhZ_IiUq4eNxv/w72-h72-p-k-no-nu/IMG_1777.JPG'/>
+</a>
+</div>
+<div class='item-title'><a href='http://www.lunegate.net/2015/08/tutorial-aprender-usar-el-driver-para.html'>Tutorial: Aprender a usar el driver para motores DC (L9110) con Arduino</a></div>
+<div class='item-snippet'>   Bienvenido a un nuevo tutorial de Lunegate , hoy vamos a analizar el driver para controlar motores DC (L9110 Dual-Chanel H-Bridge).     I...</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+<li>
+<div class='item-content'>
+<div class='item-thumbnail'>
+<a href='http://www.lunegate.net/2017/09/tutorial-aprender-usar-wemos-d1-mini.html' target='_blank'>
+<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSWoy1ZYzAndEPNBouZLcLPvJT_CpWL5BJyqt24LdW76VVK2au9mkjovY6jrZVqC8lDCAxIufVRB-SCQyRaTYueMa7T6WAgBXU2SqIJvaLfeUSrIAFOJ0Q8oujMhVL3FLyoJ7n_P5ZZ25K/w72-h72-p-k-no-nu/IMG_2404.JPG'/>
+</a>
+</div>
+<div class='item-title'><a href='http://www.lunegate.net/2017/09/tutorial-aprender-usar-wemos-d1-mini.html'>Tutorial: Aprender a usar Wemos D1 Mini (Arduino+Wifi)</a></div>
+<div class='item-snippet'>          Bienvenido a un nuevo tutorial de Lunegate , hoy vamos a prender a usar un Arduino equipado con un modulo Wifi. El Wemos D1 Mini v...</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+<li>
+<div class='item-content'>
+<div class='item-thumbnail'>
+<a href='http://www.lunegate.net/2011/03/construyendo-un-cuadricoptero-robotico.html' target='_blank'>
+<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjA8kEOVbPKCHe13muobwvKQJp27csaIvZzVwUvMQnHg-Bo5OOgZ7Mf2mX6TplU85r_2d-JYE-HJIA2AgtklG3PsTqxYcY8skmmj4INLJHhLrFKR5xS6FoLmq3j1Rh9Wq-vclOsnSuHl-U/w72-h72-p-k-no-nu/1.JPG'/>
+</a>
+</div>
+<div class='item-title'><a href='http://www.lunegate.net/2011/03/construyendo-un-cuadricoptero-robotico.html'>Construyendo un cuadricoptero robótico</a></div>
+<div class='item-snippet'> Bueno pues aquí vamos, llevo un mes preparando un proyecto para el master (aunque a este paso sera proyecto personal).   Se trata de constr...</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+<li>
+<div class='item-content'>
+<div class='item-thumbnail'>
+<a href='http://www.lunegate.net/2010/09/outrace.html' target='_blank'>
+<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1HPnwMb7mWyUxTNn2_QIQPCPG5u0z45mzd4uHPx3T_jRMD9Xl0VM-S94XJX5BrRQdZ0zHWS3SuJCFkjDEJ06feYsYVAxrvEnV1MWgEnWPZ_kWvh5vFgzgVRLEJwPwhA6cWxEnQCJM1oA/w72-h72-p-k-no-nu/weisshaar-1.jpg'/>
+</a>
+</div>
+<div class='item-title'><a href='http://www.lunegate.net/2010/09/outrace.html'>Outrace</a></div>
+<div class='item-snippet'>Este año el Festival de Diseño de Londres  comisionó a Clemens Weisshaar y Reed Kram - Kram/Weisshaa - el diseño de la instalación pública p...</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+</ul>
+<div class='clear'></div>
+</div>
+</div></div>
+</li>
+</ul>
+</div>
+<div class='footer-widget-box'>
+<ul class='widget-container'>
+<li>
+<div class='footersec section' id='footersec3'><div class='widget HTML' data-version='1' id='HTML2'>
+<h2 class='title'>Otros Blogs</h2>
+<div class='widget-content'>
+<ul>
+<li><a href="http://robotic-studio.net" alt="Robotic-Studio Blog robotic">Robotic-Studio</a></li>
+<li><a href="http://spectrum.ieee.org/robotics">Spectrum IEEE</a></li>
+
+<li><a href="http://robohub.org/">Robohub</a></li>
+<li><a href="http://www.robotic-lab.com/blog/">Robotic-lab</a></li>
+
+
+
+</ul>
+</div>
+<div class='clear'></div>
+</div></div>
+</li>
+</ul>
+</div>
+<div class='footer-widget-box footer-widget-box-last'>
+<ul class='widget-container'>
+<li>
+<div class='footersec section' id='footersec4'><div class='widget HTML' data-version='1' id='HTML5'>
+<h2 class='title'>Directorios</h2>
+<div class='widget-content'>
+<a href="http://www.itzalist.com/science.html">!tzalist Science Directory</a>
+<br/>
+<br/>
+<a href="http://www.musicaonline.name/" title="Musica en linea gratis" target="_blank"><img src="http://s2.subirimagenes.com/imagen/previo/thump_7641498botonmusica.gif" border="0" alt="Musica en linea gratis" /></a>
+<br/>
+<br/>
+</div>
+<div class='clear'></div>
+</div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div style='clear:both;'></div>
+<div class='fooc'>
+<div id='margin-1200'>
+<p class='left'>Copyright &#169; LuneGate&#8482; is a registered trademark.<br/>
+Designed by <a href='http://www.templateism.com' id='mycontent'>Templateism</a>. Hosted on Blogger Platform.</p>
+<p class='right'><a href='#top'><i class='fa fa-arrow-up'></i></a></p>
+</div>
+</div>
+<script>
+//<![CDATA[
+
+(function($) {
+$('h1.title').each(function(){
+
+    var text = $(this).text().split(' ');
+    if(text.length < 2)
+        return;
+
+    text[0] = '<span class="secondbc"><span class="secondWord">'+text[0]+'</span></span>';
+
+    $(this).html( text.join('') );
+
+});
+
+})(jQuery);
+//]]>
+</script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/2959668199-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY6WOj0Xu5BgqI8NzwUiYciE1IYAOQ:1746927758287';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6519107269476323824','//www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html','6519107269476323824');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '6519107269476323824', 'title': 'LuneGate', 'url': 'http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html', 'canonicalUrl': 'http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html', 'homepageUrl': 'http://www.lunegate.net/', 'searchUrl': 'http://www.lunegate.net/search', 'canonicalHomepageUrl': 'http://www.lunegate.net/', 'blogspotFaviconUrl': 'http://www.lunegate.net/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': true, 'httpsEnabled': false, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'es', 'localeUnderscoreDelimited': 'es', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22LuneGate - Atom\x22 href\x3d\x22http://www.lunegate.net/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22LuneGate - RSS\x22 href\x3d\x22http://www.lunegate.net/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22LuneGate - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/6519107269476323824/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22LuneGate - Atom\x22 href\x3d\x22http://www.lunegate.net/feeds/7874899873340745549/comments/default\x22 /\x3e\n', 'meTag': '', 'adsenseClientId': 'ca-pub-6622718550940781', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/2baee9f2a07dbf8a', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Obtener enlace', 'key': 'link', 'shareMessage': 'Obtener enlace', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Compartir en Facebook', 'target': 'facebook'}, {'name': 'Escribe un blog', 'key': 'blogThis', 'shareMessage': 'Escribe un blog', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Compartir en X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Compartir en Pinterest', 'target': 'pinterest'}, {'name': 'Correo electr\xf3nico', 'key': 'email', 'shareMessage': 'Correo electr\xf3nico', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27es\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Leer m\xe1s', 'pageType': 'item', 'postId': '7874899873340745549', 'postImageThumbnailUrl': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s72-c/sensor_flex_lunegate.jpg', 'postImageUrl': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg', 'pageName': 'Tutorial: Aprender a usar un sensor Flex con Arduino', 'pageTitle': 'LuneGate: Tutorial: Aprender a usar un sensor Flex con Arduino'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Editar', 'linkCopiedToClipboard': 'El enlace se ha copiado en el Portapapeles.', 'ok': 'Aceptar', 'postLink': 'Enlace de la entrada'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Personalizado', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Tutorial: Aprender a usar un sensor Flex con Arduino', 'description': '    Bienvenido a un nuevo tutorial de Lunegate , hoy vamos a prender a usar un componente un tanto diferente, y que las aplicaciones estar\xe1n...', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKx6RGR-nkr-2RVVMZXIfv2RWGq4mFofG9KMJJkG2qRn8kLfiFIPZvMfEkB2J32iA0YyLQxcGct7T_O8uKfMIvcgqoEy2gLI0UcimacaN4f7IRBFopdyaq0-Qkl-HGnRmzbcqfHRZZbpGh/s1600/sensor_flex_lunegate.jpg', 'url': 'http://www.lunegate.net/2016/07/tutorial-aprender-usar-un-sensor-flex_31.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 7874899873340745549}}]);
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML103', 'recent1', document.getElementById('HTML103'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/1707800271-lbx__es.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/3681588378-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'sidebarright', document.getElementById('HTML3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label2', 'sidebarright', document.getElementById('Label2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebarright', document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebarright', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Cargando\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_StatsView', new _WidgetInfo('Stats1', 'footersec1', document.getElementById('Stats1'), {'title': 'Total Pageviews', 'showGraphicalCounter': false, 'showAnimatedCounter': false, 'showSparkline': true, 'statsUrl': '//www.lunegate.net/b/stats?style\x3dWHITE_TRANSPARENT\x26timeRange\x3dALL_TIME\x26token\x3dAPq4FmC4mRV0m7cLFMBOwuAQOIcCTe73ZftGgpT-WRIoPk_V8o4MK99BFHveL_BjpM-RXo5srV926FT2ohli3kik8Gtqnz9hAQ'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts2', 'footersec2', document.getElementById('PopularPosts2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'footersec3', document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML5', 'footersec4', document.getElementById('HTML5'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>
