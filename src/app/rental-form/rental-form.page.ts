@@ -6,10 +6,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';  
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
 
+
 @Component({
   standalone: true,
   selector: 'app-rental-form',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule], 
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule],
   templateUrl: './rental-form.page.html',
   styleUrls: ['./rental-form.page.scss'],
 })
@@ -19,8 +20,6 @@ export class RentalFormPage implements OnInit {
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
-
-  responsiblePersons: string[] = ['Alma Reynoso Álvarez', 'Felipe de Jesús Rocha Rodríguez', 'Paola Lisset Santollo Vargas'];
 
 
   constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService) {
@@ -34,6 +33,7 @@ export class RentalFormPage implements OnInit {
     });
   }
 
+
    async ngOnInit() {
     this.userEmail = sessionStorage.getItem('userEmail');
     if (this.userEmail) {
@@ -43,19 +43,23 @@ export class RentalFormPage implements OnInit {
         this.userInfo = await this.authService.getUserByEmail(this.userEmail);
         console.log('Información del usuario:', this.userInfo);
 
+
         this.rentalForm.patchValue({
           matricula: this.userInfo.matricula || '', // Asegúrate de que el campo exista en la base de datos
           gradeGroup: this.userInfo.gradoGrupo || '', // Asegúrate de que el campo exista en la base de datos
           name: this.userInfo.name || '', // Asegúrate de que el campo exista en la base de datos
         });  
 
+
       } catch (error) {
         console.error('Error al obtener la información del usuario:', error);
       }
 
+
     } else {
       console.log('No hay un email almacenado en sessionStorage.');
     }
+
 
     // Recupera los materiales solicitados desde sessionStorage
     const data = sessionStorage.getItem('rentalFormItems');
@@ -64,6 +68,7 @@ export class RentalFormPage implements OnInit {
     }
   }
 
+
   selectMaterial(item: any) {
     this.selectedMaterial = item;
     this.rentalForm.patchValue({
@@ -71,17 +76,21 @@ export class RentalFormPage implements OnInit {
     });
   }
 
+
   onSubmit() {
     if (this.rentalForm.valid) {
       const formData = this.rentalForm.value;
       formData.requestedItems = this.requestedItems; // Agrega los materiales solicitados al formulario
 
+
       console.log('Formulario enviado:', formData);
+
 
       // Guarda los datos en Firestore
       this.rentalService.addRentalForm(formData)
         .then(() => {
           console.log('Formulario guardado exitosamente en Firestore.');
+
 
           // Actualiza las cantidades disponibles de los materiales
           this.requestedItems.forEach(item => {
@@ -93,6 +102,7 @@ export class RentalFormPage implements OnInit {
                 console.error(`Error al actualizar la cantidad para el material ${item.name}:`, error);
               });
           });
+
 
           // Resetea el formulario después de enviarlo
           this.rentalForm.reset();
@@ -106,3 +116,5 @@ export class RentalFormPage implements OnInit {
     }
   }
 }
+
+

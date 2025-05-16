@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule, Router } from '@angular/router'; // Importa Router
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   standalone: true,
@@ -14,7 +15,9 @@ export class ItemDetailPage implements OnInit {
   item: any = {};
   requestedQuantity: number | null = 1;
 
+
   constructor(private router: Router) {} // Inyecta el servicio Router
+
 
   ngOnInit() {
     const data = sessionStorage.getItem('selectedItem');
@@ -23,8 +26,10 @@ export class ItemDetailPage implements OnInit {
     }
   }
 
+
   validateQuantity(event: any) {
     let value = parseInt(event.target.value, 10);
+
 
     if (isNaN(value)) {
       // Si el valor no es un número, permite que el campo esté vacío temporalmente
@@ -43,9 +48,11 @@ export class ItemDetailPage implements OnInit {
     }
   }
 
+
   isValidQuantity(): boolean {
     return this.requestedQuantity !== null && this.item.quantity !== null && this.requestedQuantity > 0 && this.requestedQuantity <= this.item.quantity;
   }
+
 
   goToForm() {
     if (this.isValidQuantity()) {
@@ -56,19 +63,20 @@ export class ItemDetailPage implements OnInit {
     }
   }
 
+
   goToHome() {
     if (this.isValidQuantity()) {
       console.log(`Cantidad solicitada: ${this.requestedQuantity}`);
-      
+     
       // Recupera el arreglo actual de materiales solicitados desde sessionStorage
       const existingItems = JSON.parse(sessionStorage.getItem('requestedItems') || '[]');
-      
+     
       // Verifica si el material ya existe en la lista
       const existingItemIndex = existingItems.findIndex((item: { name: any; }) => item.name === this.item.name);
       if (existingItemIndex !== -1) {
         // Si ya existe, calcula la nueva cantidad total
         const newQuantity = existingItems[existingItemIndex].quantity + this.requestedQuantity;
-        
+       
         // Ajusta la cantidad al máximo permitido si se excede
         if (newQuantity > this.item.quantity) {
           existingItems[existingItemIndex].quantity = this.item.quantity;
@@ -82,10 +90,10 @@ export class ItemDetailPage implements OnInit {
           quantity: this.requestedQuantity
         });
       }
-      
+     
       // Guarda el arreglo actualizado en sessionStorage
       sessionStorage.setItem('requestedItems', JSON.stringify(existingItems));
-      
+     
       // Redirige al Home
       this.router.navigate(['/home']);
     } else {
@@ -93,3 +101,5 @@ export class ItemDetailPage implements OnInit {
     }
   }
 }
+
+

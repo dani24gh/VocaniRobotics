@@ -4,25 +4,13 @@ ion-content {
   background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
 }
 
+
 .list-container {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.search-container {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: var(--ion-background-color);
-  padding: 8px 0;
-  border-bottom: 1px solid var(--ion-border-color);
-}
-
-.scrollable-content {
-  overflow-y: auto;
-  height: calc(100% - 56px); /* Ajusta el tamaño para que no se superponga con la barra de búsqueda */
-}
 
 ion-item {
   border-radius: 12px;
@@ -34,17 +22,20 @@ ion-item {
   --padding-start: 12px;
 }
 
+
 ion-label h2 {
   margin: 0;
   font-weight: 600;
   color: #333;
 }
 
+
 ion-label p {
   margin: 2px 0 0;
   color: #666;
   font-size: 0.9rem;
 }
+
 
 .circle {
   background: radial-gradient(circle, #ffe600, #f093fb, #6a5acd);
@@ -58,29 +49,33 @@ ion-label p {
   box-shadow: 0 0 10px rgba(255, 213, 0, 0.6);
 }
 
+
 .circle-content {
   font-weight: bold;
   color: white;
   font-size: 1.2rem;
 }
 
+
 .split-screen {
-  display: flex; 
-  flex-direction: row; 
-  height: 100%; 
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
+
 
 .left-pane, .right-pane {
-  flex: 1; 
+  flex: 1;
   padding: 16px;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
+
 
 .left-pane {
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
 }
+
 
 .right-pane {
-  background-color: #eaeaea; 
+  background-color: #eaeaea;
 }
-

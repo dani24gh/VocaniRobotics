@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   standalone: true,
   selector: 'app-home',
@@ -15,8 +16,8 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
   items = [
-    { name: 'Arduino Mega2560 R3', quantity: 3, description: 'Microcontrolador potente para proyectos complejos.', image: 'assets/arduinomega.png' },
-    { name: 'Módulo SiM- mod. SINB00L', quantity: 5, description: 'Permite comunicación GSM/GPRS.', image: 'assets/sim-module.jpg' },
+    { name: 'Arduino Mega2560 R3', quantity: 3, description: 'Microcontrolador potente para proyectos complejos.', image: 'assets/arduino.jpeg' },
+    { name: 'Módulo SiM- mod. SINB00L', quantity: 5, description: 'Permite comunicación GSM/GPRS.', image: 'assets/2.jpeg' },
     { name: 'Capacitores electrolíticos 100uF y 10 uF', quantity: 10, description: 'Capacitores para uso general.', image: 'assets/capacitors.jpg' },
     { name: 'Circuito integrado: Controladores de matriz MAX7219CNG', quantity: 8, description: 'Controlador para matrices de LEDs.', image: 'assets/max7219.jpg' },
     { name: 'Circuito integrado: Puentes H L2930', quantity: 6, description: 'Control de motores DC.', image: 'assets/l2930.jpg' },
@@ -119,9 +120,10 @@ export class HomePage implements OnInit {
   requestedItem: any = null;
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
 
+
   constructor(private authService: AuthService, private router: Router, ) {console.log('Items iniciales:', this.items); // Depuración
   }
-  
+ 
   ngOnInit() {
     // Recupera el material solicitado desde sessionStorage
     const data = sessionStorage.getItem('requestedItem');
@@ -134,6 +136,7 @@ export class HomePage implements OnInit {
       this.requestedItems = JSON.parse(requestedItemsData);
     }
   }
+
 
   filterItems(event: any) {
     const searchTerm = event.target.value ? event.target.value.toLowerCase() : '';
@@ -149,12 +152,15 @@ export class HomePage implements OnInit {
   }
 
 
+
+
   goToDetail(item: any) {
     history.pushState(null, '', '/item-detail');
     sessionStorage.setItem('selectedItem', JSON.stringify(item));
     location.href = '/item-detail';
     console.log('Ir al detalle del ítem:', item);
   }
+
 
   logout() {
     this.authService.logout();
@@ -163,16 +169,19 @@ export class HomePage implements OnInit {
     console.log('Cerrar sesión');
   }
 
+
   // Método para eliminar un material de la lista
   removeItem(index: number) {
     this.requestedItems.splice(index, 1); // Elimina el material del arreglo
     sessionStorage.setItem('requestedItems', JSON.stringify(this.requestedItems)); // Actualiza sessionStorage
   }
 
+
   // Método para editar la cantidad de un material
   editQuantity(index: number) {
     const maxQuantity = this.items.find(item => item.name === this.requestedItems[index].name)?.quantity || 0; // Obtiene la cantidad máxima disponible
     const newQuantity = prompt(`Ingresa la nueva cantidad (máximo ${maxQuantity}):`, this.requestedItems[index].quantity);
+
 
     if (newQuantity !== null && !isNaN(Number(newQuantity)) && Number(newQuantity) > 0 && Number(newQuantity) <= maxQuantity) {
       this.requestedItems[index].quantity = Number(newQuantity); // Actualiza la cantidad
@@ -181,6 +190,7 @@ export class HomePage implements OnInit {
       alert(`Cantidad no válida. Debe ser un número entre 1 y ${maxQuantity}.`);
     }
   }
+
 
   // Método para ir a rental-form y guardar los datos
   goToRentalForm() {

@@ -4,6 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <form [formGroup]="rentalForm" (ngSubmit)="onSubmit()">
     <ion-item>
@@ -11,37 +12,39 @@
       <ion-input type="text" formControlName="gradeGroup"></ion-input>
     </ion-item>
 
+
     <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
 
+
     <ion-item>
       <ion-label position="stacked">Matrícula</ion-label>
-      <ion-input 
-        type="number" 
-        formControlName="matricula" 
+      <ion-input
+        type="number"
+        formControlName="matricula"
         min="1"></ion-input>
     </ion-item>
+
 
     <ion-item>
       <ion-label position="stacked">Fecha de salida</ion-label>
       <ion-input type="date" formControlName="rentalDate"></ion-input>
     </ion-item>
 
-   <ion-item>
-  <ion-label>Persona Responsable</ion-label>
-  <ion-select formControlName="responsiblePerson" placeholder="Selecciona una persona">
-    <ion-select-option *ngFor="let person of responsiblePersons" [value]="person">
-      {{ person }}
-    </ion-select-option>
-  </ion-select>
-</ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Persona responsable (Tutor)</ion-label>
+      <ion-input type="text" formControlName="responsiblePerson"></ion-input>
+    </ion-item>
+
 
     <ion-item>
       <ion-label position="stacked">Fecha término</ion-label>
       <ion-input type="date" formControlName="returnDate"></ion-input>
     </ion-item>
+
 
     <ion-button expand="full" type="submit" [disabled]="!rentalForm.valid">Enviar</ion-button>  </form>
 </ion-content>

@@ -4,6 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <ion-card>
     <img [src]="item.image" *ngIf="item.image" />
@@ -15,11 +16,11 @@
       <p><strong>Cantidad disponible:</strong> {{ item.quantity }}</p>
       <ion-item>
         <ion-label position="stacked">Cantidad a solicitar</ion-label>
-        <ion-input 
-          type="number" 
-          [(ngModel)]="requestedQuantity" 
-          [max]="item.quantity" 
-          [min]="1" 
+        <ion-input
+          type="number"
+          [(ngModel)]="requestedQuantity"
+          [max]="item.quantity"
+          [min]="1"
           placeholder="Ingresa la cantidad"
           required
           (ionInput)="validateQuantity($event)">
