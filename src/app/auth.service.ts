@@ -18,6 +18,13 @@ import { doc, setDoc } from 'firebase/firestore'; // Agrega esto arriba
 export class AuthService {
   constructor(private auth: Auth, private firestore: Firestore) {}
 
+    // Método para verificar si la matrícula ya existe
+    async checkMatriculaExists(matricula: string): Promise<boolean> {
+      const usersCollection = collection(this.firestore, 'users'); // Cambia 'users' por el nombre de tu colección
+      const q = query(usersCollection, where('matricula', '==', matricula));
+      const querySnapshot = await getDocs(q);
+      return !querySnapshot.empty; // Devuelve true si la matrícula ya existe
+    }
   // Registro con verificación de correo
   async register(email: string, password: string) {
     const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);

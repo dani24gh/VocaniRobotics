@@ -40,6 +40,17 @@ export class SignUpPage implements OnInit {
       console.log('Grado y Grupo:', this.gradoGrupo);
       console.log('Email:', this.email);
 
+        // Verificar si la matrícula ya existe
+    const matriculaExists = await this.authService.checkMatriculaExists(this.matricula);
+    if (matriculaExists) {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'La matrícula ya está registrada. Por favor, usa una diferente.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
       const userCredential = await this.authService.register(this.email, this.password);
       const uid = userCredential.user.uid;
   

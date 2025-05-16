@@ -56,6 +56,14 @@ ion-label p {
   font-size: 1.2rem;
 }
 
+.search-container {
+  position: sticky; /* Hace que el contenedor sea fijo */
+  top: 0; /* Fija la barra en la parte superior */
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+  background-color: white; /* Fondo blanco para que no se superponga con otros elementos */
+  padding: 8px 0; /* Espaciado alrededor de la barra */
+}
+
 
 .split-screen {
   display: flex;
