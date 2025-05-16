@@ -34,7 +34,7 @@ export class RentalFormPage implements OnInit {
   }
 
 
-   async ngOnInit() {
+  async ngOnInit() {
     this.userEmail = sessionStorage.getItem('userEmail');
     if (this.userEmail) {
       console.log('Email del usuario:', this.userEmail);

@@ -45,6 +45,16 @@
       <ion-input type="date" formControlName="returnDate"></ion-input>
     </ion-item>
 
+    <h2>Materiales Solicitados</h2>
+    <ion-list>
+      <ion-item *ngFor="let item of requestedItems">
+        <ion-label>
+          <strong>{{ item.name }}</strong><br>
+          Cantidad: {{ item.quantity }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
 
-    <ion-button expand="full" type="submit" [disabled]="!rentalForm.valid">Enviar</ion-button>  </form>
+    <ion-button expand="full" type="submit" [disabled]="!rentalForm.valid">Enviar</ion-button>  
+  </form>
 </ion-content>
