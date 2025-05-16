@@ -1,5 +1,5 @@
 // no toquen mis archivos losers
-button {
+#submit {
     background-color: #ffb6c1;
     color: white;
     border: none;
@@ -21,6 +21,10 @@ button {
       background-color: #ff8fa3;
       transform: scale(0.98);
     }
+  }
+  button{
+    font-size: 1rem;
+    font-weight: bold;
   }
 
   input[type="text"],
