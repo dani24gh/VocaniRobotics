@@ -7,6 +7,8 @@ import { AuthService } from '../auth.service';
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
 
 
+
+
 @Component({
   standalone: true,
   selector: 'app-rental-form',
@@ -22,6 +24,8 @@ export class RentalFormPage implements OnInit {
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
 
 
+
+
   constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
@@ -34,6 +38,8 @@ export class RentalFormPage implements OnInit {
   }
 
 
+
+
   async ngOnInit() {
     this.userEmail = sessionStorage.getItem('userEmail');
     if (this.userEmail) {
@@ -44,6 +50,8 @@ export class RentalFormPage implements OnInit {
         console.log('Información del usuario:', this.userInfo);
 
 
+
+
         this.rentalForm.patchValue({
           matricula: this.userInfo.matricula || '', // Asegúrate de que el campo exista en la base de datos
           gradeGroup: this.userInfo.gradoGrupo || '', // Asegúrate de que el campo exista en la base de datos
@@ -51,14 +59,20 @@ export class RentalFormPage implements OnInit {
         });  
 
 
+
+
       } catch (error) {
         console.error('Error al obtener la información del usuario:', error);
       }
 
 
+
+
     } else {
       console.log('No hay un email almacenado en sessionStorage.');
     }
+
+
 
 
     // Recupera los materiales solicitados desde sessionStorage
@@ -69,6 +83,8 @@ export class RentalFormPage implements OnInit {
   }
 
 
+
+
   selectMaterial(item: any) {
     this.selectedMaterial = item;
     this.rentalForm.patchValue({
@@ -77,13 +93,47 @@ export class RentalFormPage implements OnInit {
   }
 
 
+
+
   onSubmit() {
     if (this.rentalForm.valid) {
       const formData = this.rentalForm.value;
       formData.requestedItems = this.requestedItems; // Agrega los materiales solicitados al formulario
 
 
+
+
       console.log('Formulario enviado:', formData);
+
+
+      // Actualiza las cantidades disponibles de los materiales
+      const storedItems = JSON.parse(sessionStorage.getItem('items') || '[]'); // Obtiene los materiales de sessionStorage
+
+      // Actualiza las cantidades en un solo paso
+      const updatedItems = storedItems.map((storedItem: any) => {
+        const requestedItem = this.requestedItems.find(item => item.name === storedItem.name);
+        if (requestedItem) {
+          const newQuantity = storedItem.quantity - requestedItem.quantity;
+
+          // Verifica que la cantidad no sea negativa
+          // if (newQuantity < 0) {
+          //   // console.error(`Error: La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
+          //   // throw new Error(`La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
+          // }
+
+          return {
+            ...storedItem,
+            quantity: newQuantity // Resta la cantidad solicitada
+          };
+        }
+        return storedItem;
+      });
+
+      // Guarda los datos actualizados en sessionStorage
+      sessionStorage.setItem('items', JSON.stringify(updatedItems));
+      console.log('sessionStorage actualizado:', updatedItems);
+
+
 
 
       // Guarda los datos en Firestore
@@ -104,6 +154,8 @@ export class RentalFormPage implements OnInit {
           });
 
 
+
+
           // Resetea el formulario después de enviarlo
           this.rentalForm.reset();
           this.requestedItems = [];
@@ -116,5 +168,3 @@ export class RentalFormPage implements OnInit {
     }
   }
 }
-
-

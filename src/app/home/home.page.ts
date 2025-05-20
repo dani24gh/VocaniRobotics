@@ -7,6 +7,8 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 
+
+
 @Component({
   standalone: true,
   selector: 'app-home',
@@ -15,7 +17,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-  items = [
+  items: any[] = []; // Arreglo para almacenar los materiales
+  items2 = [
     { name: 'Arduino Mega2560 R3', quantity: 3, description: 'Microcontrolador potente para proyectos complejos.', image: 'assets/arduino.jpeg' },
 { name: 'Módulo SiM- mod. SINB00L', quantity: 5, description: 'Permite comunicación GSM/GPRS.', image: 'assets/2.jpeg' },
 { name: 'Capacitores electrolíticos 100uF y 10 uF', quantity: 10, description: 'Capacitores para uso general.', image: 'assets/3.jpeg' },
@@ -117,15 +120,31 @@ export class HomePage implements OnInit {
 { name: 'Filamento para impresión 3D', quantity: 3, description: 'Filamento para impresora 3D.', image: 'assets/3d-filament.jpg' }
 ];
 
+
   filteredItems = [...this.items]; // Inicialmente, mostrar todos los elementos
   requestedItem: any = null;
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
 
 
-  constructor(private authService: AuthService, private router: Router, ) {console.log('Items iniciales:', this.items); // Depuración
+
+
+  constructor(private authService: AuthService, private router: Router, ) {
+    // console.log('Items iniciales:', this.items); // Depuración
   }
  
   ngOnInit() {
+
+    if(sessionStorage.getItem('items') === null){
+      sessionStorage.setItem('items', JSON.stringify(this.items2)); // Inicializa sessionStorage con los materiales
+      
+      console.log('sessionStorage inicializado con items2:', JSON.parse(sessionStorage.getItem('items') || '[]')); // Depuración
+      this.filteredItems = JSON.parse(sessionStorage.getItem('items') || '[]'); // Recupera los materiales de sessionStorage
+      console.log(this.items); // Depuración
+    } else{
+      console.log('sessionStorage ya inicializado con items2:', JSON.parse(sessionStorage.getItem('items') || '[]')); // Depuración
+      this.filteredItems = JSON.parse(sessionStorage.getItem('items') || '[]'); // Recupera los materiales de sessionStorage
+      console.log(this.items); // Depuración
+    }
     // Recupera el material solicitado desde sessionStorage
     const data = sessionStorage.getItem('requestedItem');
     if (data) {
@@ -137,6 +156,8 @@ export class HomePage implements OnInit {
       this.requestedItems = JSON.parse(requestedItemsData);
     }
   }
+
+
 
 
   filterItems(event: any) {
@@ -155,12 +176,18 @@ export class HomePage implements OnInit {
 
 
 
+
+
+
+
   goToDetail(item: any) {
     history.pushState(null, '', '/item-detail');
     sessionStorage.setItem('selectedItem', JSON.stringify(item));
     location.href = '/item-detail';
     console.log('Ir al detalle del ítem:', item);
   }
+
+
 
 
   logout() {
@@ -171,17 +198,24 @@ export class HomePage implements OnInit {
   }
 
 
+
+
   // Método para eliminar un material de la lista
   removeItem(index: number) {
+    // console.log('Cantidad disponible después de eliminar:', this.items[index].quantity); // Depuración
     this.requestedItems.splice(index, 1); // Elimina el material del arreglo
     sessionStorage.setItem('requestedItems', JSON.stringify(this.requestedItems)); // Actualiza sessionStorage
   }
+
+
 
 
   // Método para editar la cantidad de un material
   editQuantity(index: number) {
     const maxQuantity = this.items.find(item => item.name === this.requestedItems[index].name)?.quantity || 0; // Obtiene la cantidad máxima disponible
     const newQuantity = prompt(`Ingresa la nueva cantidad (máximo ${maxQuantity}):`, this.requestedItems[index].quantity);
+
+
 
 
     if (newQuantity !== null && !isNaN(Number(newQuantity)) && Number(newQuantity) > 0 && Number(newQuantity) <= maxQuantity) {
@@ -191,6 +225,8 @@ export class HomePage implements OnInit {
       alert(`Cantidad no válida. Debe ser un número entre 1 y ${maxQuantity}.`);
     }
   }
+
+
 
 
   // Método para ir a rental-form y guardar los datos
