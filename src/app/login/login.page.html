@@ -4,6 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -11,25 +12,28 @@
     </ion-toolbar>
   </ion-header>
 
+
   <!-- Contenedor centrado -->
   <div class="flex flex-col items-center justify-center min-h-screen px-4">
-    
+   
     <!-- Imagen del Logo -->
     <div class="flex justify-center">
       <img src="assets/LogoUsuario.png" alt="Logo Vocani Robotics" class="w-40 h-40 mb-4" />
     </div>
 
+
     <!-- Formulario -->
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="w-full max-w-md space-y-4">
 
+
       <!-- Email -->
       <div>
-        
+       
         <input type="email" id="email" name="email" [(ngModel)]="email"
           class="block w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Email: " required #emailInput="ngModel" />
-        <div style="color: red;">Ingresa un email valido.</div>
       </div>
+
 
       <!-- Password -->
       <div>
@@ -38,10 +42,11 @@
           placeholder="Contraseña: " required #passwordInput="ngModel" />
       </div>
 
+
       <!-- Botón de login -->
     <div class="flex justify-center">
-  <button type="submit"
-    class="text-white bg-gradient-to-r from-fuchsia-500 to-yellow-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 shadow-lg font-medium rounded text-sm px-5 py-2.5 text-center"
+  <button type="submit" id="submit"
+    class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
     [disabled]="loginForm.invalid">
     Iniciar sesión
   </button>
@@ -49,15 +54,19 @@
 </form>
 
 
+
+
     <!-- Botones secundarios -->
-     <div class="flex justify-center">
-    <button (click)="onSignUp()" class="text-blue-600 underline text-sm">
-      Ir al sign-up
-    </button>
- 
-      <button (click)="onReset()" class="text-blue-600 underline text-sm">
-        ¿Olvidaste tu contraseña?
-      </button>
-    </div>
+     <div class="flex flex-col items-center space-y-2 mt-4">
+  <button (click)="onSignUp()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+<span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+    Ir al sign up
+  </span>
+  </button>
+  
+  <button (click)="onReset()" class="text-blue-600 underline text-sm bg-transparent border-none p-0 m-0 cursor-pointer">
+    ¿Olvidaste tu contraseña?
+  </button>
+</div>
   </div>
 </ion-content>

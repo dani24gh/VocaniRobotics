@@ -1,5 +1,5 @@
 // no toquen mis archvos losers
-button {
+#submit {
     background-color: #add8e6; 
     color: white;
     border: none;
@@ -22,7 +22,11 @@ button {
       transform: scale(0.98);
     }
   }
-  
+  button{
+    font-size: 1rem;
+    font-weight: bold;
+  }
+ 
   input[type="text"],
 input[type="email"],
 input[type="password"] {
