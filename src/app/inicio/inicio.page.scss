@@ -1,11 +1,10 @@
-.custom-gradient-background {
-  background: radial-gradient(circle at center top, 
-    rgba(255, 255, 255, 0.9) 0%, 
-    rgba(255, 192, 203, 0.7) 20%,  /* rosa */
-    rgba(173, 216, 230, 0.7) 40%,  /* azul */
-    rgba(255, 255, 102, 0.6) 60%,  /* amarillo */
-    rgba(186, 85, 211, 0.6) 80%    /* morado */
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
+.gradient-toolbar {
+  --background: none !important;
+  background: linear-gradient(25deg, #8e63f8, #ff70a6, #ffc977) !important;
+}
+
+.gradient-toolbar ion-title {
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
