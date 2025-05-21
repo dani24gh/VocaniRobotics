@@ -5,9 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';  
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
-
-
-
+import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
 
 @Component({
   standalone: true,
@@ -17,7 +15,7 @@ import { RentalService } from '../rental.service'; // Asegúrate de que la ruta 
   styleUrls: ['./rental-form.page.scss'],
 })
 export class RentalFormPage implements OnInit {
-  rentalForm: FormGroup;
+  rentalForm!: FormGroup;
   selectedMaterial: any = null;
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
@@ -26,7 +24,7 @@ export class RentalFormPage implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService, private firestore: Firestore) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
       name: ['', Validators.required],
@@ -95,74 +93,55 @@ export class RentalFormPage implements OnInit {
 
 
 
-  onSubmit() {
+  async onSubmit() {
     if (this.rentalForm.valid) {
-      const formData = this.rentalForm.value;
-      formData.requestedItems = this.requestedItems; // Agrega los materiales solicitados al formulario
+      try {
+        console.log('Formulario enviado:', this.rentalForm.value);
+
+        // Recorre los materiales solicitados y actualiza las cantidades en Firebase
+        for (const requestedItem of this.requestedItems) {
+          const materialRef = doc(this.firestore, `materials/${requestedItem.id}`);
+          const materialSnapshot = await getDoc(materialRef);
+          await this.rentalService.updateMaterialQuantity(requestedItem.name, requestedItem.quantity);
+          console.log(`Cantidad actualizada para el material: ${requestedItem.name}`);
+       
 
 
+          if (materialSnapshot.exists()) {
+            const materialData = materialSnapshot.data();
+            const currentQuantity = materialData['quantity'];
 
+            // Verifica que el campo 'quantity' exista y sea un número
+            if (typeof currentQuantity !== 'number') {
+              console.error(`Error: El campo "quantity" no es un número para el material ${requestedItem.name}.`);
+              throw new Error(`El campo "quantity" no es un número para el material ${requestedItem.name}.`);
+            }
 
-      console.log('Formulario enviado:', formData);
+            // Calcula la nueva cantidad
+            const newQuantity = currentQuantity - requestedItem.quantity;
 
+            // Verifica que la cantidad no sea negativa
+            if (newQuantity < 0) {
+              console.error(`Error: La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
+              throw new Error(`La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
+            }
 
-      // Actualiza las cantidades disponibles de los materiales
-      const storedItems = JSON.parse(sessionStorage.getItem('items') || '[]'); // Obtiene los materiales de sessionStorage
-
-      // Actualiza las cantidades en un solo paso
-      const updatedItems = storedItems.map((storedItem: any) => {
-        const requestedItem = this.requestedItems.find(item => item.name === storedItem.name);
-        if (requestedItem) {
-          const newQuantity = storedItem.quantity - requestedItem.quantity;
-
-          // Verifica que la cantidad no sea negativa
-          // if (newQuantity < 0) {
-          //   // console.error(`Error: La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
-          //   // throw new Error(`La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
-          // }
-
-          return {
-            ...storedItem,
-            quantity: newQuantity // Resta la cantidad solicitada
-          };
+            // Actualiza la cantidad en Firebase
+            await this.rentalService.updateMaterialQuantity(requestedItem.name, requestedItem.quantity);
+            console.log(`Cantidad actualizada para el material: ${requestedItem.name}`);
+          } else {
+            console.error(`El material ${requestedItem.name} no existe en Firebase.`);
+          }
         }
-        return storedItem;
-      });
 
-      // Guarda los datos actualizados en sessionStorage
-      sessionStorage.setItem('items', JSON.stringify(updatedItems));
-      console.log('sessionStorage actualizado:', updatedItems);
+        console.log('Todos los materiales han sido actualizados correctamente.');
 
-
-
-
-      // Guarda los datos en Firestore
-      this.rentalService.addRentalForm(formData)
-        .then(() => {
-          console.log('Formulario guardado exitosamente en Firestore.');
-
-
-          // Actualiza las cantidades disponibles de los materiales
-          this.requestedItems.forEach(item => {
-            this.rentalService.updateMaterialQuantity(item.name, item.quantity)
-              .then(() => {
-                console.log(`Cantidad actualizada para el material: ${item.name}`);
-              })
-              .catch(error => {
-                console.error(`Error al actualizar la cantidad para el material ${item.name}:`, error);
-              });
-          });
-
-
-
-
-          // Resetea el formulario después de enviarlo
-          this.rentalForm.reset();
-          this.requestedItems = [];
-        })
-        .catch(error => {
-          console.error('Error al guardar en Firestore:', error);
-        });
+        // Resetea el formulario después de enviarlo
+        this.rentalForm.reset();
+        this.requestedItems = [];
+      } catch (error) {
+        console.error('Error al actualizar las cantidades en Firebase:', error);
+      }
     } else {
       console.error('El formulario no es válido.');
     }
