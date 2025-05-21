@@ -8,17 +8,10 @@
 <ion-content>
   <form [formGroup]="rentalForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="stacked">Grado - Grupo</ion-label>
-      <ion-input type="text" formControlName="gradeGroup"></ion-input>
-    </ion-item>
-
-
-    <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
-
-
+    
     <ion-item>
       <ion-label position="stacked">Matrícula</ion-label>
       <ion-input
@@ -27,12 +20,20 @@
         min="1"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label position="stacked">Grado - Grupo</ion-label>
+      <ion-input type="text" formControlName="gradeGroup"></ion-input>
+    </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Fecha de salida</ion-label>
+      <ion-label position="stacked">Fecha de renta</ion-label>
       <ion-input type="date" formControlName="rentalDate"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label position="stacked">Fecha término</ion-label>
+      <ion-input type="date" formControlName="returnDate"></ion-input>
+    </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Persona responsable (Tutor)</ion-label>
@@ -44,12 +45,6 @@
         <ion-select-option value="Paola Lisset Santollo Vargas">Paola Lisset Santollo Vargas
         </ion-select-option>
       </ion-select>
-    </ion-item>
-
-
-    <ion-item>
-      <ion-label position="stacked">Fecha término</ion-label>
-      <ion-input type="date" formControlName="returnDate"></ion-input>
     </ion-item>
 
     <h2>Materiales Solicitados</h2>
