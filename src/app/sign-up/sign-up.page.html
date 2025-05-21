@@ -28,9 +28,8 @@
 
       <!-- Matrícula -->
       <div>
-        <!--<label for="matricula">Matrícula</label> -->
-        <input type="text" id="matricula" name="matricula" [(ngModel)]="matricula" required
-          class="block w-full border border-gray-300 rounded px-3 py-2"  placeholder="Matrícula: " />
+        <input type="text" id="matricula" name="matricula" [(ngModel)]="matricula" required     pattern="[0-9]*"
+    inputmode="numeric" maxlength="5"class="block w-full border border-gray-300 rounded px-3 py-2"  placeholder="Matrícula: "oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
       </div>
 
 
