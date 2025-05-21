@@ -46,7 +46,7 @@
             Cantidad Solicitada: {{ item.quantity }}
           </ion-label>
           <ion-button color="primary" (click)="editQuantity(i)">Editar</ion-button>
-          <!--<ion-button color="danger" (click)="removeItem(i)">Eliminar</ion-button>-->
+          <ion-button color="danger" (click)="removeItem(i)">Eliminar</ion-button>
         </ion-item>
       </ion-list>
       <p *ngIf="requestedItems.length === 0">No se ha solicitado ningún material.</p>

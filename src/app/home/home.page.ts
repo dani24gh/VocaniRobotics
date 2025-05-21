@@ -98,4 +98,14 @@ export class HomePage implements OnInit {
     sessionStorage.setItem('rentalFormItems', JSON.stringify(this.requestedItems));
     this.router.navigate(['/rental-form']);
   }
+
+  removeItem(index: number) {
+    // Elimina el material del arreglo requestedItems
+    this.requestedItems.splice(index, 1);
+  
+    // Actualiza sessionStorage con la lista actualizada
+    sessionStorage.setItem('requestedItems', JSON.stringify(this.requestedItems));
+  
+    console.log('Artículo eliminado. Lista actualizada:', this.requestedItems);
+  }
 }
