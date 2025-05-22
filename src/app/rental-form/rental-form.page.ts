@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';  
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
-import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, updateDoc, addDoc, collection } from '@angular/fire/firestore';
 
 @Component({
   standalone: true,
@@ -81,8 +81,6 @@ export class RentalFormPage implements OnInit {
   }
 
 
-
-
   selectMaterial(item: any) {
     this.selectedMaterial = item;
     this.rentalForm.patchValue({
@@ -135,15 +133,32 @@ export class RentalFormPage implements OnInit {
         }
 
         console.log('Todos los materiales han sido actualizados correctamente.');
+5
+        // Guarda el formulario en la colección 'rentals'
+        const formData = {
+          ...this.rentalForm.value,
+          requestedItems: this.requestedItems,
+          fechaRegistro: new Date().toISOString()
+        };
+        await this.rentalService.addRentalForm(formData);
+
+        console.log('Formulario guardado en la colección rentals.');
 
         // Resetea el formulario después de enviarlo
         this.rentalForm.reset();
         this.requestedItems = [];
       } catch (error) {
-        console.error('Error al actualizar las cantidades en Firebase:', error);
+        console.error('Error al actualizar las cantidades en Firebase o guardar el formulario:', error);
       }
     } else {
       console.error('El formulario no es válido.');
     }
   }
+
+  async addRentalForm(formData: any) {
+    const rentalsCollection = collection(this.firestore, 'rentals');
+    return await addDoc(rentalsCollection, formData);
+  }
+
+  
 }
