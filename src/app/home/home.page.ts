@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Firestore, collection, getDocs } from '@angular/fire/firestore';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   standalone: true,
@@ -22,7 +23,8 @@ export class HomePage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private firestore: Firestore
+    private firestore: Firestore,
+    private alertController: AlertController
   ) {}
 
   async ngOnInit() {
@@ -108,4 +110,42 @@ export class HomePage implements OnInit {
   
     console.log('Artículo eliminado. Lista actualizada:', this.requestedItems);
   }
+
+  async addToRequestedItems(item: any) {
+    if (item.quantity === 0) {
+      const alert = await this.alertController.create({
+        header: 'No disponible',
+        message: `El material "${item.name}" no está disponible por el momento.`,
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+    // Verifica si ya está en la lista
+    const exists = this.requestedItems.some(req => req.id === item.id);
+    if (!exists) {
+      this.requestedItems.push({ ...item, quantity: 1 });
+      sessionStorage.setItem('requestedItems', JSON.stringify(this.requestedItems));
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Ya agregado',
+        message: `Ya has agregado "${item.name}" a tu lista de solicitud.`,
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
+  }
+
+  async handleItemClick(item: any) {
+  if (item.quantity === 0) {
+    const alert = await this.alertController.create({
+      header: 'No disponible',
+      message: `El material "${item.name}" no está disponible por el momento.`,
+      buttons: ['OK']
+    });
+    await alert.present();
+  } else {
+    this.goToDetail(item);
+  }
+}
 }
