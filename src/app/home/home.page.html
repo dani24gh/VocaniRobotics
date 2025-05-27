@@ -1,11 +1,13 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="gradient-toolbar">
     <ion-title>
-      VOCANI ROBOTICS LIST
+      VOCANI ROBOTICS
     </ion-title>
     <ion-buttons slot="end">
+     <ion-button fill="clear" (click)="logout()">
+  <ion-icon name="log-out-outline" class="white-icon"></ion-icon>
+</ion-button>
 
-    <ion-button expand="full" color="danger" (click)="logout()">Cerrar sesión</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +16,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">VOCANI ROBOTICS LIST</ion-title>
+      <ion-title size="large">VOCANI ROBOTICS </ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -28,10 +30,10 @@
     <div class="left-pane">
       <ion-list>
         <ion-item *ngFor="let item of filteredItems" button (click)="handleItemClick(item)">
-          <ion-label>
-            <h2>{{ item.name }}</h2>
-            <p>Cantidad: {{ item.quantity }}</p>
+          <ion-label class="material-label">
+            <span class="material-name"><b>{{ item.name }}</b></span>
           </ion-label>
+          <div class="material-quantity-circle">{{ item.quantity }}</div>
         </ion-item>
       </ion-list>
     </div>
@@ -52,7 +54,7 @@
       <p *ngIf="requestedItems.length === 0">No se ha solicitado ningún material.</p>
 
       <!-- Botón para ir a rental-form -->
-      <ion-button expand="full" color="success" [disabled]="requestedItems.length === 0" (click)="goToRentalForm()">
+      <ion-button expand="block" class="custom-gradient-button" [disabled]="requestedItems.length === 0" (click)="goToRentalForm()">
         Continuar a Rental Form
       </ion-button>
     </div>
