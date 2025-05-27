@@ -1,11 +1,11 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar class="gradient-toolbar">
     <ion-title>Detalle del Inventario</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true">
 
-<ion-content>
   <ion-card>
     <img [src]="item.image" *ngIf="item.image" />
     <ion-card-header>
