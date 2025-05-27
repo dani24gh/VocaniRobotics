@@ -25,15 +25,23 @@
       <ion-input type="text" formControlName="gradeGroup"></ion-input>
     </ion-item>
 
+    <!-- rentalDate with error handling -->
     <ion-item>
       <ion-label position="stacked">Fecha de renta</ion-label>
       <ion-input type="date" formControlName="rentalDate"></ion-input>
     </ion-item>
+    <div *ngIf="rentalForm.get('rentalDate')?.hasError('startBeforeToday')">
+      <ion-text color="danger">La fecha de inicio no puede ser antes de hoy.</ion-text>
+    </div>
 
+    <!-- returnDate with error handling -->
     <ion-item>
       <ion-label position="stacked">Fecha término</ion-label>
       <ion-input type="date" formControlName="returnDate"></ion-input>
     </ion-item>
+    <div *ngIf="rentalForm.hasError('endSameAsStart')">
+      <ion-text color="danger">La fecha de término no puede ser igual a la de inicio.</ion-text>
+    </div>
 
     <ion-item>
       <ion-label position="stacked">Persona responsable (Tutor)</ion-label>

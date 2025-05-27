@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';  
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
 import { Firestore, doc, getDoc, updateDoc, addDoc, collection } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -21,10 +22,13 @@ export class RentalFormPage implements OnInit {
   userInfo: any = null; // Variable para almacenar la información del usuario
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
 
-
-
-
-  constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService, private firestore: Firestore) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private rentalService: RentalService,
+    private firestore: Firestore,
+    private router: Router // <-- agrega esto
+  ) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
       name: ['', Validators.required],
@@ -35,9 +39,6 @@ export class RentalFormPage implements OnInit {
     });
   }
 
-
-
-
   async ngOnInit() {
     this.userEmail = sessionStorage.getItem('userEmail');
     if (this.userEmail) {
@@ -47,31 +48,19 @@ export class RentalFormPage implements OnInit {
         this.userInfo = await this.authService.getUserByEmail(this.userEmail);
         console.log('Información del usuario:', this.userInfo);
 
-
-
-
         this.rentalForm.patchValue({
           matricula: this.userInfo.matricula || '', // Asegúrate de que el campo exista en la base de datos
           gradeGroup: this.userInfo.gradoGrupo || '', // Asegúrate de que el campo exista en la base de datos
           name: this.userInfo.name || '', // Asegúrate de que el campo exista en la base de datos
         });  
 
-
-
-
       } catch (error) {
         console.error('Error al obtener la información del usuario:', error);
       }
 
-
-
-
     } else {
       console.log('No hay un email almacenado en sessionStorage.');
     }
-
-
-
 
     // Recupera los materiales solicitados desde sessionStorage
     const data = sessionStorage.getItem('rentalFormItems');
@@ -80,16 +69,12 @@ export class RentalFormPage implements OnInit {
     }
   }
 
-
   selectMaterial(item: any) {
     this.selectedMaterial = item;
     this.rentalForm.patchValue({
       material: item.name,
     });
   }
-
-
-
 
   async onSubmit() {
     if (this.rentalForm.valid) {
@@ -103,8 +88,6 @@ export class RentalFormPage implements OnInit {
           await this.rentalService.updateMaterialQuantity(requestedItem.name, requestedItem.quantity);
           console.log(`Cantidad actualizada para el material: ${requestedItem.name}`);
        
-
-
           if (materialSnapshot.exists()) {
             const materialData = materialSnapshot.data();
             const currentQuantity = materialData['quantity'];
@@ -133,7 +116,7 @@ export class RentalFormPage implements OnInit {
         }
 
         console.log('Todos los materiales han sido actualizados correctamente.');
-5
+
         // Guarda el formulario en la colección 'rentals'
         const formData = {
           ...this.rentalForm.value,
@@ -147,6 +130,13 @@ export class RentalFormPage implements OnInit {
         // Resetea el formulario después de enviarlo
         this.rentalForm.reset();
         this.requestedItems = [];
+        sessionStorage.removeItem('requestedItems');
+        sessionStorage.removeItem('rentalFormItems');
+
+        // Navega a Home y recarga la página
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       } catch (error) {
         console.error('Error al actualizar las cantidades en Firebase o guardar el formulario:', error);
       }
@@ -160,5 +150,4 @@ export class RentalFormPage implements OnInit {
     return await addDoc(rentalsCollection, formData);
   }
 
-  
 }
