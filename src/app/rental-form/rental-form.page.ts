@@ -132,7 +132,7 @@ export class RentalFormPage implements OnInit {
         this.requestedItems = [];
         sessionStorage.removeItem('requestedItems');
         sessionStorage.removeItem('rentalFormItems');
-
+        sessionStorage.setItem('rentalSuccess', 'true');
         // Navega a Home y recarga la página
         this.router.navigate(['/home']).then(() => {
           window.location.reload();

@@ -40,6 +40,17 @@ export class HomePage implements OnInit {
     } catch (error) {
       console.error('Error al inicializar la página:', error);
     }
+
+    // Mostrar alerta de éxito si existe la bandera
+    if (sessionStorage.getItem('rentalSuccess') === 'true') {
+      const alert = await this.alertController.create({
+        header: '¡Éxito!',
+        message: 'La renta se realizó correctamente.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      sessionStorage.removeItem('rentalSuccess');
+    }
   }
 
   async loadMaterials() {
