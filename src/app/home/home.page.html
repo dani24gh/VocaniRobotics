@@ -39,15 +39,19 @@
   </div>
   <!-- Segunda mitad: Materiales solicitados (debe ir a la derecha en escritorio) -->
   <div class="right-pane">
-    <h2>Materiales solicitados</h2>
+    <h2>Materiales por solicitar</h2>
     <ion-list>
       <ion-item *ngFor="let item of requestedItems; let i = index">
         <ion-label>
           <strong>{{ item.name }}</strong><br>
           Cantidad Solicitada: {{ item.quantity }}
         </ion-label>
-        <ion-button color="primary" (click)="editQuantity(i)">Editar</ion-button>
-        <ion-button color="danger" (click)="removeItem(i)">Eliminar</ion-button>
+        <ion-button color="primary" (click)="editQuantity(i)">
+  <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+</ion-button>
+<ion-button color="danger" (click)="removeItem(i)">
+  <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+</ion-button>
       </ion-item>
     </ion-list>
     <p *ngIf="requestedItems.length === 0">No se ha solicitado ningún material.</p>
