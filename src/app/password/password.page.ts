@@ -68,7 +68,10 @@ async onReset() {
         message: 'Se ha mandado un correo para restablecer la contraseña.',
         buttons: ['OK']
       });
-      await alert.present();
+            await alert.present();
+      await alert.onDidDismiss(); // Espera a que el usuario cierre la alerta
+      this.router.navigate(['/login']); // Redirige al login
+
     } catch (error) {
       const alert = await this.alertController.create({
         header: 'Error',

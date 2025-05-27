@@ -7,7 +7,8 @@ import { AuthService } from '../auth.service';
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
 import { Firestore, doc, getDoc, updateDoc, addDoc, collection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-
+import { AlertController } from '@ionic/angular';
+import { P } from '@angular/common/platform_location.d-BWJDgVlg';
 @Component({
   standalone: true,
   selector: 'app-rental-form',
@@ -29,7 +30,8 @@ export class RentalFormPage implements OnInit {
     private authService: AuthService,
     private rentalService: RentalService,
     private firestore: Firestore,
-    private router: Router // <-- agrega esto
+    private router: Router, // <-- agrega esto
+    private alertController: AlertController // <-- agrega esto
   ) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
@@ -100,12 +102,36 @@ export class RentalFormPage implements OnInit {
     });
   }
 
+  // Función auxiliar para obtener solo la parte de fecha (YYYY-MM-DD)
+  toDateString(date: string): string {
+    return new Date(date).toISOString().split('T')[0];
+  }
+
   async onSubmit() {
-    // Validación extra antes de enviar
     const rentalDate = this.rentalForm.value.rentalDate;
     const returnDate = this.rentalForm.value.returnDate;
-    if (returnDate < rentalDate) {
-      console.error('La fecha de entrega no puede ser antes de la fecha de salida.');
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+
+    // Validar que la fecha de inicio no sea antes de hoy
+    if (!rentalDate || this.toDateString(rentalDate) < todayStr) {
+      const alert = await this.alertController.create({
+        header: 'Fecha inválida',
+        message: 'La fecha de inicio no puede ser anterior a hoy.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    // Validar que la fecha de entrega no sea antes de la de inicio
+    if (!returnDate || this.toDateString(returnDate) < this.toDateString(rentalDate)) {
+      const alert = await this.alertController.create({
+        header: 'Fecha inválida',
+        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio.',
+        buttons: ['OK']
+      });
+      await alert.present();
       return;
     }
 
