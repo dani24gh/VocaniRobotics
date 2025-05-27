@@ -6,7 +6,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';  
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
 import { Firestore, doc, getDoc, updateDoc, addDoc, collection } from '@angular/fire/firestore';
-
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { P } from '@angular/common/platform_location.d-BWJDgVlg';
 @Component({
   standalone: true,
   selector: 'app-rental-form',
@@ -20,11 +22,17 @@ export class RentalFormPage implements OnInit {
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
+  minReturnDate: string = '';
+  today: string = '';
 
-
-
-
-  constructor(private fb: FormBuilder, private authService: AuthService, private rentalService: RentalService, private firestore: Firestore) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private rentalService: RentalService,
+    private firestore: Firestore,
+    private router: Router, // <-- agrega esto
+    private alertController: AlertController // <-- agrega esto
+  ) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
       name: ['', Validators.required],
@@ -35,9 +43,6 @@ export class RentalFormPage implements OnInit {
     });
   }
 
-
-
-
   async ngOnInit() {
     this.userEmail = sessionStorage.getItem('userEmail');
     if (this.userEmail) {
@@ -47,39 +52,48 @@ export class RentalFormPage implements OnInit {
         this.userInfo = await this.authService.getUserByEmail(this.userEmail);
         console.log('Información del usuario:', this.userInfo);
 
-
-
-
         this.rentalForm.patchValue({
           matricula: this.userInfo.matricula || '', // Asegúrate de que el campo exista en la base de datos
           gradeGroup: this.userInfo.gradoGrupo || '', // Asegúrate de que el campo exista en la base de datos
           name: this.userInfo.name || '', // Asegúrate de que el campo exista en la base de datos
         });  
 
-
-
-
       } catch (error) {
         console.error('Error al obtener la información del usuario:', error);
       }
 
-
-
-
     } else {
       console.log('No hay un email almacenado en sessionStorage.');
     }
-
-
-
 
     // Recupera los materiales solicitados desde sessionStorage
     const data = sessionStorage.getItem('rentalFormItems');
     if (data) {
       this.requestedItems = JSON.parse(data);
     }
+
+    this.rentalForm.get('rentalDate')?.valueChanges.subscribe(date => {
+      this.minReturnDate = date;
+      // Opcional: Si la fecha de entrega es menor, bórrala
+      const returnDate = this.rentalForm.get('returnDate')?.value;
+      if (returnDate && returnDate < date) {
+        this.rentalForm.get('returnDate')?.setValue('');
+      }
+    });
+
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0];
   }
 
+  onRentalDateChange() {
+    const date = this.rentalForm.get('rentalDate')?.value;
+    this.minReturnDate = date;
+    // Opcional: Si la fecha de entrega es menor, bórrala
+    const returnDate = this.rentalForm.get('returnDate')?.value;
+    if (returnDate && returnDate < date) {
+      this.rentalForm.get('returnDate')?.setValue('');
+    }
+  }
 
   selectMaterial(item: any) {
     this.selectedMaterial = item;
@@ -88,10 +102,39 @@ export class RentalFormPage implements OnInit {
     });
   }
 
-
-
+  // Función auxiliar para obtener solo la parte de fecha (YYYY-MM-DD)
+  toDateString(date: string): string {
+    return new Date(date).toISOString().split('T')[0];
+  }
 
   async onSubmit() {
+    const rentalDate = this.rentalForm.value.rentalDate;
+    const returnDate = this.rentalForm.value.returnDate;
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+
+    // Validar que la fecha de inicio no sea antes de hoy
+    if (!rentalDate || this.toDateString(rentalDate) < todayStr) {
+      const alert = await this.alertController.create({
+        header: 'Fecha inválida',
+        message: 'La fecha de inicio no puede ser anterior a hoy.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    // Validar que la fecha de entrega no sea antes de la de inicio
+    if (!returnDate || this.toDateString(returnDate) < this.toDateString(rentalDate)) {
+      const alert = await this.alertController.create({
+        header: 'Fecha inválida',
+        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
     if (this.rentalForm.valid) {
       try {
         console.log('Formulario enviado:', this.rentalForm.value);
@@ -103,8 +146,6 @@ export class RentalFormPage implements OnInit {
           await this.rentalService.updateMaterialQuantity(requestedItem.name, requestedItem.quantity);
           console.log(`Cantidad actualizada para el material: ${requestedItem.name}`);
        
-
-
           if (materialSnapshot.exists()) {
             const materialData = materialSnapshot.data();
             const currentQuantity = materialData['quantity'];
@@ -133,7 +174,7 @@ export class RentalFormPage implements OnInit {
         }
 
         console.log('Todos los materiales han sido actualizados correctamente.');
-5
+
         // Guarda el formulario en la colección 'rentals'
         const formData = {
           ...this.rentalForm.value,
@@ -147,6 +188,13 @@ export class RentalFormPage implements OnInit {
         // Resetea el formulario después de enviarlo
         this.rentalForm.reset();
         this.requestedItems = [];
+        sessionStorage.removeItem('requestedItems');
+        sessionStorage.removeItem('rentalFormItems');
+        sessionStorage.setItem('rentalSuccess', 'true');
+        // Navega a Home y recarga la página
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       } catch (error) {
         console.error('Error al actualizar las cantidades en Firebase o guardar el formulario:', error);
       }
@@ -160,5 +208,4 @@ export class RentalFormPage implements OnInit {
     return await addDoc(rentalsCollection, formData);
   }
 
-  
 }
