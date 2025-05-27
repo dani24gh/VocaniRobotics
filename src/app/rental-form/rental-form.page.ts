@@ -21,6 +21,8 @@ export class RentalFormPage implements OnInit {
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
+  minReturnDate: string = '';
+  today: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -67,6 +69,28 @@ export class RentalFormPage implements OnInit {
     if (data) {
       this.requestedItems = JSON.parse(data);
     }
+
+    this.rentalForm.get('rentalDate')?.valueChanges.subscribe(date => {
+      this.minReturnDate = date;
+      // Opcional: Si la fecha de entrega es menor, bórrala
+      const returnDate = this.rentalForm.get('returnDate')?.value;
+      if (returnDate && returnDate < date) {
+        this.rentalForm.get('returnDate')?.setValue('');
+      }
+    });
+
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0];
+  }
+
+  onRentalDateChange() {
+    const date = this.rentalForm.get('rentalDate')?.value;
+    this.minReturnDate = date;
+    // Opcional: Si la fecha de entrega es menor, bórrala
+    const returnDate = this.rentalForm.get('returnDate')?.value;
+    if (returnDate && returnDate < date) {
+      this.rentalForm.get('returnDate')?.setValue('');
+    }
   }
 
   selectMaterial(item: any) {
@@ -77,6 +101,14 @@ export class RentalFormPage implements OnInit {
   }
 
   async onSubmit() {
+    // Validación extra antes de enviar
+    const rentalDate = this.rentalForm.value.rentalDate;
+    const returnDate = this.rentalForm.value.returnDate;
+    if (returnDate < rentalDate) {
+      console.error('La fecha de entrega no puede ser antes de la fecha de salida.');
+      return;
+    }
+
     if (this.rentalForm.valid) {
       try {
         console.log('Formulario enviado:', this.rentalForm.value);
