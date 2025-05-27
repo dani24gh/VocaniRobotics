@@ -8,17 +8,10 @@
 <ion-content>
   <form [formGroup]="rentalForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="stacked">Grado - Grupo</ion-label>
-      <ion-input type="text" formControlName="gradeGroup"></ion-input>
-    </ion-item>
-
-
-    <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
-
-
+    
     <ion-item>
       <ion-label position="stacked">Matrícula</ion-label>
       <ion-input
@@ -27,24 +20,51 @@
         min="1"></ion-input>
     </ion-item>
 
-
     <ion-item>
-      <ion-label position="stacked">Fecha de salida</ion-label>
+      <ion-label position="stacked">Grado - Grupo</ion-label>
+      <ion-input type="text" formControlName="gradeGroup"></ion-input>
+    </ion-item>
+
+    <!-- rentalDate with error handling -->
+    <ion-item>
+      <ion-label position="stacked">Fecha de renta</ion-label>
       <ion-input type="date" formControlName="rentalDate"></ion-input>
     </ion-item>
+    <div *ngIf="rentalForm.get('rentalDate')?.hasError('startBeforeToday')">
+      <ion-text color="danger">La fecha de inicio no puede ser antes de hoy.</ion-text>
+    </div>
 
-
-    <ion-item>
-      <ion-label position="stacked">Persona responsable (Tutor)</ion-label>
-      <ion-input type="text" formControlName="responsiblePerson"></ion-input>
-    </ion-item>
-
-
+    <!-- returnDate with error handling -->
     <ion-item>
       <ion-label position="stacked">Fecha término</ion-label>
       <ion-input type="date" formControlName="returnDate"></ion-input>
     </ion-item>
+    <div *ngIf="rentalForm.hasError('endSameAsStart')">
+      <ion-text color="danger">La fecha de término no puede ser igual a la de inicio.</ion-text>
+    </div>
 
+    <ion-item>
+      <ion-label position="stacked">Persona responsable (Tutor)</ion-label>
+      <ion-select formControlName="responsiblePerson" placeholder="Selecciona un tutor">
+        <ion-select-option value="Alma Reynoso Álvarez">Alma Reynoso Álvarez
+        </ion-select-option>
+        <ion-select-option value="Felipe de Jesús Rocha Rodríguez">Felipe de Jesús Rocha Rodríguez
+        </ion-select-option>
+        <ion-select-option value="Paola Lisset Santollo Vargas">Paola Lisset Santollo Vargas
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
 
-    <ion-button expand="full" type="submit" [disabled]="!rentalForm.valid">Enviar</ion-button>  </form>
+    <h2>Materiales Solicitados</h2>
+    <ion-list>
+      <ion-item *ngFor="let item of requestedItems">
+        <ion-label>
+          <strong>{{ item.name }}</strong><br>
+          Cantidad: {{ item.quantity }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" type="submit" [disabled]="!rentalForm.valid">Enviar</ion-button>  
+  </form>
 </ion-content>

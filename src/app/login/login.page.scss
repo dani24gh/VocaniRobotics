@@ -1,5 +1,5 @@
 // no toquen mis archivos losers
-button {
+#submit {
     background-color: #ffb6c1;
     color: white;
     border: none;
@@ -22,6 +22,10 @@ button {
       transform: scale(0.98);
     }
   }
+  button{
+    font-size: 1rem;
+    font-weight: bold;
+  }
 
   input[type="text"],
 input[type="email"],
@@ -33,6 +37,17 @@ input[type="password"] {
   outline: none;
   width: 100%;
   box-sizing: border-box;
+}
+
+.gradient-toolbar {
+  --background: none !important;
+  background: linear-gradient(25deg, #8e63f8, #ff70a6, #ffc977) !important;
+}
+
+.gradient-toolbar ion-title {
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
   
