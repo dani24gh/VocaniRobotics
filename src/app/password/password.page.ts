@@ -54,11 +54,41 @@ async onSubmit() {
     this.router.navigateByUrl("login");
   }
 
-  onReset() {
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-   this.authService.resetPassword(email);
-   console.log(email);
- }
+  // Función para enviar el correo de reseteo de contraseña y mostrar alerta
+async onReset() {
+  const email = (document.getElementById('email') as HTMLInputElement).value;
+  
+  if (this.validateEmail(email)) {
+    try {
+      await this.authService.resetPassword(email);
+      console.log(email);
+      
+      const alert = await this.alertController.create({
+        header: 'Correo enviado',
+        message: 'Se ha mandado un correo para restablecer la contraseña.',
+        buttons: ['OK']
+      });
+            await alert.present();
+      await alert.onDidDismiss(); // Espera a que el usuario cierre la alerta
+      this.router.navigate(['/login']); // Redirige al login
+
+    } catch (error) {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'No se pudo enviar el correo. Verifica la dirección e inténtalo de nuevo.',
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
+  } else {
+    const alert = await this.alertController.create({
+      header: 'Correo inválido',
+      message: 'Por favor ingresa una dirección de correo válida.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+}
 
 
 }

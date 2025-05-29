@@ -1,31 +1,42 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="gradient-toolbar">
     <ion-title>Vocani Robotics</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> 
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar class="gradient-toolbar">
       <ion-title size="large">Vocani Robotics</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="flex flex-col items-center justify-center min-h-screen space-y-6">
+
+    <!-- Imagen del Logo -->
+    <img src="assets/LogoCutie.png" alt="Logo Vocani Robotics" class="w-85 h-85 mt-[-60px]" />
+
+       <!-- Título debajo del logo -->
+       <h1 class="text-3xl font-bold text-center text-gray-800 dark:text-white">
+        VOCANI ROBOTICS
+      </h1>
+    
     <!-- Botón de Iniciar Sesión -->
-    <button class="relative inline-flex items-center justify-center p-1 overflow-hidden text-lg font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 w-68 h-16">
-      <span class="relative px-10 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
-        Iniciar Sesión
-      </span>
-    </button>
+<button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-lg font-semibold text-white rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 w-68 h-16 hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+  <span class="relative px-10 py-4 transition-all ease-in duration-300 bg-transparent rounded-md group-hover:bg-white group-hover:text-black" (click)="onLogin()">
+    Iniciar Sesión
+  </span>
+</button>
+
   
     <!-- Botón de Crear Cuenta -->
-    <button class="relative inline-flex items-center justify-center p-1 overflow-hidden text-lg font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 w-68 h-16">
-      <span class="relative px-10 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent" (click)="onSignUp()">
-        Crear Cuenta
-      </span>
-    </button>
+<button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-lg font-semibold text-white rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 w-68 h-16 hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+  <span class="relative px-10 py-4 transition-all ease-in duration-300 bg-transparent rounded-md group-hover:bg-white group-hover:text-black" (click)="onSignUp()">
+    Crear Cuenta
+  </span>
+</button>
+
   </div>
   
   

@@ -1,10 +1,15 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar class="gradient-toolbar">
     <ion-title>Detalle del Inventario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-card>
     <img [src]="item.image" *ngIf="item.image" />
     <ion-card-header>
@@ -13,7 +18,19 @@
     <ion-card-content>
       <p><strong>Descripción:</strong> {{ item.description }}</p>
       <p><strong>Cantidad disponible:</strong> {{ item.quantity }}</p>
+      <ion-item>
+        <ion-label position="stacked">Cantidad a solicitar</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="requestedQuantity"
+          [max]="item.quantity"
+          [min]="1"
+          placeholder="Ingresa la cantidad"
+          required
+          (ionInput)="validateQuantity($event)">
+        </ion-input>
+      </ion-item>
     </ion-card-content>
-    <ion-button expand="block" (click)="goToForm()">Solicitar</ion-button>
+    <ion-button expand="block" (click)="confirmRequest()" [disabled]="!isValidQuantity()">Solicitar</ion-button>
   </ion-card>
 </ion-content>

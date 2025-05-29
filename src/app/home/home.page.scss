@@ -1,82 +1,171 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
 :root {
-  --gradient-start: #ff69b4; 
-  --gradient-end: #6a5acd;  
+  --main-bg: #f4f4f4;
+  --accent-color: #8e63f8;
+  --danger-color: #ff4d4f;
+  --success-color: #28a745;
+  --primary-color: #8e63f8;
+  --card-bg: #ffffff;
+}
+
+.white-icon {
+  color: #fff !important;
+  fill: #fff !important;
+  font-size: 24px;
+}
+
+
+ion-toolbar.gradient-toolbar {
+  ion-button {
+    --color: white;
+  }
+}
+
+.material-label {
+  display: flex;
+  align-items: center;
+}
+
+.material-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.material-quantity-circle {
+  margin-left: 12px;
+  min-width: 32px;
+  height: 32px;
+  background: linear-gradient(45deg, #8e63f8, #ff70a6, #ffc977);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-toolbar {
+  --background: none !important;
+  background: linear-gradient(25deg, #8e63f8, #ff70a6, #ffc977) !important;
+  --color: white;
+}
+
+.custom-gradient-button {
+  --background: linear-gradient(45deg, #8e63f8, #ff70a6, #ffc977);
+  --color: #fff;
+  --border-radius: 8px;
+  font-weight: bold;
+  margin-top: 16px;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+ion-toolbar.gradient-toolbar ion-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+ion-toolbar.gradient-toolbar ion-button {
+  --color: white;
+  --background-hover: rgba(255, 255, 255, 0.1);
 }
 
 ion-content {
-  background: linear-gradient(to bottom right, #fdfbfb, #ebedee);
-  --background: transparent;
+  background: var(--main-bg);
+}
+
+.search-container {
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+
+  ion-searchbar {
+    --background: #f0f0f0;
+    --color: #333;
+    border-radius: 8px;
+  }
+}
+
+.split-screen {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 20px;
-  min-height: 100vh;
-  box-sizing: border-box;
+  flex-direction: column-reverse; // En móvil: materiales solicitados arriba
+
+  .left-pane,
+  .right-pane {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    max-height: 80vh;
+    overflow-y: auto;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    ion-list {
+      ion-item {
+        border-radius: 8px;
+        margin: 6px 0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: box-shadow 0.2s;
+
+        &:hover {
+          box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        ion-label {
+          color: #333;
+          flex: 1;
+
+          h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+          }
+
+          p {
+            font-size: 0.85rem;
+            color: #555;
+          }
+        }
+
+        ion-button {
+          margin-left: 8px;
+          --border-radius: 20px;
+          --padding-start: 8px;
+          --padding-end: 8px;
+        }
+      }
+    }
+
+    p {
+      color: #999;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  }
 }
 
-ul {
-  padding: 20px;
-  list-style: none;
-  width: 600px;
-}
-
-li {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
-  color: #333;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.2s ease;
-  gap: 12px; /* Espacio entre el círculo y el texto */
-}
-
-li:hover {
-  transform: scale(1.02);
-}
-
-ion-label {
-  background: linear-gradient(230deg, #f0ff17, #ea31e1, #7535e2, #25a2db);
-  border-radius: 50%;
-  padding: 10px 14px;
-  color: white;
-  font-weight: bold;
-  font-size: 0.9rem;
-  min-width: 35px;
-  text-align: center;
-  box-shadow: 0 0 8px rgba(255, 209, 102, 0.6);
+@media (min-width: 900px) {
+  .split-screen {
+    flex-direction: row; // En escritorio: lista izquierda, solicitados derecha
+    gap: 32px;
+  }
+  .left-pane,
+  .right-pane {
+    width: 50%;
+  }
 }
 
 
