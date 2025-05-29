@@ -7,6 +7,10 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Firestore, collection, getDocs } from '@angular/fire/firestore';
 import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { ItemDetailPage } from '../item-detail/item-detail.page'; // ajusta el path si es necesario
+
+
 
 @Component({
   standalone: true,
@@ -125,7 +129,8 @@ export class HomePage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private firestore: Firestore,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private modalController: ModalController
   ) {}
 
   async ngOnInit() {
@@ -248,7 +253,7 @@ export class HomePage implements OnInit {
     }
   }
 
-  async handleItemClick(item: any) {
+ async handleItemClick(item: any) {
   if (item.quantity === 0) {
     const alert = await this.alertController.create({
       header: 'No disponible',
@@ -256,8 +261,32 @@ export class HomePage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
-  } else {
-    this.goToDetail(item);
+    return;
+  }
+
+  const modal = await this.modalController.create({
+    component: ItemDetailPage,
+    componentProps: { item }
+  });
+
+  await modal.present();
+
+  const { data } = await modal.onWillDismiss();
+  if (data && data.item && data.quantity) {
+    const exists = this.requestedItems.find(req => req.id === data.item.id);
+    if (exists) {
+      exists.quantity = Math.min(
+        exists.quantity + data.quantity,
+        data.item.quantity
+      );
+    } else {
+      this.requestedItems.push({
+        ...data.item,
+        quantity: data.quantity
+      });
+    }
+    sessionStorage.setItem('requestedItems', JSON.stringify(this.requestedItems));
   }
 }
+
 }

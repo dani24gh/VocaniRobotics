@@ -6,3 +6,12 @@ ion-card img {
     display: block;
     margin: 0 auto; /* Centra la imagen */
   }
+ion-toolbar.gradient-toolbar::part(background) {
+  background: linear-gradient(25deg, #8e63f8, #ff70a6, #ffc977) !important;
+}
+
+ion-toolbar.gradient-toolbar ion-title {
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}

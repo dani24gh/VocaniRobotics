@@ -7,7 +7,8 @@ import { AuthService } from '../auth.service';
 import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
 import { Firestore, doc, getDoc, updateDoc, addDoc, collection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-
+import { AlertController } from '@ionic/angular';
+import { P } from '@angular/common/platform_location.d-BWJDgVlg';
 @Component({
   standalone: true,
   selector: 'app-rental-form',
@@ -21,13 +22,16 @@ export class RentalFormPage implements OnInit {
   userEmail: string | null = null;
   userInfo: any = null; // Variable para almacenar la información del usuario
   requestedItems: any[] = []; // Arreglo para almacenar los materiales solicitados
+  minReturnDate: string = '';
+  today: string = '';
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private rentalService: RentalService,
     private firestore: Firestore,
-    private router: Router // <-- agrega esto
+    private router: Router, // <-- agrega esto
+    private alertController: AlertController // <-- agrega esto
   ) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
@@ -67,6 +71,28 @@ export class RentalFormPage implements OnInit {
     if (data) {
       this.requestedItems = JSON.parse(data);
     }
+
+    this.rentalForm.get('rentalDate')?.valueChanges.subscribe(date => {
+      this.minReturnDate = date;
+      // Opcional: Si la fecha de entrega es menor, bórrala
+      const returnDate = this.rentalForm.get('returnDate')?.value;
+      if (returnDate && returnDate < date) {
+        this.rentalForm.get('returnDate')?.setValue('');
+      }
+    });
+
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0];
+  }
+
+  onRentalDateChange() {
+    const date = this.rentalForm.get('rentalDate')?.value;
+    this.minReturnDate = date;
+    // Opcional: Si la fecha de entrega es menor, bórrala
+    const returnDate = this.rentalForm.get('returnDate')?.value;
+    if (returnDate && returnDate < date) {
+      this.rentalForm.get('returnDate')?.setValue('');
+    }
   }
 
   selectMaterial(item: any) {
@@ -76,7 +102,39 @@ export class RentalFormPage implements OnInit {
     });
   }
 
+  // Función auxiliar para obtener solo la parte de fecha (YYYY-MM-DD)
+  toDateString(date: string): string {
+    return new Date(date).toISOString().split('T')[0];
+  }
+
   async onSubmit() {
+    const rentalDate = this.rentalForm.value.rentalDate;
+    const returnDate = this.rentalForm.value.returnDate;
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+
+    // Validar que la fecha de inicio no sea antes de hoy
+    if (!rentalDate || this.toDateString(rentalDate) < todayStr) {
+      const alert = await this.alertController.create({
+        header: 'Fecha inválida',
+        message: 'La fecha de inicio no puede ser anterior a hoy.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    // Validar que la fecha de entrega no sea antes de la de inicio
+    if (!returnDate || this.toDateString(returnDate) < this.toDateString(rentalDate)) {
+      const alert = await this.alertController.create({
+        header: 'Fecha inválida',
+        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
     if (this.rentalForm.valid) {
       try {
         console.log('Formulario enviado:', this.rentalForm.value);

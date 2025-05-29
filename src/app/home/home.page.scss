@@ -1,90 +1,170 @@
-ion-content {
-  --background: #f5f5f5;
-  padding: 0;
-  background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+:root {
+  --main-bg: #f4f4f4;
+  --accent-color: #8e63f8;
+  --danger-color: #ff4d4f;
+  --success-color: #28a745;
+  --primary-color: #8e63f8;
+  --card-bg: #ffffff;
+}
+
+.white-icon {
+  color: #fff !important;
+  fill: #fff !important;
+  font-size: 24px;
 }
 
 
-.list-container {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+ion-toolbar.gradient-toolbar {
+  ion-button {
+    --color: white;
+  }
 }
 
-
-ion-item {
-  border-radius: 12px;
-  margin-bottom: 12px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  --padding-start: 12px;
-}
-
-
-ion-label h2 {
-  margin: 0;
-  font-weight: 600;
-  color: #333;
-}
-
-
-ion-label p {
-  margin: 2px 0 0;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-
-.circle {
-  background: radial-gradient(circle, #ffe600, #f093fb, #6a5acd);
-  border-radius: 50%;
-  overflow: hidden;
-  width: 45px;
-  height: 45px;
+.material-label {
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px rgba(255, 213, 0, 0.6);
 }
 
-
-.circle-content {
+.material-name {
   font-weight: bold;
-  color: white;
-  font-size: 1.2rem;
+  font-size: 1.1em;
+}
+
+.material-quantity-circle {
+  margin-left: 12px;
+  min-width: 32px;
+  height: 32px;
+  background: linear-gradient(45deg, #8e63f8, #ff70a6, #ffc977);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-toolbar {
+  --background: none !important;
+  background: linear-gradient(25deg, #8e63f8, #ff70a6, #ffc977) !important;
+  --color: white;
+}
+
+.custom-gradient-button {
+  --background: linear-gradient(45deg, #8e63f8, #ff70a6, #ffc977);
+  --color: #fff;
+  --border-radius: 8px;
+  font-weight: bold;
+  margin-top: 16px;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+ion-toolbar.gradient-toolbar ion-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+ion-toolbar.gradient-toolbar ion-button {
+  --color: white;
+  --background-hover: rgba(255, 255, 255, 0.1);
+}
+
+ion-content {
+  background: var(--main-bg);
 }
 
 .search-container {
-  position: sticky; /* Hace que el contenedor sea fijo */
-  top: 0; /* Fija la barra en la parte superior */
-  z-index: 10; /* Asegura que esté por encima de otros elementos */
-  background-color: white; /* Fondo blanco para que no se superponga con otros elementos */
-  padding: 8px 0; /* Espaciado alrededor de la barra */
-}
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 
+  ion-searchbar {
+    --background: #f0f0f0;
+    --color: #333;
+    border-radius: 8px;
+  }
+}
 
 .split-screen {
   display: flex;
-  flex-direction: row;
-  height: 100%;
+  flex-direction: column-reverse; // En móvil: materiales solicitados arriba
+
+  .left-pane,
+  .right-pane {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    max-height: 80vh;
+    overflow-y: auto;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    ion-list {
+      ion-item {
+        border-radius: 8px;
+        margin: 6px 0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: box-shadow 0.2s;
+
+        &:hover {
+          box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        ion-label {
+          color: #333;
+          flex: 1;
+
+          h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+          }
+
+          p {
+            font-size: 0.85rem;
+            color: #555;
+          }
+        }
+
+        ion-button {
+          margin-left: 8px;
+          --border-radius: 20px;
+          --padding-start: 8px;
+          --padding-end: 8px;
+        }
+      }
+    }
+
+    p {
+      color: #999;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  }
 }
 
-
-.left-pane, .right-pane {
-  flex: 1;
-  padding: 16px;
-  overflow-y: auto;
-}
-
-
-.left-pane {
-  background-color: #f9f9f9;
-}
-
-
-.right-pane {
-  background-color: #eaeaea;
+@media (min-width: 900px) {
+  .split-screen {
+    flex-direction: row; // En escritorio: lista izquierda, solicitados derecha
+    gap: 32px;
+  }
+  .left-pane,
+  .right-pane {
+    width: 50%;
+  }
 }
 
