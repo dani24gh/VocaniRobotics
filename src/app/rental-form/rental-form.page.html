@@ -9,35 +9,40 @@
   <form [formGroup]="rentalForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
-      <ion-input type="text" formControlName="name"></ion-input>
+      <ion-input formControlName="name" readonly></ion-input>
     </ion-item>
-    
     <ion-item>
       <ion-label position="stacked">Matrícula</ion-label>
-      <ion-input
-        type="number"
-        formControlName="matricula"
-        min="1"></ion-input>
+      <ion-input formControlName="matricula" readonly></ion-input>
     </ion-item>
-
     <ion-item>
-      <ion-label position="stacked">Grado - Grupo</ion-label>
-      <ion-input type="text" formControlName="gradeGroup"></ion-input>
+      <ion-label position="stacked">Grado y Grupo</ion-label>
+      <ion-input formControlName="gradeGroup" readonly></ion-input>
     </ion-item>
 
     <!-- rentalDate with error handling -->
     <ion-item>
       <ion-label position="stacked">Fecha de renta</ion-label>
-      <ion-input type="date" formControlName="rentalDate"></ion-input>
+      <ion-input type="date" 
+      formControlName="rentalDate" 
+          [min]="today"
+    [max]="rentalForm.value.returnDate || null"
+    (ionChange)="onRentalDateChange()">
+      </ion-input>
     </ion-item>
     <div *ngIf="rentalForm.get('rentalDate')?.hasError('startBeforeToday')">
+      
       <ion-text color="danger">La fecha de inicio no puede ser antes de hoy.</ion-text>
     </div>
+
 
     <!-- returnDate with error handling -->
     <ion-item>
       <ion-label position="stacked">Fecha término</ion-label>
-      <ion-input type="date" formControlName="returnDate"></ion-input>
+      <ion-input type="date" 
+      formControlName="returnDate"
+      [min]="rentalForm.value.rentalDate || null">
+</ion-input>
     </ion-item>
     <div *ngIf="rentalForm.hasError('endSameAsStart')">
       <ion-text color="danger">La fecha de término no puede ser igual a la de inicio.</ion-text>
@@ -64,6 +69,7 @@
         </ion-label>
       </ion-item>
     </ion-list>
+
 
     <ion-button expand="full" type="submit" [disabled]="!rentalForm.valid">Enviar</ion-button>  
   </form>
