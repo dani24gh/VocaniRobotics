@@ -20,6 +20,32 @@ ion-toolbar.gradient-toolbar {
   }
 }
 
+modal-wrapper ion-overlay-wrapper {
+  // backdrop-filter: blur(10px);
+  // background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+}
+
+.modal-wrapper {
+  border-radius: 10px !important;
+}
+
+ion-modal .modal-wrapper,
+ion-modal .ion-overlay-wrapper {
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+ion-modal::part(content),
+ion-modal .modal-wrapper,
+ion-modal .ion-overlay-wrapper,
+.modal-wrapper,
+modal-wrapper,
+ion-modal {
+  border-radius: 10px !important;
+  // overflow: hidden !important;
+}
+
 .material-label {
   display: flex;
   align-items: center;

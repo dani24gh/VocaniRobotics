@@ -10,15 +10,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img [src]="item.image" *ngIf="item.image" />
-    <ion-card-header>
-      <ion-card-title>{{ item.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>Descripción:</strong> {{ item.description }}</p>
-      <p><strong>Cantidad disponible:</strong> {{ item.quantity }}</p>
-      <ion-item>
+  <div class="main-container">
+    <!-- Sección superior: Imagen e información lado a lado -->
+    <div class="top-section">
+      <!-- Sección de la imagen -->
+      <div class="image-section">
+        <img [src]="item.image" *ngIf="item.image" />
+      </div>
+      
+      <!-- Sección de información -->
+      <div class="info-section">
+        <ion-card-header>
+          <ion-card-title>{{ item.name }}</ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <p class="description">
+            <strong>Descripción:</strong> {{ item.description }}
+          </p>
+          
+          <div class="quantity-info">
+            <ion-icon name="pricetag-outline"></ion-icon>
+            <span><strong>Cantidad disponible:</strong> {{ item.quantity }}</span>
+          </div>
+        </ion-card-content>
+      </div>
+    </div>
+    
+    <!-- Sección inferior: Solicitud -->
+    <div class="bottom-section">
+      <div class="quantity-input">
         <ion-label position="stacked">Cantidad a solicitar</ion-label>
         <ion-input
           type="number"
@@ -29,8 +50,16 @@
           required
           (ionInput)="validateQuantity($event)">
         </ion-input>
-      </ion-item>
-    </ion-card-content>
-    <ion-button expand="block" (click)="confirmRequest()" [disabled]="!isValidQuantity()">Solicitar</ion-button>
-  </ion-card>
+      </div>
+      
+      <ion-button 
+        class="action-button"
+        expand="block" 
+        (click)="confirmRequest()" 
+        [disabled]="!isValidQuantity()">
+        Solicitar
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
+

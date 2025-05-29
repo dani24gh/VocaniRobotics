@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-item-detail',
   imports: [CommonModule, IonicModule, FormsModule],
   templateUrl: './item-detail.page.html',
+  styleUrls: ['./item-detail.page.scss']
+
 })
 export class ItemDetailPage {
   @Input() item: any;
