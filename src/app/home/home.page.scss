@@ -193,3 +193,12 @@ ion-content {
     width: 50%;
   }
 }
+
+@media (max-width: 600px) {
+  .custom-modal {
+    --width: 90vw;
+    --height: 60vh;
+    --border-radius: 16px;
+    margin: auto;
+  }
+}
