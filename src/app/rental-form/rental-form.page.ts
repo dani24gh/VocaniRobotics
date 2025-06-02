@@ -72,11 +72,31 @@ export class RentalFormPage implements OnInit {
       this.requestedItems = JSON.parse(data);
     }
 
+    // Para rentalDate
     this.rentalForm.get('rentalDate')?.valueChanges.subscribe(date => {
-      this.minReturnDate = date;
+      if (date && date.length >= 4) {
+        const [year, month = '01', day = '01'] = date.split('-');
+        if (year !== '2025' || year.length > 4) {
+          // Corrige el año a 2025 y mantiene mes/día si existen
+          const fixedDate = `2025-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+          this.rentalForm.get('rentalDate')?.setValue(fixedDate, { emitEvent: false });
+        }
+      }
+      this.minReturnDate = this.rentalForm.get('rentalDate')?.value;
       const returnDate = this.rentalForm.get('returnDate')?.value;
-      if (returnDate && returnDate < date) {
+      if (returnDate && returnDate < this.minReturnDate) {
         this.rentalForm.get('returnDate')?.setValue('');
+      }
+    });
+
+    // Para returnDate
+    this.rentalForm.get('returnDate')?.valueChanges.subscribe(date => {
+      if (date && date.length >= 4) {
+        const [year, month = '01', day = '01'] = date.split('-');
+        if (year !== '2025' || year.length > 4) {
+          const fixedDate = `2025-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+          this.rentalForm.get('returnDate')?.setValue(fixedDate, { emitEvent: false });
+        }
       }
     });
 
@@ -105,6 +125,13 @@ export class RentalFormPage implements OnInit {
     return new Date(date).toISOString().split('T')[0];
   }
 
+  private isYearValid(dateStr: string): boolean {
+    if (!dateStr) return false;
+    const year = Number(dateStr.split('-')[0]);
+    // Solo permite 2025 y que el año tenga 4 dígitos
+    return year === 2025 && dateStr.split('-')[0].length === 4;
+  }
+
   async onSubmit() {
     const rentalDate = this.rentalForm.value.rentalDate;
     const returnDate = this.rentalForm.value.returnDate;
@@ -112,7 +139,11 @@ export class RentalFormPage implements OnInit {
     const todayStr = today.toISOString().split('T')[0];
 
     // Validar que la fecha de inicio no sea antes de hoy
-    if (!rentalDate || this.toDateString(rentalDate) < todayStr) {
+    if (
+      !rentalDate ||
+      this.toDateString(rentalDate) < todayStr ||
+      !this.isYearValid(rentalDate)
+    ) {
       const alert = await this.alertController.create({
         header: 'Fecha inválida',
         message: 'La fecha de inicio no puede ser anterior a hoy.',
@@ -123,10 +154,14 @@ export class RentalFormPage implements OnInit {
     }
 
     // Validar que la fecha de entrega no sea antes de la de inicio
-    if (!returnDate || this.toDateString(returnDate) < this.toDateString(rentalDate)) {
+    if (
+      !returnDate ||
+      this.toDateString(returnDate) < this.toDateString(rentalDate) ||
+      !this.isYearValid(returnDate)
+    ) {
       const alert = await this.alertController.create({
         header: 'Fecha inválida',
-        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio.',
+        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio y el año debe ser 2025 (4 dígitos).',
         buttons: ['OK']
       });
       await alert.present();
