@@ -139,36 +139,10 @@ export class RentalFormPage implements OnInit {
 
         // Recorre los materiales solicitados y actualiza las cantidades en Firebase
         for (const requestedItem of this.requestedItems) {
-          const materialRef = doc(this.firestore, `materials/${requestedItem.id}`);
-          const materialSnapshot = await getDoc(materialRef);
+          // Solo actualiza la cantidad usando tu servicio
           await this.rentalService.updateMaterialQuantity(requestedItem.name, requestedItem.quantity);
           console.log(`Cantidad actualizada para el material: ${requestedItem.name}`);
-       
-          if (materialSnapshot.exists()) {
-            const materialData = materialSnapshot.data();
-            const currentQuantity = materialData['quantity'];
-
-            // Verifica que el campo 'quantity' exista y sea un número
-            if (typeof currentQuantity !== 'number') {
-              console.error(`Error: El campo "quantity" no es un número para el material ${requestedItem.name}.`);
-              throw new Error(`El campo "quantity" no es un número para el material ${requestedItem.name}.`);
-            }
-
-            // Calcula la nueva cantidad
-            const newQuantity = currentQuantity - requestedItem.quantity;
-
-            // Verifica que la cantidad no sea negativa
-            if (newQuantity < 0) {
-              console.error(`Error: La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
-              throw new Error(`La cantidad solicitada de ${requestedItem.name} excede la cantidad disponible.`);
-            }
-
-            // Actualiza la cantidad en Firebase
-            await this.rentalService.updateMaterialQuantity(requestedItem.name, requestedItem.quantity);
-            console.log(`Cantidad actualizada para el material: ${requestedItem.name}`);
-          } else {
-            console.error(`El material ${requestedItem.name} no existe en Firebase.`);
-          }
+          // Elimina cualquier otra lógica que reste o actualice la cantidad aquí
         }
 
         console.log('Todos los materiales han sido actualizados correctamente.');
