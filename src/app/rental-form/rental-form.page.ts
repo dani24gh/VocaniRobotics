@@ -30,13 +30,13 @@ export class RentalFormPage implements OnInit {
     private authService: AuthService,
     private rentalService: RentalService,
     private firestore: Firestore,
-    private router: Router, // <-- agrega esto
-    private alertController: AlertController // <-- agrega esto
+    private router: Router, 
+    private alertController: AlertController 
   ) {
     this.rentalForm = this.fb.group({
       gradeGroup: ['', Validators.required],  
       name: ['', Validators.required],
-      matricula: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Solo números
+      matricula: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], 
       rentalDate: ['', Validators.required],
       responsiblePerson: ['', Validators.required],
       returnDate: ['', Validators.required],
@@ -53,9 +53,9 @@ export class RentalFormPage implements OnInit {
         console.log('Información del usuario:', this.userInfo);
 
         this.rentalForm.patchValue({
-          matricula: this.userInfo.matricula || '', // Asegúrate de que el campo exista en la base de datos
-          gradeGroup: this.userInfo.gradoGrupo || '', // Asegúrate de que el campo exista en la base de datos
-          name: this.userInfo.name || '', // Asegúrate de que el campo exista en la base de datos
+          matricula: this.userInfo.matricula || '', 
+          gradeGroup: this.userInfo.gradoGrupo || '', 
+          name: this.userInfo.name || '', 
         });  
 
       } catch (error) {
@@ -74,7 +74,6 @@ export class RentalFormPage implements OnInit {
 
     this.rentalForm.get('rentalDate')?.valueChanges.subscribe(date => {
       this.minReturnDate = date;
-      // Opcional: Si la fecha de entrega es menor, bórrala
       const returnDate = this.rentalForm.get('returnDate')?.value;
       if (returnDate && returnDate < date) {
         this.rentalForm.get('returnDate')?.setValue('');
@@ -88,7 +87,6 @@ export class RentalFormPage implements OnInit {
   onRentalDateChange() {
     const date = this.rentalForm.get('rentalDate')?.value;
     this.minReturnDate = date;
-    // Opcional: Si la fecha de entrega es menor, bórrala
     const returnDate = this.rentalForm.get('returnDate')?.value;
     if (returnDate && returnDate < date) {
       this.rentalForm.get('returnDate')?.setValue('');

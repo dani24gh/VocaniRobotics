@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { Firestore, collection, getDocs } from '@angular/fire/firestore';
 import { AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
-import { ItemDetailPage } from '../item-detail/item-detail.page'; // ajusta el path si es necesario
+import { ItemDetailPage } from '../item-detail/item-detail.page';
 
 
 
@@ -20,9 +20,9 @@ import { ItemDetailPage } from '../item-detail/item-detail.page'; // ajusta el p
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-  items: any[] = []; // Lista de materiales cargados desde Firebase
-  filteredItems: any[] = []; // Lista filtrada para la barra de búsqueda
-  requestedItems: any[] = []; // Lista de materiales solicitados
+  items: any[] = []; 
+  filteredItems: any[] = []; 
+  requestedItems: any[] = []; 
 
   constructor(
     private authService: AuthService,
