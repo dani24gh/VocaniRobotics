@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';  
-import { RentalService } from '../rental.service'; // Asegúrate de que la ruta sea correcta
+import { RentalService } from '../rental.service';
 import { Firestore, doc, getDoc, updateDoc, addDoc, collection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -72,7 +72,6 @@ export class RentalFormPage implements OnInit {
       this.requestedItems = JSON.parse(data);
     }
 
-    // Para rentalDate
     this.rentalForm.get('rentalDate')?.valueChanges.subscribe(date => {
       if (date && date.length >= 4) {
         const [year, month = '01', day = '01'] = date.split('-');
