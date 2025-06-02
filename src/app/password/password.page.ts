@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
+
 @Component({
   selector: 'app-password',
   templateUrl: './password.page.html',
@@ -73,6 +74,7 @@ async onReset() {
       this.router.navigate(['/login']); // Redirige al login
 
     } catch (error) {
+      console.error('Error al enviar correo de recuperación:', error);
       const alert = await this.alertController.create({
         header: 'Error',
         message: 'No se pudo enviar el correo. Verifica la dirección e inténtalo de nuevo.',

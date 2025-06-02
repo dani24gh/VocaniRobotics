@@ -4,12 +4,12 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendEmailVerification,
-  signOut,
-  sendPasswordResetEmail
+  signOut
 } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { doc, setDoc } from 'firebase/firestore'; // Agrega esto arriba
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 
 @Injectable({
@@ -47,8 +47,9 @@ export class AuthService {
   }
 
   // Restablecer contraseña
-  async resetPassword(email: string) {
-    return await sendPasswordResetEmail(this.auth, email);
+  async resetPassword(email: string): Promise<void> {
+    const auth = getAuth();
+    return sendPasswordResetEmail(auth, email);
   }
 
   // Obtener información de la tabla users usando el email

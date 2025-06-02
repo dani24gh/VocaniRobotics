@@ -160,7 +160,7 @@ export class RentalFormPage implements OnInit {
     ) {
       const alert = await this.alertController.create({
         header: 'Fecha inválida',
-        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio y el año debe ser 2025 (4 dígitos).',
+        message: 'La fecha de entrega no puede ser anterior a la fecha de inicio',
         buttons: ['OK']
       });
       await alert.present();
