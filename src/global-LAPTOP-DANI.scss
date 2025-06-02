@@ -40,3 +40,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+ion-modal::part(content),
+ion-modal .modal-wrapper,
+ion-modal .ion-overlay-wrapper,
+.modal-wrapper,
+modal-wrapper,
+ion-modal {
+  border-radius: 10px !important;
+//   overflow: hidden !important;
+}
